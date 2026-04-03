@@ -2031,34 +2031,112 @@
       // ═══ CART ═══
       const SESSION_KEY = "vp_session";
       const CART_KEY = "vp_cart";
+      const LEGACY_CART_KEY = "cart";
       const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
-      function readSharedCart() {
-        try {
-          const localCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-          if (Array.isArray(localCart) && localCart.length) return localCart;
-        } catch {}
-        if (!USE_WINDOW_NAME_FALLBACK) return [];
-        try {
-          const state = JSON.parse(window.name || "{}");
-          return Array.isArray(state[CART_KEY]) ? state[CART_KEY] : [];
-        } catch {}
-        return [];
+
+      function normalizePrice(value) {
+        if (typeof value === "number") return value;
+        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
       }
-      function writeSharedCart(nextCart) {
-        const safeCart = Array.isArray(nextCart) ? nextCart : [];
+
+      function mergeCartItems(items) {
+        const merged = [];
+        (Array.isArray(items) ? items : []).forEach((item) => {
+          if (!item || !item.id) return;
+          const normalizedItem = {
+            ...item,
+            name: item.name || "Sản phẩm",
+            sub: item.sub || item.type || "",
+            price: normalizePrice(item.price),
+            qty: Math.min(99, Math.max(1, Number(item.qty) || 1)),
+            img: item.img || "",
+          };
+          const existing = merged.find(
+            (cartItem) => cartItem.id === normalizedItem.id,
+          );
+          if (existing) {
+            existing.qty = Math.min(99, existing.qty + normalizedItem.qty);
+            existing.sub = existing.sub || normalizedItem.sub;
+            existing.img = existing.img || normalizedItem.img;
+            existing.price = existing.price || normalizedItem.price;
+          } else {
+            merged.push(normalizedItem);
+          }
+        });
+        return merged;
+      }
+
+      function safeParseCart(raw) {
         try {
-          localStorage.setItem(CART_KEY, JSON.stringify(safeCart));
+          const parsed = JSON.parse(raw || "[]");
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function readSharedCart() {
+        const candidates = [];
+        candidates.push(...safeParseCart(localStorage.getItem(CART_KEY)));
+        candidates.push(
+          ...safeParseCart(localStorage.getItem(LEGACY_CART_KEY)),
+        );
+        try {
+          candidates.push(...safeParseCart(sessionStorage.getItem(CART_KEY)));
+          candidates.push(
+            ...safeParseCart(sessionStorage.getItem(LEGACY_CART_KEY)),
+          );
+        } catch {}
+        if (USE_WINDOW_NAME_FALLBACK) {
+          try {
+            const state = JSON.parse(window.name || "{}");
+            candidates.push(
+              ...(Array.isArray(state[CART_KEY]) ? state[CART_KEY] : []),
+            );
+            candidates.push(
+              ...(Array.isArray(state[LEGACY_CART_KEY])
+                ? state[LEGACY_CART_KEY]
+                : []),
+            );
+          } catch {}
+        }
+        return mergeCartItems(candidates);
+      }
+
+      function writeSharedCart(nextCart) {
+        const safeCart = mergeCartItems(
+          Array.isArray(nextCart) ? nextCart : [],
+        );
+        const serialized = JSON.stringify(safeCart);
+        try {
+          localStorage.setItem(CART_KEY, serialized);
+          localStorage.setItem(LEGACY_CART_KEY, serialized);
+        } catch {}
+        try {
+          sessionStorage.setItem(CART_KEY, serialized);
+          sessionStorage.setItem(LEGACY_CART_KEY, serialized);
         } catch {}
         if (!USE_WINDOW_NAME_FALLBACK) return;
         try {
           const state = JSON.parse(window.name || "{}");
           state[CART_KEY] = safeCart;
+          state[LEGACY_CART_KEY] = safeCart;
           window.name = JSON.stringify(state);
         } catch {
-          window.name = JSON.stringify({ [CART_KEY]: safeCart });
+          window.name = JSON.stringify({
+            [CART_KEY]: safeCart,
+            [LEGACY_CART_KEY]: safeCart,
+          });
         }
       }
+
+      function normalizePrice(value) {
+        if (typeof value === "number") return value;
+        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
+      }
+
       let cart = readSharedCart();
+      writeSharedCart(cart);
       function saveCart() {
         writeSharedCart(cart);
       }
@@ -2075,6 +2153,12 @@
         else cart.push({ ...p, qty: 1 });
         saveCart();
         updateCartCount();
+
+        window.addEventListener("storage", (event) => {
+          if (event.key !== CART_KEY && event.key !== LEGACY_CART_KEY) return;
+          cart = readSharedCart();
+          updateCartCount();
+        });
       }
       updateCartCount();
 
@@ -2599,17 +2683,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
