@@ -1,0 +1,2315 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cho Thuê Máy Photocopy | Vision-Print VN</title>
+    <meta
+      name="description"
+      content="Dịch vụ cho thuê máy photocopy chuyên nghiệp – Không phí đầu tư, bảo trì 24/7, thay mực miễn phí. Ricoh chính hãng từ 800.000đ/tháng."
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════
+       VISION-PRINT VN — DESIGN SYSTEM
+    ═══════════════════════════════════════════════════ */
+      :root {
+        --brand: #0066ff;
+        --brand-dark: #0050cb;
+        --brand-light: #e6f0ff;
+        --brand-glow: rgba(0, 102, 255, 0.18);
+        --tertiary: #5b21b6;
+        --dark: #0f172a;
+        --slate-800: #1e293b;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+        --slate-300: #cbd5e1;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --success: #16a34a;
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 24px;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+        --shadow-brand: 0 8px 32px rgba(0, 102, 255, 0.25);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--slate-50);
+        color: var(--dark);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── UTILITIES ──────────────────────────────────── */
+      .fw-800 {
+        font-weight: 800 !important;
+      }
+      .fw-700 {
+        font-weight: 700 !important;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+      .text-brand {
+        color: var(--brand) !important;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #0066ff, #5b21b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── ANNOUNCEMENT BAR ── */
+      .vp-announcement-bar {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1031;
+      }
+      .vp-badge-pill {
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.73rem;
+        font-weight: 700;
+      }
+      .vp-close-announcement {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      .vp-close-announcement:hover {
+        color: #fff;
+      }
+
+      /* ── HEADER ── */
+      .vp-header {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--slate-200);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        z-index: 1030;
+      }
+      .vp-header .navbar {
+        min-height: 68px;
+      }
+
+      .vp-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--dark) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .vp-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-logo-icon--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-radius: 8px;
+      }
+
+      .vp-nav-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--slate-600) !important;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: var(--radius-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-nav-link:hover,
+      .vp-nav-link.active {
+        color: var(--brand) !important;
+        background: var(--brand-light);
+      }
+
+      /* Mega menu */
+      .vp-mega-menu {
+        min-width: 560px;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: 8px !important;
+      }
+      .vp-menu-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .vp-dd-item {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .vp-dd-item:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-menu-promo {
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+        border: 1px dashed var(--slate-200);
+      }
+      .vp-link-arrow {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-link-arrow:hover {
+        text-decoration: underline;
+      }
+
+      .vp-icon-btn {
+        width: 38px;
+        height: 38px;
+        background: var(--slate-100);
+        border: none;
+        border-radius: 10px;
+        color: var(--slate-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1rem;
+      }
+      .vp-icon-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+
+      .vp-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+      }
+
+      .vp-btn-outline-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        color: var(--dark);
+        text-decoration: none;
+        background: var(--white);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-outline-sm:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+
+      .vp-btn-primary-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .vp-btn-primary-sm:hover {
+        opacity: 0.9;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .vp-toggler {
+        border: none;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 6px 9px;
+        box-shadow: none !important;
+      }
+
+      /* User dropdown */
+      .vp-user-menu {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        transition: all 0.2s;
+        color: var(--dark);
+      }
+      .vp-user-menu:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-user-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Search bar */
+      .vp-search-bar {
+        display: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--slate-200);
+        backdrop-filter: blur(10px);
+      }
+      .vp-search-bar.open {
+        display: block;
+      }
+      .vp-search-inner {
+        position: relative;
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .vp-search-icon {
+        position: absolute;
+        left: 16px;
+        color: var(--slate-400);
+        font-size: 1rem;
+      }
+      .vp-search-input {
+        width: 100%;
+        padding: 12px 50px 12px 46px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        background: var(--slate-50);
+        outline: none;
+        color: var(--dark);
+        transition: border-color 0.2s;
+      }
+      .vp-search-input:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      .vp-search-close {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .vp-search-close:hover {
+        color: var(--dark);
+      }
+
+      /* ── BREADCRUMB ─────────────────────────────────── */
+      .vp-breadcrumb {
+        font-size: 0.8rem;
+      }
+      .vp-breadcrumb .breadcrumb-item a {
+        color: var(--slate-400);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .vp-breadcrumb .breadcrumb-item a:hover {
+        color: var(--brand);
+      }
+      .vp-breadcrumb .breadcrumb-item.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+      .vp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--slate-300);
+      }
+
+      /* ═══════════════════════════════════════════════════
+       RENTAL PAGE — SPECIFIC STYLES
+    ═══════════════════════════════════════════════════ */
+
+      /* ── HERO ───────────────────────────────────────── */
+      .vp-rental-hero {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1a1040 60%,
+          #0f172a 100%
+        );
+        padding: 5.5rem 0 4.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .vp-rental-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 70% 40%,
+            rgba(0, 102, 255, 0.2) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 20% 70%,
+            rgba(91, 33, 182, 0.15) 0%,
+            transparent 50%
+          );
+      }
+      .vp-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(8px);
+      }
+      .vp-hero-title {
+        font-size: clamp(2.2rem, 5vw, 3.75rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.25rem;
+      }
+      .vp-hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.75;
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+      }
+      .vp-btn-hero-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: var(--brand);
+        font-weight: 800;
+        font-size: 0.95rem;
+        padding: 14px 28px;
+        border-radius: var(--radius);
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+      .vp-btn-hero-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+        color: var(--brand);
+      }
+      .vp-btn-hero-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 14px 28px;
+        border-radius: var(--radius);
+        border: 2px solid rgba(255, 255, 255, 0.28);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .vp-btn-hero-ghost:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.55);
+        color: #fff;
+      }
+      .vp-hero-img-frame {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+      }
+      .vp-hero-img-frame img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .vp-hero-img-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 60%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+
+      /* Hero trust pills */
+      .vp-trust-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 50px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+      }
+      .vp-trust-pill i {
+        color: var(--brand-light);
+        font-size: 0.95rem;
+      }
+
+      /* ── SECTION COMMON ─────────────────────────────── */
+      .vp-section {
+        padding: 5rem 0;
+      }
+      .vp-section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand-light);
+        color: var(--brand);
+        border-radius: 50px;
+        padding: 5px 16px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .vp-section-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+      }
+      .vp-section-sub {
+        font-size: 1rem;
+        color: var(--slate-600);
+        line-height: 1.75;
+      }
+
+      /* ── BENTO: PRODUCT CATEGORIES ──────────────────── */
+      .vp-bento {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.25rem;
+      }
+      .vp-bc-span8 {
+        grid-column: span 8;
+      }
+      .vp-bc-span4 {
+        grid-column: span 4;
+      }
+      .vp-bc-span6 {
+        grid-column: span 6;
+      }
+
+      .vp-cat-card {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+      .vp-cat-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+      .vp-cat-card--brand {
+        background: linear-gradient(135deg, var(--brand) 0%, #5b21b6 100%);
+        border-color: transparent;
+      }
+      .vp-cat-card--dark {
+        background: var(--dark);
+        border-color: transparent;
+      }
+
+      .vp-cat-body {
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .vp-cat-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--brand-light);
+        color: var(--brand);
+        border-radius: 50px;
+        padding: 3px 12px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        width: fit-content;
+      }
+      .vp-cat-card--brand .vp-cat-tag {
+        background: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .vp-cat-card--dark .vp-cat-tag {
+        background: rgba(0, 102, 255, 0.2);
+        color: var(--brand-light);
+      }
+      .vp-cat-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 0.6rem;
+      }
+      .vp-cat-card--brand .vp-cat-title {
+        color: #fff;
+      }
+      .vp-cat-card--dark .vp-cat-title {
+        color: #fff;
+      }
+      .vp-cat-desc {
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+      }
+      .vp-cat-card--brand .vp-cat-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .vp-cat-card--dark .vp-cat-desc {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      /* Price rows inside cat card */
+      .vp-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        margin-bottom: 8px;
+        border: 1px solid var(--slate-100);
+      }
+      .vp-price-row:last-of-type {
+        margin-bottom: 0;
+      }
+      .vp-price-row .name {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .vp-price-row .price {
+        font-size: 0.875rem;
+        font-weight: 800;
+        color: var(--brand);
+        white-space: nowrap;
+      }
+      .vp-price-row .price small {
+        font-weight: 500;
+        color: var(--slate-400);
+        font-size: 0.72rem;
+      }
+      .vp-cat-card--brand .vp-price-row {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+      .vp-cat-card--brand .vp-price-row .name {
+        color: #fff;
+      }
+      .vp-cat-card--brand .vp-price-row .price {
+        color: #fff;
+      }
+      .vp-cat-card--brand .vp-price-row .price small {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .vp-cat-cta {
+        margin-top: auto;
+        padding-top: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--brand);
+        text-decoration: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: gap 0.2s;
+      }
+      .vp-cat-cta:hover {
+        gap: 14px;
+      }
+      .vp-cat-card--brand .vp-cat-cta,
+      .vp-cat-card--dark .vp-cat-cta {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Machine image strip */
+      .vp-cat-img {
+        height: 190px;
+        overflow: hidden;
+        background: linear-gradient(180deg, var(--slate-50), var(--slate-100));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vp-cat-img img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        padding: 1.25rem;
+        transition: transform 0.4s ease;
+      }
+      .vp-cat-card:hover .vp-cat-img img {
+        transform: scale(1.06);
+      }
+      .vp-cat-card--brand .vp-cat-img {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .vp-cat-card--dark .vp-cat-img {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      /* Wide card: side-by-side layout on md+ */
+      .vp-cat-card--wide {
+        flex-direction: row;
+      }
+      .vp-cat-card--wide .vp-cat-img {
+        width: 42%;
+        height: auto;
+        flex-shrink: 0;
+      }
+      .vp-cat-card--wide .vp-cat-body {
+        width: 58%;
+      }
+      @media (max-width: 767px) {
+        .vp-cat-card--wide {
+          flex-direction: column;
+        }
+        .vp-cat-card--wide .vp-cat-img {
+          width: 100%;
+          height: 170px;
+        }
+        .vp-cat-card--wide .vp-cat-body {
+          width: 100%;
+        }
+      }
+
+      /* ── PRICING TABLE ───────────────────────────────── */
+      .vp-pricing-wrap {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .vp-pricing-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .vp-pricing-table thead tr {
+        background: var(--dark);
+        color: #fff;
+      }
+      .vp-pricing-table th {
+        padding: 1rem 1.25rem;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+      .vp-pricing-table th:first-child {
+        border-radius: 0;
+        padding-left: 1.75rem;
+      }
+      .vp-pricing-table td {
+        padding: 1rem 1.25rem;
+        font-size: 0.875rem;
+        border-bottom: 1px solid var(--slate-100);
+        vertical-align: middle;
+      }
+      .vp-pricing-table td:first-child {
+        padding-left: 1.75rem;
+      }
+      .vp-pricing-table tbody tr {
+        transition: background 0.15s;
+      }
+      .vp-pricing-table tbody tr:hover {
+        background: var(--brand-light);
+      }
+      .vp-pricing-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .vp-pricing-table .pkg-name {
+        font-weight: 800;
+        font-size: 0.95rem;
+        color: var(--dark);
+      }
+      .vp-pricing-table .pkg-sub {
+        font-size: 0.78rem;
+        color: var(--slate-400);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .vp-pricing-table .pkg-price {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--brand);
+      }
+      .vp-pricing-table .pkg-price small {
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--slate-400);
+      }
+      .vp-featured-row {
+        background: var(--brand-light) !important;
+      }
+      .vp-featured-badge {
+        display: inline-block;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+      .vp-contact-btn {
+        background: none;
+        border: none;
+        color: var(--brand);
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 8px;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-contact-btn:hover {
+        background: var(--brand-light);
+      }
+
+      /* Pricing note */
+      .vp-pricing-note {
+        background: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 1rem 1.25rem;
+        font-size: 0.82rem;
+        color: var(--slate-600);
+        line-height: 1.6;
+      }
+
+      /* ── FOOTER ─────────────────────────────────────── */
+      .vp-footer {
+        background: var(--white);
+        border-top: 1px solid var(--slate-200);
+      }
+      .vp-footer-main {
+        padding: 4rem 0 3rem;
+      }
+      .vp-footer-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .vp-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-links li + li {
+        margin-top: 6px;
+      }
+      .vp-footer-links a {
+        color: var(--slate-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .vp-footer-links a:hover {
+        color: var(--brand);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .vp-footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        margin-bottom: 8px;
+      }
+      .vp-footer-contact i {
+        color: var(--brand);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .vp-footer-contact a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-hotline-card {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+      .vp-hotline-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--brand-light);
+        border-radius: 10px;
+        color: var(--brand);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-social-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--slate-100);
+        border-radius: 9px;
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+      .vp-social-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-newsletter-form {
+        display: flex;
+        gap: 0;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .vp-newsletter-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        background: transparent;
+      }
+      .vp-newsletter-btn {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 9px 16px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .vp-newsletter-btn:hover {
+        background: var(--brand-dark);
+      }
+      .vp-footer-bottom {
+        border-top: 1px solid var(--slate-100);
+        padding: 1.25rem 0;
+      }
+      .vp-pay-badge {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-700);
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      /* ── FLOATING ACTIONS ───────────────────────────── */
+      .vp-floating-actions {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .vp-fab {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .vp-fab:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .vp-fab--zalo {
+        background: #0068ff;
+        color: #fff;
+      }
+      .vp-fab--top {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      /* ── MODAL QUOTE ─────────────────────────────────── */
+      .vp-modal-body {
+        padding: 2rem;
+      }
+      .vp-form-group {
+        margin-bottom: 1.1rem;
+      }
+      .vp-form-label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 6px;
+      }
+      .vp-form-control {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: var(--dark);
+        background: var(--slate-50);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .vp-form-control:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      select.vp-form-control {
+        cursor: pointer;
+      }
+      .vp-btn-submit {
+        width: 100%;
+        padding: 13px;
+        background: linear-gradient(135deg, var(--brand), #5b21b6);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .vp-btn-submit:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      /* ── ANIMATIONS ─────────────────────────────────── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-up {
+        animation: fadeInUp 0.55s ease-out forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      /* ── RESPONSIVE ─────────────────────────────────── */
+      @media (max-width: 991px) {
+        .vp-mega-menu {
+          min-width: auto;
+        }
+        .vp-bc-span8 {
+          grid-column: span 12;
+        }
+        .vp-bc-span4 {
+          grid-column: span 12;
+        }
+        .vp-bc-span6 {
+          grid-column: span 12;
+        }
+        .vp-rental-hero {
+          padding: 4rem 0 3.5rem;
+        }
+        .vp-section {
+          padding: 3.5rem 0;
+        }
+        .vp-cta-wrap {
+          padding: 3rem 2rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .vp-pricing-table th:nth-child(3),
+        .vp-pricing-table td:nth-child(3) {
+          display: none;
+        }
+      }
+      @media (max-width: 575px) {
+        .vp-pricing-table th:nth-child(2),
+        .vp-pricing-table td:nth-child(2) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════ ANNOUNCEMENT BAR ═══════════════ -->
+    <div id="announcement-bar" class="vp-announcement-bar">
+      <div
+        class="container-xl d-flex justify-content-center align-items-center gap-2 py-2 position-relative"
+      >
+        <span class="vp-badge-pill">🔥 HOT</span>
+        <span
+          >Miễn phí lắp đặt tận nơi nội thành HCM – Gọi ngay:
+          <strong>0901 234 567</strong></span
+        >
+        <button
+          class="vp-close-announcement"
+          onclick="this.parentElement.parentElement.remove()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header" class="vp-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-xl">
+          <!-- Logo -->
+          <a class="navbar-brand vp-logo" href="home.html">
+            <span class="vp-logo-icon">VP</span>
+            <span>Vision<span class="text-primary">Print</span> VN</span>
+          </a>
+
+          <!-- Mobile icons -->
+          <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
+            <button class="vp-icon-btn position-relative" title="Giỏ hàng">
+              <i class="bi bi-bag"></i>
+              <span class="vp-cart-badge" id="cartCountMobile">0</span>
+            </button>
+            <button
+              class="navbar-toggler vp-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- Nav -->
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto gap-0 py-3 py-lg-0">
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="home.html">Trang Chủ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="about.html">Giới Thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="products.html"
+                  >Sản Phẩm</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link active" href="rental.html"
+                  >Cho Thuê</a
+                >
+              </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div
+              class="d-flex align-items-center gap-2 pb-3 pb-lg-0"
+              id="headerRight"
+            >
+              <button class="vp-icon-btn" id="searchToggleBtn" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+              </button>
+              <button
+                class="vp-icon-btn position-relative d-none d-lg-flex"
+                title="Giỏ hàng"
+              >
+                <i class="bi bi-bag"></i>
+                <span class="vp-cart-badge" id="cartCountDesktop">0</span>
+              </button>
+              <!-- Login/User area — rendered by JS -->
+              <div id="authArea"></div>
+              <a
+                href="tel:0901234567"
+                class="vp-btn-primary-sm d-none d-xl-flex"
+              >
+                <i class="bi bi-telephone-fill me-1"></i>0901 234 567
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Search bar -->
+      <div class="vp-search-bar" id="searchBar">
+        <div class="container-xl py-3">
+          <div class="vp-search-inner">
+            <i class="bi bi-search vp-search-icon"></i>
+            <input
+              type="text"
+              class="vp-search-input"
+              id="headerSearchInput"
+              placeholder="Tìm máy in, photocopy, phụ kiện..."
+              autocomplete="off"
+            />
+            <button class="vp-search-close" id="searchCloseBtn">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ═══════════════ END HEADER ═══════════════ -->
+
+    <!-- ================== BREADCRUMB =================== -->
+    <div class="bg-white border-bottom py-2">
+      <div class="container-xl">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb vp-breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="home.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item active">Cho Thuê Máy</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <!-- ==================== HERO ====================== -->
+      <section class="vp-rental-hero">
+        <div class="container-xl position-relative" style="z-index: 1">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+              <div class="vp-hero-badge fade-in-up">
+                <i class="bi bi-key-fill"></i> Dịch vụ cho thuê 2026
+              </div>
+              <h1 class="vp-hero-title fade-in-up delay-1">
+                Cho thuê máy<br />
+                <span class="gradient-text">photocopy chuyên nghiệp</span>
+              </h1>
+              <p class="vp-hero-sub fade-in-up delay-2">
+                Không phí đầu tư ban đầu. Bảo trì 24/7. Thay mực miễn phí. Nâng
+                cấp linh hoạt khi cần — máy Ricoh chính hãng giao tận văn phòng.
+              </p>
+              <div class="d-flex flex-wrap gap-3 mb-4 fade-in-up delay-2">
+                <button
+                  class="vp-btn-hero-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#quoteModal"
+                >
+                  <i class="bi bi-file-earmark-text-fill"></i> Nhận báo giá ngay
+                </button>
+                <a href="#categories" class="vp-btn-hero-ghost">
+                  <i class="bi bi-grid-3x3-gap"></i> Xem danh mục máy
+                </a>
+              </div>
+              <div class="d-flex flex-wrap gap-2 fade-in-up delay-3">
+                <span class="vp-trust-pill"
+                  ><i class="bi bi-shield-check-fill"></i> Ricoh chính
+                  hãng</span
+                >
+                <span class="vp-trust-pill"
+                  ><i class="bi bi-lightning-charge-fill"></i> Xử lý sự cố 2
+                  giờ</span
+                >
+                <span class="vp-trust-pill"
+                  ><i class="bi bi-arrow-repeat"></i> Nâng cấp máy miễn
+                  phí</span
+                >
+              </div>
+            </div>
+            <div class="col-lg-7 fade-in-up delay-2">
+              <div class="vp-hero-img-frame">
+                <img
+                  src="../img/printer_rental.png"
+                  alt="Máy photocopy Ricoh cho thuê"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================ PRODUCT CATEGORIES ============ -->
+      <section class="vp-section" id="categories">
+        <div class="container-xl">
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end gap-3 mb-5"
+          >
+            <div>
+              <div class="vp-section-label">
+                <i class="bi bi-grid-3x3-gap-fill"></i> Danh mục máy thuê
+              </div>
+              <h2 class="vp-section-title mb-1">Chọn dòng máy phù hợp</h2>
+              <p class="vp-section-sub">
+                Lựa chọn theo quy mô và yêu cầu đặc thù của văn phòng bạn.
+              </p>
+            </div>
+            <button
+              class="vp-btn-outline-sm flex-shrink-0"
+              data-bs-toggle="modal"
+              data-bs-target="#quoteModal"
+              style="padding: 10px 22px; font-size: 0.875rem"
+            >
+              <i class="bi bi-headset me-1"></i> Tư vấn chọn máy
+            </button>
+          </div>
+
+          <div class="vp-bento">
+            <!-- ① Đen trắng A3 — Wide (8 col) -->
+            <div class="vp-bc-span8">
+              <div class="vp-cat-card vp-cat-card--wide h-100">
+                <div class="vp-cat-img">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKAQoyZ-lKd0rqMBw98n5tYbNgqIppD-A13xiXQSuEmt0CPtL2aDwI2JfShRNnnEpOa_oK8DeqDknR4KT9yVwLvnf6udJQC4Ev3kxByaFxZHox1Ws8g3h5XmAL-3bUobfKmDaYkqgmsUgu5XD3fLD88vJLxGIO3-bnI02ZbbGaBCSbceZyyTopG4kqt8i0rfxFBS0S2x24TDseIHdO0x78yMOcxTRxzt8_DHAlD96ZmEm3031ZdvPXw_7O2NkmCgDYQ_wOIDrqEQ"
+                    alt="Ricoh đen trắng A3"
+                  />
+                </div>
+                <div class="vp-cat-body">
+                  <div class="vp-cat-tag">
+                    <i class="bi bi-printer"></i> Đen trắng · Khổ A3
+                  </div>
+                  <h3 class="vp-cat-title">
+                    Máy photocopy đen trắng A3 – A4 – A5
+                  </h3>
+                  <p class="vp-cat-desc">
+                    Hiệu suất cao cho văn phòng bận rộn. Tốc độ in từ 30–60
+                    trang/phút, kết nối mạng không dây, scan màu tích hợp.
+                  </p>
+                  <div class="mb-3">
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh IM 3000</span>
+                      <span class="price"
+                        >1.200.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh MP 5055</span>
+                      <span class="price"
+                        >1.500.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="vp-cat-cta"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quoteModal"
+                    data-pkg="Đen trắng A3"
+                  >
+                    Thuê ngay <i class="bi bi-arrow-right-short fs-5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ② Đen trắng A4 — Narrow brand (4 col) -->
+            <div class="vp-bc-span4">
+              <div class="vp-cat-card vp-cat-card--brand h-100">
+                <div class="vp-cat-img" style="height: 160px">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-hyitKf3-gToqejegTkO7u2YdLQcoDfCSznx2cSqfaX4iZYimpKQNs57XUWa-Dq5ZuR6WlxX6b1u53UylXE2_CLfkgY5fZge4PR4kaPWWROmHrWG7LdE0USo3ooTvxUo9rT906E4wz_FHdPFrrd2toY6VNJFpiqgjvtyugJ5s20-4PznvjMBR7hDHDVY6Mps_TAmnjOibH6y6IVkzPHCnvrS_v2W630eOJBUYV_LmRMCfArPeVIIOlXYecMMs7yGZXiom4OEm_w"
+                    alt="Ricoh A4"
+                  />
+                </div>
+                <div class="vp-cat-body">
+                  <div class="vp-cat-tag">
+                    <i class="bi bi-printer-fill"></i> Nhỏ gọn · A4
+                  </div>
+                  <h3 class="vp-cat-title">Máy photocopy đen trắng A4 – A5</h3>
+                  <p class="vp-cat-desc">
+                    Tối ưu cho startup, quầy giao dịch và không gian văn phòng
+                    nhỏ.
+                  </p>
+                  <div class="mb-3">
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh IM 350F</span>
+                      <span class="price"
+                        >Từ 800.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="vp-cat-cta"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quoteModal"
+                    data-pkg="Đen trắng A4"
+                  >
+                    Thuê ngay <i class="bi bi-arrow-right-short fs-5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ③ Màu A3 — Wide (8 col) -->
+            <div class="vp-bc-span8">
+              <div class="vp-cat-card vp-cat-card--wide h-100">
+                <div class="vp-cat-img" style="order: 2">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuARPdKxK0qngd0OlBUx8E7c0oDv-G37xHe3O3zWIQZMeI4m5l7ekZCt0Cgpu8DIhCF3e7VYD73oK4OXG1zHnOM-v5FgPHvkmJ1SIukeZC3EUkV13NKC8OLg1-kqp357VhQI-5Q31MBw6NcEL3byeGrfbTj39DVYRUCkZsFh0i_Q7bsUjwJWkL_fja4LojfrJi_yHDNG9TFgQ-ATq6mDtswbp_4d2rxE0angln3KHodJg4sdl7z_DNhvukbaRcRe59muYiRZ95qUFw"
+                    alt="Ricoh màu A3"
+                  />
+                </div>
+                <div class="vp-cat-body" style="order: 1">
+                  <div class="vp-cat-tag">
+                    <i class="bi bi-palette-fill"></i> Màu sắc · A3
+                  </div>
+                  <h3 class="vp-cat-title">Máy photocopy màu A3 – A4 – A5</h3>
+                  <p class="vp-cat-desc">
+                    Dành cho thiết kế, marketing, in ấn chuyên nghiệp. Màu sắc
+                    rực rỡ, trung thực với file gốc.
+                  </p>
+                  <div class="mb-3">
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh MP C4503</span>
+                      <span class="price"
+                        >2.200.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh IM C6000</span>
+                      <span class="price"
+                        >4.500.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="vp-cat-cta"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quoteModal"
+                    data-pkg="Màu A3"
+                  >
+                    Thuê ngay <i class="bi bi-arrow-right-short fs-5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ④ Màu A4 — Narrow dark (4 col) -->
+            <div class="vp-bc-span4">
+              <div class="vp-cat-card vp-cat-card--dark h-100">
+                <div
+                  class="vp-cat-img"
+                  style="height: 160px; background: rgba(255, 255, 255, 0.04)"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-hyitKf3-gToqejegTkO7u2YdLQcoDfCSznx2cSqfaX4iZYimpKQNs57XUWa-Dq5ZuR6WlxX6b1u53UylXE2_CLfkgY5fZge4PR4kaPWWROmHrWG7LdE0USo3ooTvxUo9rT906E4wz_FHdPFrrd2toY6VNJFpiqgjvtyugJ5s20-4PznvjMBR7hDHDVY6Mps_TAmnjOibH6y6IVkzPHCnvrS_v2W630eOJBUYV_LmRMCfArPeVIIOlXYecMMs7yGZXiom4OEm_w"
+                    alt="Ricoh màu A4"
+                    style="mix-blend-mode: luminosity; opacity: 0.7"
+                  />
+                </div>
+                <div class="vp-cat-body">
+                  <div class="vp-cat-tag">
+                    <i class="bi bi-palette2"></i> Màu · A4
+                  </div>
+                  <h3 class="vp-cat-title">Máy photocopy màu A4 – A5</h3>
+                  <p class="vp-cat-desc">
+                    Nhỏ gọn, bản in màu sắc nét, hỗ trợ Cloud & mobile printing.
+                  </p>
+                  <div class="mb-3">
+                    <div class="vp-price-row">
+                      <span class="name">Ricoh IM C300</span>
+                      <span class="price"
+                        >1.100.000₫ <small>/ tháng</small></span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="vp-cat-cta"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quoteModal"
+                    data-pkg="Màu A4"
+                  >
+                    Thuê ngay <i class="bi bi-arrow-right-short fs-5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /bento -->
+        </div>
+      </section>
+
+      <!-- ================ PRICING TABLE ================= -->
+      <section class="vp-section" style="background: var(--white)" id="pricing">
+        <div class="container-xl">
+          <div class="text-center mb-5">
+            <div class="vp-section-label mx-auto d-inline-flex">
+              <i class="bi bi-receipt"></i> Bảng giá tham khảo
+            </div>
+            <h2 class="vp-section-title">
+              Chi phí minh bạch, không phụ phí ẩn
+            </h2>
+            <p class="vp-section-sub mx-auto" style="max-width: 500px">
+              Chọn gói phù hợp — mọi gói đều bao gồm bảo trì, mực in và hỗ trợ
+              kỹ thuật.
+            </p>
+          </div>
+
+          <div class="vp-pricing-wrap mb-3">
+            <div class="table-responsive">
+              <table class="vp-pricing-table">
+                <thead>
+                  <tr>
+                    <th>Gói Dịch Vụ</th>
+                    <th>Định Mức (Trang/Tháng)</th>
+                    <th>Vượt Định Mức</th>
+                    <th>Giá Thuê / Tháng</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="pkg-name">Văn Phòng Nhỏ</div>
+                      <div class="pkg-sub">Máy Ricoh A4 – Đen trắng</div>
+                    </td>
+                    <td>3.000 trang</td>
+                    <td>120₫ / trang</td>
+                    <td>
+                      <span class="pkg-price"
+                        >800.000₫ <small>/ tháng</small></span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <button
+                        class="vp-contact-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#quoteModal"
+                        data-pkg="Văn Phòng Nhỏ"
+                      >
+                        Liên hệ
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="vp-featured-row">
+                    <td>
+                      <div class="pkg-name">
+                        Phổ Thông
+                        <span class="vp-featured-badge">Phổ biến</span>
+                      </div>
+                      <div class="pkg-sub">
+                        Máy Ricoh A3 BW · 30–40 trang/phút
+                      </div>
+                    </td>
+                    <td>5.000 trang</td>
+                    <td>100₫ / trang</td>
+                    <td>
+                      <span class="pkg-price"
+                        >1.200.000₫ <small>/ tháng</small></span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <button
+                        class="vp-contact-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#quoteModal"
+                        data-pkg="Phổ Thông"
+                      >
+                        Liên hệ
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="pkg-name">Chuyên Nghiệp</div>
+                      <div class="pkg-sub">
+                        Máy Ricoh A3 BW · 50–60 trang/phút
+                      </div>
+                    </td>
+                    <td>10.000 trang</td>
+                    <td>80₫ / trang</td>
+                    <td>
+                      <span class="pkg-price"
+                        >1.800.000₫ <small>/ tháng</small></span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <button
+                        class="vp-contact-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#quoteModal"
+                        data-pkg="Chuyên Nghiệp"
+                      >
+                        Liên hệ
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="pkg-name">Màu Standard</div>
+                      <div class="pkg-sub">Máy Ricoh A3 – Màu</div>
+                    </td>
+                    <td>2.000 BW + 500 Màu</td>
+                    <td>800₫ / trang màu</td>
+                    <td>
+                      <span class="pkg-price"
+                        >2.500.000₫ <small>/ tháng</small></span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <button
+                        class="vp-contact-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#quoteModal"
+                        data-pkg="Màu Standard"
+                      >
+                        Liên hệ
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="pkg-name">Màu Pro</div>
+                      <div class="pkg-sub">Máy Ricoh A3 – Màu tốc độ cao</div>
+                    </td>
+                    <td>5.000 BW + 2.000 Màu</td>
+                    <td>600₫ / trang màu</td>
+                    <td>
+                      <span class="pkg-price"
+                        >4.500.000₫ <small>/ tháng</small></span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <button
+                        class="vp-contact-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#quoteModal"
+                        data-pkg="Màu Pro"
+                      >
+                        Liên hệ
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="vp-pricing-note">
+            <i class="bi bi-info-circle me-2"></i>
+            Giá trên chưa bao gồm VAT 8%. Định mức trang in có thể tùy chỉnh
+            theo yêu cầu thực tế. Tất cả gói bao gồm: lắp đặt miễn phí, bảo trì,
+            thay mực và kỹ thuật hỗ trợ 24/7.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="vp-footer mt-auto">
+      <div class="vp-footer-main">
+        <div class="container-xl">
+          <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+              <a
+                href="home.html"
+                class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3"
+              >
+                <span class="vp-logo-icon vp-logo-icon--sm">VP</span>
+                <span class="fw-800 text-dark"
+                  >Vision<span class="text-primary">Print</span> VN</span
+                >
+              </a>
+              <p
+                class="text-muted mb-4"
+                style="font-size: 0.9rem; line-height: 1.7"
+              >
+                Nâng tầm hiệu suất doanh nghiệp Việt với giải pháp in ấn chính
+                xác và dịch vụ kỹ thuật chuyên nghiệp.
+              </p>
+              <div class="vp-hotline-card mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="vp-hotline-icon">
+                    <i class="bi bi-headset"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 text-muted" style="font-size: 0.75rem">
+                      Hỗ trợ 24/7
+                    </p>
+                    <a
+                      href="tel:0901234567"
+                      class="fw-800 text-dark text-decoration-none"
+                      style="font-size: 1.1rem"
+                      >0901 234 567</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <a href="home.html" class="vp-social-btn" title="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="products.html" class="vp-social-btn" title="YouTube"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="rental.html" class="vp-social-btn" title="Zalo"
+                  ><i class="bi bi-chat-dots-fill"></i
+                ></a>
+                <a href="about.html" class="vp-social-btn" title="Email"
+                  ><i class="bi bi-envelope-fill"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Khám Phá</h5>
+              <ul class="vp-footer-links">
+                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="index.html">Sản Phẩm Mới</a></li>
+                <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
+                <li><a href="about.html">Tin Tức</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Hỗ Trợ</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
+                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
+                <li><a href="about.html">Liên Hệ</a></li>
+                <li><a href="home.html">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <h5 class="vp-footer-heading">Văn Phòng</h5>
+              <ul class="vp-footer-contact">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i
+                  ><span>12 Nguyễn Văn Bảo, Hạnh Thông, TP HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i
+                  ><span>Thứ 2 – Thứ 7: 8:00 – 18:00</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i
+                  ><a href="mailto:info@visionprint.vn">info@visionprint.vn</a>
+                </li>
+              </ul>
+              <div class="mt-4">
+                <p class="fw-600 mb-2" style="font-size: 0.85rem">
+                  Nhận ưu đãi mới nhất:
+                </p>
+                <div class="vp-newsletter-form">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn..."
+                    class="vp-newsletter-input"
+                    id="newsletterEmail"
+                  />
+                  <button class="vp-newsletter-btn" id="newsletterBtn">
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vp-footer-bottom">
+        <div class="container-xl">
+          <div class="row align-items-center g-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 text-muted" style="font-size: 0.8rem">
+                © 2026 Vision-Print VN. Thiết kế bởi
+                <strong>The Precision Architect</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <span class="text-muted me-3" style="font-size: 0.8rem"
+                >Phương thức thanh toán:</span
+              >
+              <span class="vp-pay-badge">Visa</span>
+              <span class="vp-pay-badge">MasterCard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating -->
+    <div class="vp-floating-actions">
+      <a
+        href="https://zalo.me/0901234567"
+        class="vp-fab vp-fab--zalo"
+        title="Chat Zalo"
+        target="_blank"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+      </a>
+      <button
+        class="vp-fab vp-fab--top"
+        id="scrollTopBtn"
+        title="Lên đầu trang"
+        style="display: none"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+
+    <!-- ============= MODAL: BÁO GIÁ ================ -->
+    <div
+      class="modal fade"
+      id="quoteModal"
+      tabindex="-1"
+      aria-labelledby="quoteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="
+            border-radius: var(--radius-lg);
+            border: none;
+            overflow: hidden;
+          "
+        >
+          <!-- Header -->
+          <div
+            style="
+              background: linear-gradient(135deg, var(--brand), #5b21b6);
+              padding: 1.75rem 2rem 1.5rem;
+            "
+          >
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h5 class="text-white fw-800 mb-1" style="font-size: 1.2rem">
+                  Nhận báo giá miễn phí
+                </h5>
+                <p
+                  style="
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 0.82rem;
+                    margin: 0;
+                  "
+                >
+                  Chuyên gia gọi lại trong 30 phút làm việc.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+          </div>
+          <!-- Body -->
+          <div class="vp-modal-body">
+            <div id="quoteFormWrap">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="vp-form-group">
+                    <label class="vp-form-label">Họ và tên *</label>
+                    <input
+                      type="text"
+                      class="vp-form-control"
+                      id="qName"
+                      placeholder="Nguyễn Văn A"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="vp-form-group">
+                    <label class="vp-form-label">Số điện thoại *</label>
+                    <input
+                      type="tel"
+                      class="vp-form-control"
+                      id="qPhone"
+                      placeholder="09xx xxx xxx"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="vp-form-group">
+                    <label class="vp-form-label">Tên công ty</label>
+                    <input
+                      type="text"
+                      class="vp-form-control"
+                      id="qCompany"
+                      placeholder="Công ty TNHH..."
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="vp-form-group">
+                    <label class="vp-form-label">Gói quan tâm</label>
+                    <select class="vp-form-control" id="qPackage">
+                      <option value="">-- Chọn gói --</option>
+                      <option value="Văn Phòng Nhỏ">
+                        Văn Phòng Nhỏ – 800.000₫/tháng
+                      </option>
+                      <option value="Phổ Thông">
+                        Phổ Thông – 1.200.000₫/tháng
+                      </option>
+                      <option value="Chuyên Nghiệp">
+                        Chuyên Nghiệp – 1.800.000₫/tháng
+                      </option>
+                      <option value="Màu Standard">
+                        Màu Standard – 2.500.000₫/tháng
+                      </option>
+                      <option value="Màu Pro">
+                        Màu Pro – 4.500.000₫/tháng
+                      </option>
+                      <option value="Tư vấn thêm">
+                        Chưa chắc – Cần tư vấn thêm
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="vp-form-group mb-0">
+                    <label class="vp-form-label">Ghi chú thêm</label>
+                    <textarea
+                      class="vp-form-control"
+                      id="qNote"
+                      rows="3"
+                      placeholder="Số lượng máy, nhu cầu đặc thù..."
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button class="vp-btn-submit" id="quoteSubmitBtn">
+                  <i class="bi bi-send-fill me-2"></i>Gửi yêu cầu báo giá
+                </button>
+              </div>
+              <p
+                class="text-center mt-3 mb-0"
+                style="font-size: 0.75rem; color: var(--slate-400)"
+              >
+                Thông tin của bạn được bảo mật tuyệt đối. Không spam.
+              </p>
+            </div>
+            <!-- Success state -->
+            <div
+              id="quoteSuccess"
+              style="display: none; text-align: center; padding: 1rem 0"
+            >
+              <div
+                style="
+                  width: 64px;
+                  height: 64px;
+                  background: #dcfce7;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1.25rem;
+                  font-size: 1.8rem;
+                  color: var(--success);
+                "
+              >
+                <i class="bi bi-check2"></i>
+              </div>
+              <h5 class="fw-800 mb-2" style="font-size: 1.1rem">
+                Gửi thành công!
+              </h5>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  color: var(--slate-600);
+                  line-height: 1.65;
+                "
+              >
+                Chúng tôi đã nhận được yêu cầu của bạn.<br />
+                Chuyên gia sẽ liên hệ trong vòng <strong>30 phút</strong> làm
+                việc.
+              </p>
+              <button
+                class="vp-btn-submit mt-3"
+                style="width: auto; padding: 10px 28px"
+                data-bs-dismiss="modal"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const SESSION_KEY = "vp_session";
+
+      function getSession() {
+        return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+      }
+      function clearSession() {
+        localStorage.removeItem(SESSION_KEY);
+      }
+
+      // Render auth area in header
+      function renderAuthArea() {
+        const session = getSession();
+        const area = document.getElementById("authArea");
+        if (!area) return;
+
+        if (session) {
+          const initials = session.name
+            .split(" ")
+            .map((w) => w[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+          area.innerHTML = `
+            <div class="dropdown">
+                <a class="vp-user-menu dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="vp-avatar">${initials}</div>
+                    <span class="vp-user-name d-none d-md-block">${session.name.split(" ").pop()}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow" style="border-radius:14px;border:1px solid var(--slate-200);padding:8px;min-width:220px;">
+                    <li>
+                        <div class="px-3 py-2 mb-1" style="border-bottom:1px solid var(--slate-100);">
+                            <p class="fw-700 mb-0" style="font-size:0.875rem;">${session.name}</p>
+                            <p class="text-muted mb-0" style="font-size:0.75rem;">${session.email}</p>
+                        </div>
+                    </li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="login.html" style="font-size:0.85rem;"><i class="bi bi-person me-2"></i>Tài khoản của tôi</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="invoice.html" style="font-size:0.85rem;"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="products.html" style="font-size:0.85rem;"><i class="bi bi-heart me-2"></i>Yêu thích</a></li>
+                    <li><hr class="dropdown-divider my-1"></li>
+                    <li><button class="dropdown-item rounded-2 py-2 text-danger" id="logoutBtn" style="font-size:0.85rem;"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</button></li>
+                </ul>
+            </div>`;
+
+          document
+            .getElementById("logoutBtn")
+            ?.addEventListener("click", () => {
+              clearSession();
+              showToast("Đã đăng xuất.", "info");
+              setTimeout(() => renderAuthArea(), 300);
+            });
+        } else {
+          area.innerHTML = `<a href="login.html" class="vp-btn-outline-sm"><i class="bi bi-person me-1"></i>Đăng nhập</a>`;
+        }
+      }
+      renderAuthArea();
+      // ── SEARCH TOGGLE ──────────────────────────────────
+      const searchBar = document.getElementById("searchBar");
+      const searchToggleBtn = document.getElementById("searchToggleBtn");
+      const searchCloseBtn = document.getElementById("searchCloseBtn");
+      const headerSearchInput = document.getElementById("headerSearchInput");
+
+      searchToggleBtn.addEventListener("click", () => {
+        searchBar.classList.toggle("open");
+        if (searchBar.classList.contains("open")) headerSearchInput.focus();
+      });
+      searchCloseBtn.addEventListener("click", () =>
+        searchBar.classList.remove("open"),
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") searchBar.classList.remove("open");
+      });
+
+      // ── SCROLL TO TOP ──────────────────────────────────
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollTopBtn.style.display = window.scrollY > 400 ? "flex" : "none";
+      });
+      scrollTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      // ── FAQ ACCORDION ─────────────────────────────────
+      document.querySelectorAll(".vp-faq-q").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".vp-faq-item");
+          const isOpen = item.classList.contains("open");
+          // close all
+          document
+            .querySelectorAll(".vp-faq-item")
+            .forEach((i) => i.classList.remove("open"));
+          // open current if was closed
+          if (!isOpen) item.classList.add("open");
+        });
+      });
+
+      // ── MODAL: pre-fill package from button data ───────
+      const quoteModal = document.getElementById("quoteModal");
+      quoteModal.addEventListener("show.bs.modal", (e) => {
+        const trigger = e.relatedTarget;
+        const pkg = trigger?.dataset?.pkg;
+        if (pkg) {
+          const sel = document.getElementById("qPackage");
+          for (let i = 0; i < sel.options.length; i++) {
+            if (
+              sel.options[i].value === pkg ||
+              sel.options[i].value.startsWith(pkg)
+            ) {
+              sel.selectedIndex = i;
+              break;
+            }
+          }
+        }
+        // reset success
+        document.getElementById("quoteFormWrap").style.display = "";
+        document.getElementById("quoteSuccess").style.display = "none";
+      });
+
+      // ── MODAL: SUBMIT FORM ────────────────────────────
+      document
+        .getElementById("quoteSubmitBtn")
+        .addEventListener("click", () => {
+          const name = document.getElementById("qName").value.trim();
+          const phone = document.getElementById("qPhone").value.trim();
+          if (!name) {
+            document.getElementById("qName").focus();
+            showToast("Vui lòng nhập họ tên", "warning");
+            return;
+          }
+          if (!phone || phone.length < 9) {
+            document.getElementById("qPhone").focus();
+            showToast("Vui lòng nhập số điện thoại hợp lệ", "warning");
+            return;
+          }
+          // simulate send
+          const btn = document.getElementById("quoteSubmitBtn");
+          btn.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2"></span>Đang gửi...';
+          btn.disabled = true;
+          setTimeout(() => {
+            btn.innerHTML =
+              '<i class="bi bi-send-fill me-2"></i>Gửi yêu cầu báo giá';
+            btn.disabled = false;
+            document.getElementById("quoteFormWrap").style.display = "none";
+            document.getElementById("quoteSuccess").style.display = "block";
+          }, 1400);
+        });
+
+      // ── NEWSLETTER ────────────────────────────────────
+      document
+        .getElementById("newsletterBtn")
+        .addEventListener("click", function () {
+          const input = document.getElementById("newsletterEmail");
+          if (!input.value.includes("@")) {
+            input.focus();
+            return;
+          }
+          this.innerHTML = '<i class="bi bi-check-lg"></i>';
+          this.style.background = "#16a34a";
+          input.value = "";
+          setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-send-fill"></i>';
+            this.style.background = "";
+          }, 3000);
+        });
+
+      // ── TOAST HELPER ──────────────────────────────────
+      function showToast(msg, type = "success") {
+        const colors = {
+          success: "#16a34a",
+          info: "#0066ff",
+          warning: "#d97706",
+          error: "#dc2626",
+        };
+        const old = document.getElementById("vp-toast");
+        if (old) old.remove();
+        const t = document.createElement("div");
+        t.id = "vp-toast";
+        t.style.cssText = `
+        position:fixed;bottom:88px;left:50%;transform:translateX(-50%);
+        background:${colors[type]};color:#fff;
+        padding:11px 22px;border-radius:50px;
+        font-family:"Plus Jakarta Sans",sans-serif;font-size:0.875rem;font-weight:600;
+        box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:9999;
+        animation:toastIn .3s ease forwards;white-space:nowrap;`;
+        t.textContent = msg;
+        const s = document.createElement("style");
+        s.textContent =
+          "@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}";
+        document.head.appendChild(s);
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transition = "opacity .3s";
+          setTimeout(() => t.remove(), 350);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

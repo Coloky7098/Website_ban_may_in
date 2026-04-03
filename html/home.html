@@ -1,0 +1,2045 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision-Print VN 2026 – Giải pháp in ấn chuyên nghiệp</title>
+    <meta
+      name="description"
+      content="Máy photocopy, máy in khổ lớn Ricoh, HP, Xerox, Canon chính hãng. Dịch vụ bảo hành 24/7 tại TP.HCM."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════════
+       VISION-PRINT VN — DESIGN SYSTEM (shared)
+       ═══════════════════════════════════════════════════════ */
+      :root {
+        --brand: #0066ff;
+        --brand-dark: #0050cb;
+        --brand-light: #e6f0ff;
+        --brand-glow: rgba(0, 102, 255, 0.18);
+        --tertiary: #6a2ed9;
+        --dark: #0f172a;
+        --slate-800: #1e293b;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --success: #16a34a;
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 24px;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+        --shadow-brand: 0 8px 32px rgba(0, 102, 255, 0.25);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--slate-50);
+        color: var(--dark);
+        -webkit-font-smoothing: antialiased;
+      }
+      .fw-800 {
+        font-weight: 800 !important;
+      }
+      .fw-700 {
+        font-weight: 700 !important;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+
+      /* ── ANNOUNCEMENT BAR ── */
+      .vp-announcement-bar {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1031;
+      }
+      .vp-badge-pill {
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.73rem;
+        font-weight: 700;
+      }
+      .vp-close-announcement {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      .vp-close-announcement:hover {
+        color: #fff;
+      }
+
+      /* ── HEADER ── */
+      .vp-header {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--slate-200);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        z-index: 1030;
+      }
+      .vp-header .navbar {
+        min-height: 68px;
+      }
+
+      .vp-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--dark) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .vp-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-logo-icon--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-radius: 8px;
+      }
+
+      .vp-nav-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--slate-600) !important;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: var(--radius-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-nav-link:hover,
+      .vp-nav-link.active {
+        color: var(--brand) !important;
+        background: var(--brand-light);
+      }
+
+      /* Mega menu */
+      .vp-mega-menu {
+        min-width: 560px;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: 8px !important;
+      }
+      .vp-menu-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .vp-dd-item {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .vp-dd-item:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-menu-promo {
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+        border: 1px dashed var(--slate-200);
+      }
+      .vp-link-arrow {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-link-arrow:hover {
+        text-decoration: underline;
+      }
+
+      .vp-icon-btn {
+        width: 38px;
+        height: 38px;
+        background: var(--slate-100);
+        border: none;
+        border-radius: 10px;
+        color: var(--slate-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1rem;
+      }
+      .vp-icon-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+
+      .vp-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+      }
+
+      .vp-btn-outline-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        color: var(--dark);
+        text-decoration: none;
+        background: var(--white);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-outline-sm:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+
+      .vp-btn-primary-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .vp-btn-primary-sm:hover {
+        opacity: 0.9;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .vp-toggler {
+        border: none;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 6px 9px;
+        box-shadow: none !important;
+      }
+
+      /* User dropdown */
+      .vp-user-menu {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        transition: all 0.2s;
+        color: var(--dark);
+      }
+      .vp-user-menu:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-user-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Search bar */
+      .vp-search-bar {
+        display: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--slate-200);
+        backdrop-filter: blur(10px);
+      }
+      .vp-search-bar.open {
+        display: block;
+      }
+      .vp-search-inner {
+        position: relative;
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .vp-search-icon {
+        position: absolute;
+        left: 16px;
+        color: var(--slate-400);
+        font-size: 1rem;
+      }
+      .vp-search-input {
+        width: 100%;
+        padding: 12px 50px 12px 46px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        background: var(--slate-50);
+        outline: none;
+        color: var(--dark);
+        transition: border-color 0.2s;
+      }
+      .vp-search-input:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      .vp-search-close {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .vp-search-close:hover {
+        color: var(--dark);
+      }
+
+      /* ═══════════════════════════════════════════════════════
+       HOME PAGE SECTIONS
+       ═══════════════════════════════════════════════════════ */
+
+      /* ── HERO ── */
+      .vp-hero {
+        position: relative;
+        height: 88vh;
+        min-height: 560px;
+        max-height: 900px;
+        overflow: hidden;
+      }
+      .vp-hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .vp-hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 8s ease;
+        transform: scale(1.04);
+      }
+      .vp-hero-bg img.zoom {
+        transform: scale(1);
+      }
+      .vp-hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          100deg,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.2) 55%,
+          transparent 100%
+        );
+      }
+      .vp-hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 40px;
+      }
+      .vp-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        padding: 6px 16px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #fff;
+        margin-bottom: 1.5rem;
+        width: fit-content;
+      }
+      .vp-hero-title {
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+        color: #fff;
+        margin-bottom: 1.25rem;
+        max-width: 640px;
+      }
+      .vp-hero-title .gradient-span {
+        background: linear-gradient(135deg, #b3c5ff, #d1bcff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .vp-hero-desc {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+      }
+      .vp-hero-btn-primary {
+        background: #fff;
+        color: var(--brand);
+        border: none;
+        border-radius: 50px;
+        padding: 14px 32px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-hero-btn-primary:hover {
+        color: var(--brand);
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+        transform: translateY(-2px);
+      }
+      .vp-hero-btn-ghost {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50px;
+        padding: 14px 32px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-hero-btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.22);
+        color: #fff;
+      }
+
+      /* Hero stats strip */
+      .vp-hero-stats {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .vp-hero-stat {
+        padding: 18px 0;
+        text-align: center;
+        color: #fff;
+      }
+      .vp-hero-stat .val {
+        font-size: 1.6rem;
+        font-weight: 800;
+        display: block;
+      }
+      .vp-hero-stat .lbl {
+        font-size: 0.72rem;
+        font-weight: 600;
+        opacity: 0.75;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      /* Carousel dots */
+      .vp-dots {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        gap: 8px;
+      }
+      .vp-dot {
+        height: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.4);
+        transition: all 0.3s;
+        border: none;
+        padding: 0;
+      }
+      .vp-dot.active {
+        background: #fff;
+        width: 32px !important;
+      }
+      .vp-dot:not(.active) {
+        width: 12px;
+      }
+
+      /* ── BRAND STRIP ── */
+      .vp-brands {
+        background: var(--white);
+        border-bottom: 1px solid var(--slate-100);
+        padding: 28px 0;
+        overflow: hidden;
+      }
+      .vp-brands-track {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        filter: grayscale(1);
+        opacity: 0.45;
+        animation: brandScroll 18s linear infinite;
+        width: max-content;
+      }
+      .vp-brands-track:hover {
+        animation-play-state: paused;
+      }
+      .vp-brand-name {
+        font-size: 1.3rem;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: var(--dark);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      @keyframes brandScroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── SECTION HEADERS ── */
+      .vp-section-label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--brand);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-section-label::before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: var(--brand);
+      }
+      .vp-section-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      /* ── PRODUCT CARDS ── */
+      .vp-product-card {
+        background: var(--white);
+        border: 1px solid var(--slate-100);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        transition:
+          transform 0.35s,
+          box-shadow 0.35s,
+          border-color 0.35s;
+        height: 100%;
+      }
+      .vp-product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(0, 102, 255, 0.2);
+      }
+      .vp-product-img {
+        position: relative;
+        aspect-ratio: 1/1;
+        background: var(--slate-50);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .vp-product-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+      .vp-product-card:hover .vp-product-img img {
+        transform: scale(1.08);
+      }
+      .vp-product-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border-radius: 50px;
+        padding: 3px 10px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .vp-product-badge.hot {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-product-badge.new {
+        background: var(--tertiary);
+        color: #fff;
+      }
+      .vp-product-badge.sale {
+        background: #dc2626;
+        color: #fff;
+      }
+
+      .vp-brand-tag {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-600);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 6px;
+      }
+      .vp-product-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.35;
+        margin-bottom: 6px;
+      }
+      .vp-product-price {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--brand);
+        margin-bottom: 0;
+      }
+      .vp-product-price sup {
+        font-size: 0.7rem;
+        font-weight: 700;
+        vertical-align: super;
+      }
+      .vp-btn-detail {
+        flex: 1;
+        border: none;
+        background: var(--slate-100);
+        color: var(--dark);
+        border-radius: 50px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .vp-btn-detail:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-btn-cart {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+      .vp-btn-cart:hover {
+        background: var(--brand-dark);
+        transform: scale(1.1);
+      }
+      .vp-btn-cart.added {
+        background: var(--success);
+      }
+
+      /* Filter tabs */
+      .vp-filter-tabs {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .vp-filter-tab {
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        border-radius: 50px;
+        padding: 7px 18px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--slate-600);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .vp-filter-tab:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-filter-tab.active {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+
+      /* ── SERVICES ── */
+      .vp-service-card {
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        background: var(--white);
+        border: 1px solid var(--slate-100);
+        transition: all 0.3s;
+        cursor: default;
+      }
+      .vp-service-card:hover {
+        border-color: var(--brand);
+        box-shadow: var(--shadow);
+        transform: translateY(-4px);
+      }
+      .vp-service-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 1.25rem;
+      }
+
+      /* ── FOOTER ── */
+      .vp-footer {
+        background: var(--white);
+        border-top: 1px solid var(--slate-200);
+      }
+      .vp-footer-main {
+        padding: 4rem 0 3rem;
+      }
+      .vp-footer-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .vp-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-links li + li {
+        margin-top: 6px;
+      }
+      .vp-footer-links a {
+        color: var(--slate-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .vp-footer-links a:hover {
+        color: var(--brand);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .vp-footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        margin-bottom: 8px;
+      }
+      .vp-footer-contact i {
+        color: var(--brand);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .vp-footer-contact a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-hotline-card {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+      .vp-hotline-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--brand-light);
+        border-radius: 10px;
+        color: var(--brand);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-social-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--slate-100);
+        border-radius: 9px;
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+      .vp-social-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-newsletter-form {
+        display: flex;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .vp-newsletter-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        background: transparent;
+      }
+      .vp-newsletter-btn {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 9px 16px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .vp-newsletter-btn:hover {
+        background: var(--brand-dark);
+      }
+      .vp-footer-bottom {
+        border-top: 1px solid var(--slate-100);
+        padding: 1.25rem 0;
+      }
+      .vp-pay-badge {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-700);
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      /* ── FLOATING ── */
+      .vp-floating-actions {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .vp-fab {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .vp-fab:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .vp-fab--zalo {
+        background: #0068ff;
+        color: #fff;
+      }
+      .vp-fab--top {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .d1 {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+      .d2 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .d3 {
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+      .d4 {
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 991px) {
+        .vp-mega-menu {
+          min-width: auto;
+        }
+        .vp-hero-stats .vp-hero-stat {
+          padding: 12px 0;
+        }
+        .vp-hero-stat .val {
+          font-size: 1.2rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .vp-hero {
+          min-height: 480px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════ ANNOUNCEMENT BAR ═══════════════ -->
+    <div id="announcement-bar" class="vp-announcement-bar">
+      <div
+        class="container-xl d-flex justify-content-center align-items-center gap-2 py-2 position-relative"
+      >
+        <span class="vp-badge-pill">🔥 HOT</span>
+        <span
+          >Miễn phí lắp đặt tận nơi nội thành HCM – Gọi ngay:
+          <strong>0901 234 567</strong></span
+        >
+        <button
+          class="vp-close-announcement"
+          onclick="this.parentElement.parentElement.remove()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header" class="vp-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-xl">
+          <!-- Logo -->
+          <a class="navbar-brand vp-logo" href="home.html">
+            <span class="vp-logo-icon">VP</span>
+            <span>Vision<span class="text-primary">Print</span> VN</span>
+          </a>
+
+          <!-- Mobile icons -->
+          <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
+            <button
+              class="vp-icon-btn position-relative"
+              title="Giỏ hàng"
+              id="cartBtnMobile"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="vp-cart-badge" id="cartCountMobile">0</span>
+            </button>
+            <button
+              class="navbar-toggler vp-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- Nav -->
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto gap-0 py-3 py-lg-0">
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link active" href="home.html"
+                  >Trang Chủ</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="about.html">Giới Thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="products.html"
+                  >Sản Phẩm</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="rental.html">Cho Thuê</a>
+              </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div
+              class="d-flex align-items-center gap-2 pb-3 pb-lg-0"
+              id="headerRight"
+            >
+              <button class="vp-icon-btn" id="searchToggleBtn" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+              </button>
+              <button
+                class="vp-icon-btn position-relative d-none d-lg-flex"
+                title="Giỏ hàng"
+                id="cartBtnDesktop"
+              >
+                <i class="bi bi-bag"></i>
+                <span class="vp-cart-badge" id="cartCountDesktop">0</span>
+              </button>
+              <!-- Login/User area — rendered by JS -->
+              <div id="authArea"></div>
+              <a
+                href="tel:0901234567"
+                class="vp-btn-primary-sm d-none d-xl-flex"
+              >
+                <i class="bi bi-telephone-fill me-1"></i>0901 234 567
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Search bar -->
+      <div class="vp-search-bar" id="searchBar">
+        <div class="container-xl py-3">
+          <div class="vp-search-inner">
+            <i class="bi bi-search vp-search-icon"></i>
+            <input
+              type="text"
+              class="vp-search-input"
+              id="headerSearchInput"
+              placeholder="Tìm máy in, photocopy, phụ kiện..."
+              autocomplete="off"
+            />
+            <button class="vp-search-close" id="searchCloseBtn">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ═══════════════ END HEADER ═══════════════ -->
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="vp-hero" id="hero">
+      <!-- Slides data rendered by JS -->
+      <div class="vp-hero-bg" id="heroBg">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBumEAPZrgTJWk7NdI-baGaVdEXaDMUi3s9gcrgBnIfiQiSJ5haT8pw1IIIQWYij1uI3u37ilJhO8JpkB8ym2QwSsgDpm5-7ORAM7BdT7gA9yy0kOkS93Z8J5QWOkV-czJlRqJqxXdZlufNoAVz0KTZxdA8phSx9uAExVM2SJFpms6AYYkikMrhMlISinNG5DdyuHYOdrgIknuuVC5e2ww6wpHiA9DhOepwfop4q4IGvTG7rY0Vm-xAu40uQsf1TvXbGFydxAPGkw"
+          alt="Vision-Print Showroom"
+          id="heroImg"
+        />
+      </div>
+      <div class="vp-hero-overlay"></div>
+
+      <div class="container-xl vp-hero-content">
+        <div id="heroContent">
+          <div class="vp-hero-label fade-up">
+            <i class="bi bi-stars"></i> New Generation 2026
+          </div>
+          <h1 class="vp-hero-title fade-up d1">
+            Máy Photocopy Ricoh<br />
+            <span class="gradient-span">Thế Hệ Mới.</span>
+          </h1>
+          <p class="vp-hero-desc fade-up d2">
+            Trải nghiệm sự chính xác tuyệt đối và hiệu suất không giới hạn với
+            công nghệ in ấn tiên tiến nhất từ Nhật Bản.
+          </p>
+          <div class="d-flex gap-3 flex-wrap fade-up d3">
+            <a href="#products" class="vp-hero-btn-primary">
+              <i class="bi bi-grid-3x3-gap-fill"></i> Xem sản phẩm
+            </a>
+            <a href="#services" class="vp-hero-btn-ghost">
+              <i class="bi bi-briefcase"></i> Giải pháp doanh nghiệp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel dots -->
+      <div class="vp-dots" id="heroDots">
+        <button class="vp-dot active" data-slide="0"></button>
+        <button class="vp-dot" data-slide="1"></button>
+        <button class="vp-dot" data-slide="2"></button>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="vp-hero-stats">
+        <div class="container-xl">
+          <div class="row g-0">
+            <div
+              class="col-6 col-md-3 vp-hero-stat"
+              style="border-right: 1px solid rgba(255, 255, 255, 0.12)"
+            >
+              <span class="val">12+</span>
+              <span class="lbl">Năm kinh nghiệm</span>
+            </div>
+            <div
+              class="col-6 col-md-3 vp-hero-stat"
+              style="border-right: 1px solid rgba(255, 255, 255, 0.12)"
+            >
+              <span class="val">5.000+</span>
+              <span class="lbl">Khách hàng</span>
+            </div>
+            <div
+              class="col-6 col-md-3 vp-hero-stat"
+              style="border-right: 1px solid rgba(255, 255, 255, 0.12)"
+            >
+              <span class="val">12+</span>
+              <span class="lbl">Sản phẩm chính hãng</span>
+            </div>
+            <div class="col-6 col-md-3 vp-hero-stat">
+              <span class="val">24/7</span>
+              <span class="lbl">Hỗ trợ kỹ thuật</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ BRANDS ═══════════════ -->
+    <section class="vp-brands">
+      <div class="container-xl overflow-hidden">
+        <div class="vp-brands-track" id="brandsTrack">
+          <span class="vp-brand-name">RICOH</span>
+          <span class="vp-brand-name">FUJIFILM</span>
+          <span class="vp-brand-name">HP</span>
+          <span class="vp-brand-name">XEROX</span>
+          <span class="vp-brand-name">CANON</span>
+          <span class="vp-brand-name">KONICA MINOLTA</span>
+          <span class="vp-brand-name">BROTHER</span>
+          <span class="vp-brand-name">EPSON</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="vp-brand-name">RICOH</span>
+          <span class="vp-brand-name">FUJIFILM</span>
+          <span class="vp-brand-name">HP</span>
+          <span class="vp-brand-name">XEROX</span>
+          <span class="vp-brand-name">CANON</span>
+          <span class="vp-brand-name">KONICA MINOLTA</span>
+          <span class="vp-brand-name">BROTHER</span>
+          <span class="vp-brand-name">EPSON</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PRODUCTS ═══════════════ -->
+    <section
+      class="py-5 py-lg-6"
+      id="products"
+      style="background: var(--slate-50)"
+    >
+      <div class="container-xl">
+        <!-- Header row -->
+        <div class="row align-items-end mb-4 g-3">
+          <div class="col-md-6">
+            <div class="vp-section-label">Danh mục sản phẩm</div>
+            <h2 class="vp-section-title mb-0">
+              Sản phẩm <span style="color: var(--brand)">nổi bật</span>
+            </h2>
+          </div>
+          <div
+            class="col-md-6 d-flex justify-content-md-end align-items-center"
+          >
+            <a
+              href="products.html"
+              class="fw-700 text-primary text-decoration-none"
+              style="font-size: 0.9rem"
+            >
+              Tất cả sản phẩm <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="vp-filter-tabs mb-4" id="filterTabs">
+          <button class="vp-filter-tab active" data-filter="all">Tất cả</button>
+          <button class="vp-filter-tab" data-filter="ricoh">Ricoh</button>
+          <button class="vp-filter-tab" data-filter="hp">HP</button>
+          <button class="vp-filter-tab" data-filter="xerox">Xerox</button>
+          <button class="vp-filter-tab" data-filter="canon">Canon</button>
+        </div>
+
+        <!-- Product grid -->
+        <div class="row g-3 g-lg-4" id="productGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SERVICES ═══════════════ -->
+    <section
+      class="py-5 py-lg-6"
+      style="background: var(--slate-50)"
+      id="services"
+    >
+      <div class="container-xl">
+        <div class="text-center mb-5">
+          <div class="vp-section-label justify-content-center">
+            Dịch vụ của chúng tôi
+          </div>
+          <h2 class="vp-section-title">
+            Giải pháp <span style="color: var(--brand)">toàn diện</span>
+          </h2>
+        </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="vp-service-card h-100">
+              <div
+                class="vp-service-icon"
+                style="background: var(--brand-light)"
+              >
+                <i class="bi bi-printer-fill" style="color: var(--brand)"></i>
+              </div>
+              <h6 class="fw-800 mb-2">Bán máy chính hãng</h6>
+              <p
+                class="text-muted mb-0"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Phân phối chính hãng Ricoh, HP, Xerox, Canon với giá tốt nhất
+                thị trường.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="vp-service-card h-100">
+              <div class="vp-service-icon" style="background: #f3e8ff">
+                <i
+                  class="bi bi-file-earmark-text-fill"
+                  style="color: var(--tertiary)"
+                ></i>
+              </div>
+              <h6 class="fw-800 mb-2">Cho thuê máy</h6>
+              <p
+                class="text-muted mb-0"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Giải pháp thuê linh hoạt theo tháng/năm, tối ưu chi phí vận hành
+                doanh nghiệp.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="vp-service-card h-100">
+              <div class="vp-service-icon" style="background: #fef9c3">
+                <i class="bi bi-tools" style="color: #854d0e"></i>
+              </div>
+              <h6 class="fw-800 mb-2">Bảo trì & sửa chữa</h6>
+              <p
+                class="text-muted mb-0"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Bảo dưỡng định kỳ, sửa chữa nhanh, thay thế linh kiện chính hãng
+                toàn quốc.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="vp-service-card h-100">
+              <div class="vp-service-icon" style="background: #dcfce7">
+                <i
+                  class="bi bi-cloud-upload-fill"
+                  style="color: var(--success)"
+                ></i>
+              </div>
+              <h6 class="fw-800 mb-2">Giải pháp đám mây</h6>
+              <p
+                class="text-muted mb-0"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Tích hợp hệ thống in ấn với cloud, quản lý từ xa và bảo mật dữ
+                liệu tối đa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="vp-footer mt-2">
+      <div class="vp-footer-main">
+        <div class="container-xl">
+          <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+              <a
+                href="home.html"
+                class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3"
+              >
+                <span class="vp-logo-icon vp-logo-icon--sm">VP</span>
+                <span class="fw-800 text-dark" style="font-size: 1.1rem"
+                  >Vision<span class="text-primary">Print</span> VN</span
+                >
+              </a>
+              <p
+                class="text-muted mb-4"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Nâng tầm hiệu suất doanh nghiệp Việt với giải pháp in ấn chính
+                xác và dịch vụ kỹ thuật chuyên nghiệp từ năm 2012.
+              </p>
+              <div class="vp-hotline-card mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="vp-hotline-icon">
+                    <i class="bi bi-headset"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 text-muted" style="font-size: 0.75rem">
+                      Hỗ trợ 24/7
+                    </p>
+                    <a
+                      href="tel:0901234567"
+                      class="fw-800 text-dark text-decoration-none"
+                      style="font-size: 1.05rem"
+                      >0901 234 567</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-chat-dots-fill"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-envelope-fill"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Khám Phá</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Về Chúng Tôi</a></li>
+                <li><a href="products.html">Sản Phẩm Mới</a></li>
+                <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
+                <li><a href="about.html">Tin Tức</a></li>
+                <li><a href="login.html">Tuyển Dụng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Hỗ Trợ</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
+                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
+                <li><a href="about.html">Liên Hệ</a></li>
+                <li><a href="home.html">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <h5 class="vp-footer-heading">Văn Phòng</h5>
+              <ul class="vp-footer-contact">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i
+                  ><span>12 Nguyễn Văn Bảo, Hạnh Thông, TP HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i
+                  ><span>Thứ 2 – Thứ 7: 8:00 – 18:00</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i
+                  ><a href="mailto:info@visionprint.vn">info@visionprint.vn</a>
+                </li>
+              </ul>
+              <div class="mt-4">
+                <p class="fw-600 mb-2" style="font-size: 0.85rem">
+                  Nhận ưu đãi mới nhất:
+                </p>
+                <div class="vp-newsletter-form">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn..."
+                    class="vp-newsletter-input"
+                    id="newsletterEmail"
+                  />
+                  <button class="vp-newsletter-btn" id="newsletterBtn">
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vp-footer-bottom">
+        <div class="container-xl">
+          <div class="row align-items-center g-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 text-muted" style="font-size: 0.8rem">
+                © 2026 Vision-Print VN. Thiết kế bởi
+                <strong>The Precision Architect</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <span class="text-muted me-2" style="font-size: 0.8rem"
+                >Thanh toán:</span
+              >
+              <span class="vp-pay-badge">Visa</span>
+              <span class="vp-pay-badge">MasterCard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating -->
+    <div class="vp-floating-actions">
+      <a
+        href="https://zalo.me/0901234567"
+        class="vp-fab vp-fab--zalo"
+        title="Chat Zalo"
+        target="_blank"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+      </a>
+      <button
+        class="vp-fab vp-fab--top"
+        id="scrollTopBtn"
+        style="display: none"
+        title="Lên đầu"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      "use strict";
+
+      // ═══════════════════════════════════════════════════════
+      //  SESSION
+      // ═══════════════════════════════════════════════════════
+      const SESSION_KEY = "vp_session";
+
+      function getSession() {
+        return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+      }
+      function clearSession() {
+        localStorage.removeItem(SESSION_KEY);
+      }
+
+      // Render auth area in header
+      function renderAuthArea() {
+        const session = getSession();
+        const area = document.getElementById("authArea");
+        if (!area) return;
+
+        if (session) {
+          const initials = session.name
+            .split(" ")
+            .map((w) => w[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+          area.innerHTML = `
+            <div class="dropdown">
+                <a class="vp-user-menu dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="vp-avatar">${initials}</div>
+                    <span class="vp-user-name d-none d-md-block">${session.name.split(" ").pop()}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow" style="border-radius:14px;border:1px solid var(--slate-200);padding:8px;min-width:220px;">
+                    <li>
+                        <div class="px-3 py-2 mb-1" style="border-bottom:1px solid var(--slate-100);">
+                            <p class="fw-700 mb-0" style="font-size:0.875rem;">${session.name}</p>
+                            <p class="text-muted mb-0" style="font-size:0.75rem;">${session.email}</p>
+                        </div>
+                    </li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="login.html" style="font-size:0.85rem;"><i class="bi bi-person me-2"></i>Tài khoản của tôi</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="cart.html" style="font-size:0.85rem;"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="products.html" style="font-size:0.85rem;"><i class="bi bi-heart me-2"></i>Yêu thích</a></li>
+                    <li><hr class="dropdown-divider my-1"></li>
+                    <li><button class="dropdown-item rounded-2 py-2 text-danger" id="logoutBtn" style="font-size:0.85rem;"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</button></li>
+                </ul>
+            </div>`;
+
+          document
+            .getElementById("logoutBtn")
+            ?.addEventListener("click", () => {
+              clearSession();
+              showToast("Đã đăng xuất.", "info");
+              setTimeout(() => renderAuthArea(), 300);
+            });
+        } else {
+          area.innerHTML = `<a href="login.html" class="vp-btn-outline-sm"><i class="bi bi-person me-1"></i>Đăng nhập</a>`;
+        }
+      }
+      renderAuthArea();
+
+      // ═══════════════════════════════════════════════════════
+      //  CART (LocalStorage)
+      // ═══════════════════════════════════════════════════════
+      const CART_KEY = "vp_cart";
+      const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
+      function readSharedCart() {
+        try {
+          const localCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+          if (Array.isArray(localCart) && localCart.length) return localCart;
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return [];
+        try {
+          const state = JSON.parse(window.name || "{}");
+          return Array.isArray(state[CART_KEY]) ? state[CART_KEY] : [];
+        } catch {}
+        return [];
+      }
+      function writeSharedCart(nextCart) {
+        const safeCart = Array.isArray(nextCart) ? nextCart : [];
+        try {
+          localStorage.setItem(CART_KEY, JSON.stringify(safeCart));
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return;
+        try {
+          const state = JSON.parse(window.name || "{}");
+          state[CART_KEY] = safeCart;
+          window.name = JSON.stringify(state);
+        } catch {
+          window.name = JSON.stringify({ [CART_KEY]: safeCart });
+        }
+      }
+      let cart = readSharedCart();
+      function saveCart() {
+        writeSharedCart(cart);
+      }
+      function toNumberPrice(value) {
+        if (typeof value === "number") return value;
+        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
+      }
+      function updateCartCount() {
+        const count = cart.reduce((s, i) => s + (Number(i.qty) || 0), 0);
+        document.getElementById("cartCountDesktop").textContent = count;
+        document.getElementById("cartCountMobile").textContent = count;
+      }
+      updateCartCount();
+
+      function addToCart(product, qty = 1) {
+        const existing = cart.find((i) => i.id === product.id);
+        const safeQty = Math.max(1, Number(qty) || 1);
+        if (existing) {
+          existing.qty = Math.min(99, (Number(existing.qty) || 0) + safeQty);
+          existing.price = toNumberPrice(existing.price || product.price);
+          existing.sub = existing.sub || product.type || product.sub || "";
+          existing.img = existing.img || product.img || "";
+        } else {
+          cart.push({
+            ...product,
+            price: toNumberPrice(product.price),
+            sub: product.type || product.sub || "",
+            qty: Math.min(99, safeQty),
+          });
+        }
+        saveCart();
+        updateCartCount();
+      }
+
+      ["cartBtnMobile", "cartBtnDesktop"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("click", () => {
+          window.location.href = "cart.html";
+        });
+      });
+
+      // ═══════════════════════════════════════════════════════
+      //  PRODUCTS DATA
+      // ═══════════════════════════════════════════════════════
+      const products = [
+        {
+          id: "p1",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          type: "Wide Format",
+          name: "Ricoh MP CW2200SP",
+          price: "145.000.000",
+          badge: "new",
+          badgeText: "New",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQt21Y-z3wJkuarZMh8paukdDxb-L3XU0XEfReNi76dacU8QpvyagDXTLfCEiDdWL5n-kan3lZYAoquPvi-rJrx_n25LI2ECJFdDLIfNOghAuXBa5S-tbzvlTeeVS6k85LuTT9dFbt8iy10rCa58NisR-hyvcc3XjxDQtYcGVwy6VpNMGRiTp8IlXlCzGr_28Qeb7xlqQWLzoZ28sRiFq2fWBBB_RR8YbzKxBVYDnjqK0Nk6rLjArHluAQ4UUyPkbhcffPorg8zw",
+          link: "index.html",
+        },
+        {
+          id: "p2",
+          brand: "xerox",
+          brandLabel: "XEROX",
+          type: "Monochrome",
+          name: "Xerox VersaLink B7025",
+          price: "19.200.000",
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAqCr0uapVWtUft5j1cxh7ptky6-WwpxJJp4P1PykNF-mdr8qvG7wjwIxwpcfR77CMGBskgbyLOnwDOfIMiCKS32fUQ2WX14KJ7WPI6jWAAinkZc6HWQp_M2IVSb9HHui31gEWJOA4eyrm2abo_pKwKN8t4NqJ6y_HQUfnOuus5ukD4cKKELNp4iEzm8Z6ZxNnCSBS9VbGggKBUAMR4SOrVeD-pVKGzhAlCa_xQioePROF5_pPZ95EeALDeQ9xECS8KXbOTOhs_iQ",
+          link: "index3.html",
+        },
+        {
+          id: "p3",
+          brand: "hp",
+          brandLabel: "HP",
+          type: "Enterprise",
+          name: "HP LaserJet M880z+",
+          price: "45.900.000",
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLjtE5mLv6_cXwlf4NgHq1VVXrcW6jBdhmKlw5GxRrapyls0cEOiNI4_AG92sk0rpDwmHnCk1kaSaUtSBymh_2n8u1_opIqhdEY0kWqU8qEycUgSlJA3iBTohEzi_RWQlRxTkLJdeB_qyfMISTzQ2y1qjmKnvL6CgGIH8DhWdis454MFrfbS2FUOXT-pnEUOey1xb9nL8AFXHrAoJvcNMmQEAoK9xgq1CP-bJjDkKPaxRzGESdKjC_V8gy0VoLFEr_Q-Ed5qm42g",
+          link: "index4.html",
+        },
+        {
+          id: "p4",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          type: "Industrial",
+          name: "Ricoh Pro C5300s Series",
+          price: "112.000.000",
+          badge: "new",
+          badgeText: "New",
+          img: "../img/Rioch-Pro-C5300S.jpg",
+          link: "index2.html",
+        },
+        {
+          id: "p5",
+          brand: "canon",
+          brandLabel: "CANON",
+          type: "Color A3",
+          name: "Canon imageRUNNER C3730",
+          price: "35.000.000",
+          badge: "sale",
+          badgeText: "Sale",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnTk4v6GIKKHRrvGiye71hqQu5jW0WWlAENy7e5SgYuHBajNlJyMOSokTZGxL83_GSTn_EDAb8lB8hb1CH5-xGuuvs5Sw8lMTOxAc69u7kNnf23AMqFZvVPucqomuEJVc7zIY1Rw4xa0lwJ6D9I4KphVPJXW4rHOWUx-GPkjnqWx1tspzaKDc0FY82urf_SDytt1Pi1gppGQ4n5qqbm25F680XB6ewglw0S2VJmURs8t1HA74DFT-TpYxEaxig8Y0Y9R2clT6t8w",
+          link: "index2.html",
+        },
+        {
+          id: "p6",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          type: "Color Laser",
+          name: "Ricoh IM C3500 Smart Gen",
+          price: "28.500.000",
+          badge: "hot",
+          badgeText: "Bán chạy",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD7Ea72Nq8ffjFqRcRvD_i2DO_W_bOwiHao5yHTkGfxdEv9e9gVGtfA_KwsfJRofjLIsdzePJpClLbnwTzVLUv8XFYEkKs0gkIbV2frfQQjltEoBn9JweoKd2SYqQzy8vYOHFByq8HbqGfApbL-_FwpyLPCcKbhE_27_nPGy4q5-AZJeDedMJhK5XaBIZxR2LwKPTShrGmISjAX48vp-spcBbAdUqsSZ_jSFuTKP9-V2SAedJHgIsdE7D3aWrynmVOwiJKdkAx5Cw",
+          link: "index2.html",
+        },
+        {
+          id: "p7",
+          brand: "hp",
+          brandLabel: "HP",
+          type: "Wide Format",
+          name: "HP DesignJet T830 MFP",
+          price: "52.000.000",
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3SGWs-0G7enbw45RTZD4JVu9_1NTjlu2YBFluHZwdXs3bJMl2RsvjCyXIVCREZJj9qNMzlWlUKuXWOKc9ES5Rpe_R7MKLW3rkS7ZsFb4FgsW2NRNl7MjBryPPIYD_Gx8ngKSjUzKfZuyGEK5rLoKAmjaQcmdR9Jqu6sbxHBoFB1ieCrfgOkEseqtGWwUJ1t9IWAcdF8P6aoc5sxedXeYuozEP4l4HWj_jfxXVjl_iIJdrUtDACTnQEuYbAj9DqA8dfH9AwtEhbA",
+          link: "index2.html",
+        },
+        {
+          id: "p8",
+          brand: "xerox",
+          brandLabel: "XEROX",
+          type: "Color A3",
+          name: "Xerox AltaLink C8145",
+          price: "78.000.000",
+          badge: "hot",
+          badgeText: "Hot",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDGZD7CCQTn-YLfkhDUvp7qvxt87GIV12fDZreyYr9JUnuvg9pht63bamknZEK2-nBLDtd8ougt9eig7-QE18Rx5PSOX34uMEpPffffh5ZGipwfc95Jt-n7zi3nJyP8VmGJLTqoAbT5H7SmnRldrrenxvQ_D0LxHcRtxIDztjS3a-gCy3pVgafzY5mHtvkbcb9r_4EG43-UvsQoVUs8ogANryWllbdvPpdQQnT0OWOhqtGqKl4ucxnsIm7xgIuu6tDoTYtc84Q_rA",
+          link: "index2.html",
+        },
+      ];
+
+      let currentFilter = "all";
+
+      function renderProducts(filter) {
+        const grid = document.getElementById("productGrid");
+        const filtered =
+          filter === "all"
+            ? products
+            : products.filter((p) => p.brand === filter);
+
+        grid.innerHTML = filtered
+          .map(
+            (p) => `
+        <div class="col-6 col-lg-3 fade-up">
+            <div class="vp-product-card">
+                <div class="vp-product-img">
+                    ${p.badge ? `<span class="vp-product-badge ${p.badge}">${p.badgeText}</span>` : ""}
+                    <img src="${p.img}" alt="${p.name}" loading="lazy">
+                </div>
+                <span class="vp-brand-tag">${p.brandLabel}</span>
+                <span class="text-muted" style="font-size:0.72rem;font-style:italic;margin-left:6px;">${p.type}</span>
+                <h3 class="vp-product-name mt-1">${p.name}</h3>
+                <p class="vp-product-price mb-3">${p.price}<sup>₫</sup></p>
+                <div class="d-flex gap-2">
+                    <a href="${p.link}" class="vp-btn-detail text-center text-decoration-none">Chi tiết</a>
+                    <button class="vp-btn-cart" data-id="${p.id}" title="Thêm vào giỏ">
+                        <i class="bi bi-bag-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `,
+          )
+          .join("");
+
+        // Attach cart events
+        grid.querySelectorAll(".vp-btn-cart").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const id = this.dataset.id;
+            const p = products.find((x) => x.id === id);
+            addToCart(p);
+            this.classList.add("added");
+            this.innerHTML = '<i class="bi bi-check-lg"></i>';
+            showToast(`✅ Đã thêm "${p.name}" vào giỏ!`, "success");
+            setTimeout(() => {
+              this.classList.remove("added");
+              this.innerHTML = '<i class="bi bi-bag-plus"></i>';
+            }, 1600);
+          });
+        });
+      }
+      renderProducts("all");
+
+      // Filter tabs
+      document.getElementById("filterTabs").addEventListener("click", (e) => {
+        const tab = e.target.closest(".vp-filter-tab");
+        if (!tab) return;
+        document
+          .querySelectorAll(".vp-filter-tab")
+          .forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        currentFilter = tab.dataset.filter;
+        renderProducts(currentFilter);
+      });
+
+      // ═══════════════════════════════════════════════════════
+      //  HERO CAROUSEL (3 slides, auto-advance)
+      // ═══════════════════════════════════════════════════════
+      const heroSlides = [
+        {
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBumEAPZrgTJWk7NdI-baGaVdEXaDMUi3s9gcrgBnIfiQiSJ5haT8pw1IIIQWYij1uI3u37ilJhO8JpkB8ym2QwSsgDpm5-7ORAM7BdT7gA9yy0kOkS93Z8J5QWOkV-czJlRqJqxXdZlufNoAVz0KTZxdA8phSx9uAExVM2SJFpms6AYYkikMrhMlISinNG5DdyuHYOdrgIknuuVC5e2ww6wpHiA9DhOepwfop4q4IGvTG7rY0Vm-xAu40uQsf1TvXbGFydxAPGkw",
+          label: "Thê hệ mới 2026",
+          title:
+            'Máy Photocopy Ricoh<br><span class="gradient-span">Thế Hệ Mới.</span>',
+          desc: "Trải nghiệm sự chính xác tuyệt đối và hiệu suất không giới hạn với công nghệ in ấn tiên tiến nhất từ Nhật Bản.",
+          cta1: {
+            text: "Xem sản phẩm",
+            href: "#products",
+            icon: "bi-grid-3x3-gap-fill",
+          },
+          cta2: {
+            text: "Giải pháp doanh nghiệp",
+            href: "#services",
+            icon: "bi-briefcase",
+          },
+        },
+        {
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQt21Y-z3wJkuarZMh8paukdDxb-L3XU0XEfReNi76dacU8QpvyagDXTLfCEiDdWL5n-kan3lZYAoquPvi-rJrx_n25LI2ECJFdDLIfNOghAuXBa5S-tbzvlTeeVS6k85LuTT9dFbt8iy10rCa58NisR-hyvcc3XjxDQtYcGVwy6VpNMGRiTp8IlXlCzGr_28Qeb7xlqQWLzoZ28sRiFq2fWBBB_RR8YbzKxBVYDnjqK0Nk6rLjArHluAQ4UUyPkbhcffPorg8zw",
+          label: "Máy in khổ lớn A0",
+          title:
+            'Ricoh MP CW2200SP<br><span class="gradient-span">In A0 siêu tốc.</span>',
+          desc: "Giải pháp in ấn kỹ thuật số khổ lớn toàn diện cho văn phòng kiến trúc & xây dựng hiện đại.",
+          cta1: {
+            text: "Chi tiết sản phẩm",
+            href: "index.html",
+            icon: "bi-eye",
+          },
+          cta2: {
+            text: "Yêu cầu báo giá",
+            href: "#",
+            icon: "bi-chat-left-text",
+          },
+        },
+        {
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD7Ea72Nq8ffjFqRcRvD_i2DO_W_bOwiHao5yHTkGfxdEv9e9gVGtfA_KwsfJRofjLIsdzePJpClLbnwTzVLUv8XFYEkKs0gkIbV2frfQQjltEoBn9JweoKd2SYqQzy8vYOHFByq8HbqGfApbL-_FwpyLPCcKbhE_27_nPGy4q5-AZJeDedMJhK5XaBIZxR2LwKPTShrGmISjAX48vp-spcBbAdUqsSZ_jSFuTKP9-V2SAedJHgIsdE7D3aWrynmVOwiJKdkAx5Cw",
+          label: "Bảo hành vàng 5 năm",
+          title: 'Dịch vụ <span class="gradient-span">24/7</span><br>tận tâm.',
+          desc: "Đội ngũ kỹ thuật viên chuyên nghiệp, cam kết có mặt trong 2 giờ tại nội thành TP.HCM.",
+          cta1: {
+            text: "Gọi ngay",
+            href: "tel:0901234567",
+            icon: "bi-telephone-fill",
+          },
+          cta2: { text: "Xem dịch vụ", href: "#services", icon: "bi-gear" },
+        },
+      ];
+
+      let currentSlide = 0;
+      let slideTimer;
+
+      function goToSlide(idx) {
+        currentSlide = (idx + heroSlides.length) % heroSlides.length;
+        const s = heroSlides[currentSlide];
+        const img = document.getElementById("heroImg");
+
+        // Fade image
+        img.style.opacity = "0";
+        img.style.transition = "opacity 0.4s";
+        setTimeout(() => {
+          img.src = s.img;
+          img.style.opacity = "1";
+        }, 350);
+
+        // Update content
+        document.getElementById("heroContent").innerHTML = `
+        <div class="vp-hero-label fade-up"><i class="bi bi-stars me-1"></i>${s.label}</div>
+        <h1 class="vp-hero-title fade-up d1">${s.title}</h1>
+        <p class="vp-hero-desc fade-up d2">${s.desc}</p>
+        <div class="d-flex gap-3 flex-wrap fade-up d3">
+            <a href="${s.cta1.href}" class="vp-hero-btn-primary"><i class="bi ${s.cta1.icon}"></i> ${s.cta1.text}</a>
+            <a href="${s.cta2.href}" class="vp-hero-btn-ghost"><i class="bi ${s.cta2.icon}"></i> ${s.cta2.text}</a>
+        </div>`;
+
+        // Dots
+        document
+          .querySelectorAll(".vp-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === currentSlide));
+      }
+
+      function startSlideTimer() {
+        clearInterval(slideTimer);
+        slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+      }
+
+      document.querySelectorAll(".vp-dot").forEach((dot) => {
+        dot.addEventListener("click", () => {
+          goToSlide(+dot.dataset.slide);
+          startSlideTimer();
+        });
+      });
+      startSlideTimer();
+
+      // ═══════════════════════════════════════════════════════
+      //  SEARCH TOGGLE
+      // ═══════════════════════════════════════════════════════
+      const searchBar = document.getElementById("searchBar");
+      const searchInput = document.getElementById("headerSearchInput");
+
+      document
+        .getElementById("searchToggleBtn")
+        .addEventListener("click", () => {
+          searchBar.classList.toggle("open");
+          if (searchBar.classList.contains("open"))
+            setTimeout(() => searchInput.focus(), 100);
+        });
+      document
+        .getElementById("searchCloseBtn")
+        .addEventListener("click", () => searchBar.classList.remove("open"));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") searchBar.classList.remove("open");
+      });
+
+      // ═══════════════════════════════════════════════════════
+      //  SCROLL TO TOP
+      // ═══════════════════════════════════════════════════════
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollTopBtn.style.display = window.scrollY > 500 ? "flex" : "none";
+      });
+      scrollTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      // ═══════════════════════════════════════════════════════
+      //  NEWSLETTER
+      // ═══════════════════════════════════════════════════════
+      document.getElementById("newsletterBtn").addEventListener("click", () => {
+        const email = document.getElementById("newsletterEmail").value.trim();
+        if (!email || !email.includes("@")) {
+          showToast("Vui lòng nhập email hợp lệ.", "warning");
+          return;
+        }
+        showToast("✅ Đăng ký thành công! Cảm ơn bạn.", "success");
+        document.getElementById("newsletterEmail").value = "";
+      });
+
+      // ═══════════════════════════════════════════════════════
+      //  TOAST
+      // ═══════════════════════════════════════════════════════
+      function showToast(message, type = "success") {
+        const colors = {
+          success: "#16a34a",
+          info: "#0066FF",
+          warning: "#d97706",
+          error: "#dc2626",
+        };
+        const old = document.getElementById("vp-toast");
+        if (old) old.remove();
+
+        const t = document.createElement("div");
+        t.id = "vp-toast";
+        t.style.cssText = `
+        position:fixed;bottom:84px;left:50%;transform:translateX(-50%);
+        background:${colors[type]};color:#fff;padding:12px 24px;
+        border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;
+        font-size:0.875rem;font-weight:600;z-index:9999;
+        box-shadow:0 8px 32px rgba(0,0,0,0.2);white-space:nowrap;
+        max-width:92vw;overflow:hidden;text-overflow:ellipsis;
+        animation:toastIn 0.3s ease forwards;`;
+        t.textContent = message;
+        const s = document.createElement("style");
+        s.textContent =
+          "@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}";
+        document.head.appendChild(s);
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transition = "opacity 0.3s";
+          setTimeout(() => t.remove(), 320);
+        }, 2800);
+      }
+    </script>
+  </body>
+</html>
+
+
+
+

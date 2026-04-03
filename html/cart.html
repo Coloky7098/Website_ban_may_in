@@ -1,0 +1,3380 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng & Thanh toán | Vision-Print VN</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════
+       VISION-PRINT VN — DESIGN SYSTEM 
+    ═══════════════════════════════════════════════ */
+      :root {
+        --brand: #0066ff;
+        --brand-dark: #0050cb;
+        --brand-light: #e6f0ff;
+        --brand-glow: rgba(0, 102, 255, 0.18);
+        --tertiary: #5b21b6;
+        --dark: #0f172a;
+        --slate-800: #1e293b;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+        --slate-300: #cbd5e1;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --success: #16a34a;
+        --warning: #d97706;
+        --error: #dc2626;
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 24px;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+        --shadow-brand: 0 8px 32px rgba(0, 102, 255, 0.25);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--slate-50);
+        color: var(--dark);
+        -webkit-font-smoothing: antialiased;
+      }
+      .fw-800 {
+        font-weight: 800 !important;
+      }
+      .fw-700 {
+        font-weight: 700 !important;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── ANNOUNCEMENT BAR ───────────────────────── */
+      .vp-announcement-bar {
+        background: linear-gradient(135deg, var(--brand), #5b21b6);
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1031;
+      }
+      .vp-badge-pill {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      .vp-announcement-text strong {
+        font-weight: 700;
+      }
+      .vp-close-announcement {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      .vp-close-announcement:hover {
+        color: #fff;
+      }
+
+      /* ── HEADER ─────────────────────────────────── */
+      .vp-header {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--slate-200);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        transition: background 0.3s;
+        z-index: 1030;
+      }
+      .vp-header .navbar {
+        min-height: 68px;
+      }
+      .vp-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--dark) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .vp-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--brand), #5b21b6);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
+      }
+      .vp-logo-icon--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-radius: 8px;
+      }
+      .vp-nav-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--slate-600) !important;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: var(--radius-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-nav-link:hover,
+      .vp-nav-link.active {
+        color: var(--brand) !important;
+        background: var(--brand-light);
+      }
+      .vp-mega-menu {
+        min-width: 580px;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: 8px !important;
+      }
+      .vp-menu-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .vp-dd-item {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .vp-dd-item:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-menu-promo {
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+        border: 1px dashed var(--slate-200);
+      }
+      .vp-link-arrow {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-link-arrow:hover {
+        text-decoration: underline;
+      }
+      .vp-icon-btn {
+        width: 38px;
+        height: 38px;
+        background: var(--slate-100);
+        border: none;
+        border-radius: 10px;
+        color: var(--slate-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1rem;
+        text-decoration: none;
+      }
+      .vp-icon-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+      }
+      .vp-btn-outline-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        color: var(--dark);
+        text-decoration: none;
+        background: var(--white);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-outline-sm:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-btn-primary-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), #5b21b6);
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-primary-sm:hover {
+        opacity: 0.9;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+      .vp-toggler {
+        border: none;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 6px 9px;
+        box-shadow: none !important;
+      }
+      .vp-search-bar {
+        display: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--slate-200);
+        backdrop-filter: blur(10px);
+      }
+      .vp-search-bar.open {
+        display: block;
+      }
+      .vp-search-inner {
+        position: relative;
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .vp-search-icon {
+        position: absolute;
+        left: 16px;
+        color: var(--slate-400);
+        font-size: 1rem;
+      }
+      .vp-search-input {
+        width: 100%;
+        padding: 12px 50px 12px 46px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        background: var(--slate-50);
+        outline: none;
+        color: var(--dark);
+        transition: border-color 0.2s;
+      }
+      .vp-search-input:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      .vp-search-close {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .vp-search-close:hover {
+        color: var(--dark);
+      }
+
+      /* ── BREADCRUMB ─────────────────────────────── */
+      .vp-breadcrumb {
+        font-size: 0.8rem;
+      }
+      .vp-breadcrumb .breadcrumb-item a {
+        color: var(--slate-400);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .vp-breadcrumb .breadcrumb-item a:hover {
+        color: var(--brand);
+      }
+      .vp-breadcrumb .breadcrumb-item.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+      .vp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--slate-300);
+      }
+
+      /* ═══════════════════════════════════════════════
+       CART PAGE — SPECIFIC STYLES
+    ═══════════════════════════════════════════════ */
+
+      /* ── STEP INDICATOR ─────────────────────────── */
+      .vp-steps {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.5rem;
+      }
+      .vp-step {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--slate-400);
+      }
+      .vp-step.active {
+        color: var(--brand);
+      }
+      .vp-step.done {
+        color: var(--success);
+      }
+      .vp-step-num {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--slate-200);
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 800;
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+      .vp-step.active .vp-step-num {
+        background: var(--brand);
+        color: #fff;
+        box-shadow: 0 0 0 4px var(--brand-light);
+      }
+      .vp-step.done .vp-step-num {
+        background: var(--success);
+        color: #fff;
+      }
+      .vp-step-line {
+        flex: 1;
+        height: 2px;
+        background: var(--slate-200);
+        margin: 0 8px;
+        min-width: 24px;
+        transition: background 0.3s;
+      }
+      .vp-step-line.done {
+        background: var(--success);
+      }
+
+      /* ── SECTION NUM ────────────────────────────── */
+      .vp-section-num {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      /* ── FORM INPUTS ────────────────────────────── */
+      .vp-input {
+        width: 100%;
+        padding: 13px 16px;
+        background: var(--slate-100);
+        border: 1.5px solid transparent;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        color: var(--dark);
+        outline: none;
+        transition: all 0.2s;
+      }
+      .vp-input:focus {
+        background: var(--white);
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+      }
+      .vp-input.error {
+        border-color: var(--error);
+        background: #fff5f5;
+      }
+      .vp-input-wrap {
+        position: relative;
+      }
+      .vp-input-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--slate-400);
+        font-size: 1rem;
+        pointer-events: none;
+      }
+      .vp-input.with-icon {
+        padding-left: 42px;
+      }
+      .vp-label {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--slate-600);
+        margin-bottom: 6px;
+      }
+      .vp-field-err {
+        font-size: 0.75rem;
+        color: var(--error);
+        font-weight: 600;
+        margin-top: 5px;
+        display: none;
+      }
+      .vp-field-err.show {
+        display: block;
+      }
+
+      /* ── PAYMENT METHOD CARDS ───────────────────── */
+      .vp-pay-card {
+        cursor: pointer;
+        border-radius: var(--radius);
+        border: 2px solid var(--slate-200);
+        background: var(--white);
+        padding: 1.25rem;
+        transition: all 0.2s;
+        position: relative;
+      }
+      .vp-pay-card:hover {
+        border-color: rgba(0, 102, 255, 0.4);
+      }
+      .vp-pay-card.selected {
+        border-color: var(--brand);
+        background: var(--brand-light);
+        box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+      }
+      .vp-pay-card input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .vp-pay-check {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 2px solid var(--slate-300);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+      .vp-pay-card.selected .vp-pay-check {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .vp-pay-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+
+      /* Bank details panel */
+      .vp-bank-detail {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        display: none;
+      }
+      .vp-bank-detail.show {
+        display: block;
+      }
+      .vp-bank-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--slate-100);
+        font-size: 0.875rem;
+      }
+      .vp-bank-row:last-child {
+        border-bottom: none;
+      }
+      .vp-copy-btn {
+        background: none;
+        border: none;
+        color: var(--brand);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+      .vp-copy-btn:hover {
+        background: var(--brand-light);
+      }
+
+      /* Card / MoMo panels */
+      .vp-card-panel {
+        display: none;
+        margin-top: 1rem;
+      }
+      .vp-card-panel.show {
+        display: block;
+      }
+      .vp-momo-panel {
+        display: none;
+        margin-top: 1rem;
+      }
+      .vp-momo-panel.show {
+        display: block;
+      }
+
+      /* ── CART ITEMS ─────────────────────────────── */
+      .vp-cart-item {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 1rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--slate-100);
+        transition: background 0.15s;
+      }
+      .vp-cart-item:first-child {
+        padding-top: 0;
+      }
+      .vp-cart-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .vp-cart-item:hover {
+        background: transparent;
+      }
+
+      .vp-item-img {
+        width: 96px;
+        height: 96px;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--slate-50), #f0f4ff);
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border: 1px solid var(--slate-200);
+        position: relative;
+      }
+      .vp-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .vp-cart-item:hover .vp-item-img img {
+        transform: scale(1.06);
+      }
+
+      .vp-item-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+      }
+      .vp-item-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .vp-item-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .vp-item-price-line {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .vp-qty-ctrl {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        overflow: hidden;
+        background: var(--slate-50);
+        flex-shrink: 0;
+      }
+      .vp-qty-btn {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        color: var(--slate-500);
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+      .vp-qty-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-qty-val {
+        min-width: 34px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 0.875rem;
+        color: var(--dark);
+        border-left: 1px solid var(--slate-200);
+        border-right: 1px solid var(--slate-200);
+        line-height: 32px;
+      }
+      .vp-remove-btn {
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: 1.5px solid var(--slate-200);
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        transition: all 0.2s;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vp-remove-btn:hover {
+        color: var(--error);
+        background: #fef2f2;
+        border-color: #fecaca;
+      }
+
+      /* Empty cart */
+      .vp-empty-cart {
+        text-align: center;
+        padding: 3.5rem 1rem;
+        display: none;
+      }
+      .vp-empty-cart.show {
+        display: block;
+      }
+      .vp-empty-icon {
+        font-size: 4.5rem;
+        margin-bottom: 1rem;
+        display: block;
+        background: linear-gradient(135deg, var(--slate-300), var(--slate-400));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── ORDER SUMMARY ──────────────────────────── */
+      .vp-summary-card {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        position: sticky;
+        top: 90px;
+      }
+      .vp-summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        border-bottom: 1px dashed var(--slate-100);
+      }
+      .vp-summary-row:last-child {
+        border-bottom: none;
+      }
+      .vp-summary-total {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .vp-coupon-row {
+        display: flex;
+        gap: 8px;
+      }
+      .vp-coupon-input {
+        flex: 1;
+        padding: 10px 14px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s;
+        background: var(--slate-50);
+      }
+      .vp-coupon-input:focus {
+        border-color: var(--brand);
+        background: var(--white);
+      }
+      .vp-coupon-btn {
+        background: var(--brand-light);
+        color: var(--brand);
+        border: none;
+        border-radius: 10px;
+        padding: 10px 18px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+        white-space: nowrap;
+      }
+      .vp-coupon-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+
+      /* ── PAY BUTTON ─────────────────────────────── */
+      .vp-btn-pay {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: var(--shadow-brand);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          opacity 0.2s;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .vp-btn-pay:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 36px rgba(0, 102, 255, 0.35);
+      }
+      .vp-btn-pay:active {
+        transform: scale(0.98);
+      }
+      .vp-btn-pay:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .vp-btn-pay .spinner {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-top-color: #fff;
+        animation: spin 0.7s linear infinite;
+        display: none;
+      }
+      .vp-btn-pay.loading .spinner {
+        display: block;
+      }
+      .vp-btn-pay.loading .btn-label {
+        display: none;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── PROGRESS BAR ───────────────────────────── */
+      .vp-progress-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        height: 3px;
+        display: none;
+      }
+      .vp-progress-wrap.show {
+        display: block;
+      }
+      .vp-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--brand), var(--tertiary));
+        border-radius: 2px;
+        animation: pgbar 2s ease forwards;
+      }
+      @keyframes pgbar {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* ── SUCCESS MODAL ──────────────────────────── */
+      .vp-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(6px);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .vp-modal-overlay.show {
+        display: flex;
+      }
+      .vp-modal-box {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+        max-width: 540px;
+        width: 100%;
+        animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards;
+        max-height: 92vh;
+        overflow-y: auto;
+      }
+      @keyframes modalPop {
+        from {
+          opacity: 0;
+          transform: scale(0.85) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      .vp-success-banner {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        padding: 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .vp-success-banner::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 50%;
+        top: -100px;
+        right: -80px;
+      }
+      .vp-success-icon {
+        width: 72px;
+        height: 72px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #fff;
+        animation: popIn 0.5s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      }
+      @keyframes popIn {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* ── INVOICE ────────────────────────────────── */
+      .vp-invoice {
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin: 1.25rem;
+      }
+      .vp-invoice-header {
+        background: var(--slate-50);
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--slate-200);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .vp-invoice-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 1.25rem;
+        font-size: 0.82rem;
+      }
+      .vp-invoice-row:nth-child(odd) {
+        background: var(--slate-50);
+      }
+      .vp-invoice-total-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 1.25rem;
+        background: linear-gradient(
+          135deg,
+          var(--brand-light),
+          rgba(91, 33, 182, 0.08)
+        );
+        border-top: 2px solid var(--brand-light);
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: var(--brand);
+      }
+      .vp-invoice-actions {
+        padding: 1rem 1.25rem;
+        display: flex;
+        gap: 8px;
+        border-top: 1px solid var(--slate-100);
+      }
+
+      /* ── TRUST BADGES ───────────────────────────── */
+      .vp-trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        color: var(--slate-600);
+        font-weight: 500;
+      }
+      .vp-trust-badge i {
+        color: var(--success);
+        font-size: 1rem;
+      }
+
+      /* ── FOOTER ─────────────────────────────────── */
+      .vp-footer {
+        background: var(--white);
+        border-top: 1px solid var(--slate-200);
+      }
+      .vp-footer-main {
+        padding: 4rem 0 3rem;
+      }
+      .vp-footer-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .vp-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-links li + li {
+        margin-top: 6px;
+      }
+      .vp-footer-links a {
+        color: var(--slate-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .vp-footer-links a:hover {
+        color: var(--brand);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .vp-footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        margin-bottom: 8px;
+      }
+      .vp-footer-contact i {
+        color: var(--brand);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .vp-footer-contact a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-hotline-card {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+      .vp-hotline-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--brand-light);
+        border-radius: 10px;
+        color: var(--brand);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-social-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--slate-100);
+        border-radius: 9px;
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+      .vp-social-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-newsletter-form {
+        display: flex;
+        gap: 0;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .vp-newsletter-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        background: transparent;
+      }
+      .vp-newsletter-btn {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 9px 16px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .vp-newsletter-btn:hover {
+        background: var(--brand-dark);
+      }
+      .vp-footer-bottom {
+        border-top: 1px solid var(--slate-100);
+        padding: 1.25rem 0;
+      }
+      .vp-pay-badge {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-700);
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      /* ── FLOATING ACTIONS ───────────────────────── */
+      .vp-floating-actions {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .vp-fab {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .vp-fab:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .vp-fab--zalo {
+        background: #0068ff;
+        color: #fff;
+      }
+      .vp-fab--top {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      /* ── RESPONSIVE ─────────────────────────────── */
+      @media (max-width: 991px) {
+        .vp-mega-menu {
+          min-width: auto;
+        }
+        .vp-summary-card {
+          position: static;
+        }
+      }
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        .vp-invoice {
+          border: 1px solid #ccc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Progress bar -->
+    <div class="vp-progress-wrap" id="progressBar">
+      <div class="vp-progress-bar"></div>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <div id="announcement-bar" class="vp-announcement-bar no-print">
+      <div
+        class="container-xl d-flex justify-content-center align-items-center gap-3 py-2"
+      >
+        <span class="vp-badge-pill">🔥 HOT</span>
+        <span class="vp-announcement-text"
+          >Miễn phí lắp đặt tận nơi nội thành HCM – Gọi ngay:
+          <strong>0901 234 567</strong></span
+        >
+        <button
+          class="vp-close-announcement"
+          onclick="document.getElementById('announcement-bar').remove()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <header id="main-header" class="vp-header sticky-top no-print">
+      <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-xl">
+          <!-- Logo -->
+          <a class="navbar-brand vp-logo" href="home.html">
+            <span class="vp-logo-icon">VP</span>
+            <span>Vision<span class="text-primary">Print</span> VN</span>
+          </a>
+
+          <!-- Mobile: Cart + Toggler -->
+          <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
+            <a
+              href="cart.html"
+              class="vp-icon-btn position-relative"
+              style="background: var(--brand-light); color: var(--brand)"
+              title="Giỏ hàng"
+            >
+              <i class="bi bi-bag-fill"></i>
+              <span class="vp-cart-badge" id="cartBadgeTop">0</span>
+            </a>
+            <button
+              class="navbar-toggler vp-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- Nav links -->
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto gap-0 py-3 py-lg-0">
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="home.html">Trang Chủ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="about.html">Giới Thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="products.html"
+                  >Sản Phẩm</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="rental.html">Cho Thuê</a>
+              </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div
+              class="d-flex align-items-center gap-2 pb-3 pb-lg-0"
+              id="authArea"
+            >
+              <button class="vp-icon-btn" id="searchToggleBtn" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+              </button>
+              <a
+                href="cart.html"
+                class="vp-icon-btn position-relative d-none d-lg-flex"
+              >
+                <i class="bi bi-bag"></i>
+
+                <span class="vp-cart-badge" id="cartBadge">0</span>
+              </a>
+              <a href="login.html" class="vp-btn-outline-sm"
+                ><i class="bi bi-person me-1"></i>Đăng nhập</a
+              >
+              <a
+                href="tel:0901234567"
+                class="vp-btn-primary-sm d-none d-xl-flex"
+              >
+                <i class="bi bi-telephone-fill me-1"></i>0901 234 567
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="vp-search-bar" id="searchBar">
+        <div class="container-xl py-3">
+          <div class="vp-search-inner">
+            <i class="bi bi-search vp-search-icon"></i>
+            <input
+              type="text"
+              class="vp-search-input"
+              id="headerSearchInput"
+              placeholder="Tìm máy in, photocopy, máy quét..."
+              autocomplete="off"
+            />
+            <button class="vp-search-close" id="searchCloseBtn">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================== BREADCRUMB =================== -->
+    <div class="bg-white border-bottom py-2 no-print">
+      <div class="container-xl">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb vp-breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="home.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Sản Phẩm</a></li>
+            <li class="breadcrumb-item active">Giỏ hàng & Thanh toán</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ==================== MAIN ======================= -->
+    <main class="container-xl px-3 px-md-4 py-4 mt-2">
+      <!-- Page title -->
+      <div class="mb-4">
+        <h1
+          class="fw-800 mb-1"
+          style="font-size: clamp(1.7rem, 4vw, 2.6rem); letter-spacing: -0.02em"
+        >
+          Giỏ hàng & <span class="gradient-text">Thanh toán</span>
+        </h1>
+        <p class="text-muted mb-0" style="font-size: 0.95rem">
+          Hoàn tất đơn hàng với quy trình bảo mật và tinh gọn.
+        </p>
+      </div>
+
+      <!-- Step indicator -->
+      <div class="vp-steps mb-5 no-print" id="stepsBar">
+        <div class="vp-step active" id="step1">
+          <div class="vp-step-num" id="sn1">1</div>
+          <span class="d-none d-sm-inline">Giỏ hàng</span>
+        </div>
+        <div class="vp-step-line" id="line1"></div>
+        <div class="vp-step" id="step2">
+          <div class="vp-step-num" id="sn2">2</div>
+          <span class="d-none d-sm-inline">Thông tin</span>
+        </div>
+        <div class="vp-step-line" id="line2"></div>
+        <div class="vp-step" id="step3">
+          <div class="vp-step-num" id="sn3">3</div>
+          <span class="d-none d-sm-inline">Thanh toán</span>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-start">
+        <!-- ═══ LEFT: Steps ═══ -->
+        <div class="col-lg-7">
+          <!-- ════ STEP 1: GIỎ HÀNG ════ -->
+          <div id="panelCart">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h2 class="fw-800 mb-0" style="font-size: 1.2rem">
+                <i class="bi bi-bag me-2 text-primary"></i>Sản phẩm trong giỏ
+                <span
+                  class="badge rounded-pill ms-2"
+                  id="itemCountBadge"
+                  style="
+                    background: var(--brand-light);
+                    color: var(--brand);
+                    font-size: 0.72rem;
+                  "
+                  >0</span
+                >
+              </h2>
+              <button
+                class="btn btn-sm fw-700 text-danger"
+                id="clearCartBtn"
+                style="font-size: 0.8rem; border: none; background: none"
+              >
+                <i class="bi bi-trash3 me-1"></i>Xóa tất cả
+              </button>
+            </div>
+
+            <div
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+                border-radius: var(--radius-lg);
+                padding: 1.25rem;
+              "
+            >
+              <div id="cartItemsContainer"></div>
+              <div class="vp-empty-cart" id="emptyCart">
+                <div class="vp-empty-icon"><i class="bi bi-bag-x"></i></div>
+                <h5 class="fw-700 mb-2">Giỏ hàng trống</h5>
+                <p class="text-muted mb-4" style="font-size: 0.9rem">
+                  Bạn chưa có sản phẩm nào. Hãy khám phá các máy in của chúng
+                  tôi!
+                </p>
+                <a
+                  href="index.html"
+                  class="btn fw-700"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      var(--brand),
+                      var(--tertiary)
+                    );
+                    color: #fff;
+                    border-radius: 50px;
+                    padding: 12px 28px;
+                    font-size: 0.9rem;
+                    border: none;
+                  "
+                >
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Xem sản phẩm
+                </a>
+              </div>
+            </div>
+
+            <!-- Coupon -->
+            <div
+              class="mt-3 p-3 rounded-3"
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+              "
+            >
+              <label class="vp-label"
+                ><i class="bi bi-tag me-1"></i>Mã giảm giá</label
+              >
+              <div class="vp-coupon-row">
+                <input
+                  type="text"
+                  class="vp-coupon-input"
+                  id="couponInput"
+                  placeholder="Nhập mã (VD: VP2026, RICOH500)"
+                />
+                <button class="vp-coupon-btn" id="applyCouponBtn">
+                  Áp dụng
+                </button>
+              </div>
+              <div
+                id="couponMsg"
+                style="
+                  font-size: 0.78rem;
+                  font-weight: 600;
+                  margin-top: 6px;
+                  display: none;
+                "
+              ></div>
+            </div>
+
+            <div class="mt-4">
+              <button class="vp-btn-pay" id="toStep2Btn">
+                <span class="btn-label"
+                  ><i class="bi bi-arrow-right me-2"></i>Tiếp tục – Nhập thông
+                  tin</span
+                >
+                <div class="spinner"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- ════ STEP 2: THÔNG TIN KHÁCH HÀNG ════ -->
+          <div id="panelInfo" style="display: none">
+            <button
+              class="btn p-0 mb-3 d-flex align-items-center gap-2 text-muted fw-700"
+              id="backToCart"
+              style="
+                background: none;
+                border: none;
+                font-size: 0.85rem;
+                cursor: pointer;
+              "
+            >
+              <i class="bi bi-arrow-left"></i> Quay lại giỏ hàng
+            </button>
+
+            <!-- Thông tin khách -->
+            <div
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+                border-radius: var(--radius-lg);
+                padding: 1.75rem;
+              "
+            >
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="vp-section-num">1</div>
+                <h2 class="fw-800 mb-0" style="font-size: 1.2rem">
+                  Thông tin khách hàng
+                </h2>
+              </div>
+              <form id="infoForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="vp-label" for="custName">Họ và tên *</label>
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-person vp-input-icon"></i>
+                      <input
+                        type="text"
+                        class="vp-input with-icon"
+                        id="custName"
+                        placeholder="Nguyễn Văn A"
+                        autocomplete="name"
+                      />
+                    </div>
+                    <div class="vp-field-err" id="errName">
+                      Vui lòng nhập họ tên (ít nhất 2 ký tự).
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="vp-label" for="custPhone"
+                      >Số điện thoại *</label
+                    >
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-telephone vp-input-icon"></i>
+                      <input
+                        type="tel"
+                        class="vp-input with-icon"
+                        id="custPhone"
+                        placeholder="0901 234 567"
+                        autocomplete="tel"
+                      />
+                    </div>
+                    <div class="vp-field-err" id="errPhone">
+                      Số điện thoại không hợp lệ (VD: 0901234567).
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="vp-label" for="custEmail">Email</label>
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-envelope vp-input-icon"></i>
+                      <input
+                        type="email"
+                        class="vp-input with-icon"
+                        id="custEmail"
+                        placeholder="email@company.com"
+                        autocomplete="email"
+                      />
+                    </div>
+                    <div class="vp-field-err" id="errEmail">
+                      Email không hợp lệ.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="vp-label" for="custAddr"
+                      >Địa chỉ giao hàng *</label
+                    >
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-geo-alt vp-input-icon"></i>
+                      <input
+                        type="text"
+                        class="vp-input with-icon"
+                        id="custAddr"
+                        placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành"
+                      />
+                    </div>
+                    <div class="vp-field-err" id="errAddr">
+                      Vui lòng nhập địa chỉ đầy đủ.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="vp-label" for="custCompany"
+                      >Tên công ty</label
+                    >
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-building vp-input-icon"></i>
+                      <input
+                        type="text"
+                        class="vp-input with-icon"
+                        id="custCompany"
+                        placeholder="Công ty TNHH ABC"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="vp-label" for="custNote">Ghi chú</label>
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-chat-left-text vp-input-icon"></i>
+                      <input
+                        type="text"
+                        class="vp-input with-icon"
+                        id="custNote"
+                        placeholder="Giao buổi sáng, gọi trước..."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Thời gian giao hàng -->
+            <div
+              class="mt-3"
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+                border-radius: var(--radius-lg);
+                padding: 1.75rem;
+              "
+            >
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="vp-section-num">2</div>
+                <h2 class="fw-800 mb-0" style="font-size: 1.2rem">
+                  Thời gian giao hàng
+                </h2>
+              </div>
+              <div class="row g-2">
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3 selected"
+                    id="delivery1"
+                    onclick="selectDelivery('delivery1')"
+                  >
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="standard"
+                      checked
+                    />
+                    <div
+                      class="vp-pay-icon"
+                      style="background: var(--brand-light)"
+                    >
+                      <i class="bi bi-truck" style="color: var(--brand)"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700 mb-0" style="font-size: 0.9rem">
+                        Tiêu chuẩn
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        3–5 ngày làm việc
+                      </div>
+                      <div
+                        class="mt-1 fw-700"
+                        style="color: var(--success); font-size: 0.8rem"
+                      >
+                        Miễn phí
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3"
+                    id="delivery2"
+                    onclick="selectDelivery('delivery2')"
+                  >
+                    <input type="radio" name="delivery" value="express" />
+                    <div class="vp-pay-icon" style="background: #fef9c3">
+                      <i
+                        class="bi bi-lightning-fill"
+                        style="color: #854d0e"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700 mb-0" style="font-size: 0.9rem">
+                        Hỏa tốc
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        Trong ngày (nội thành HCM)
+                      </div>
+                      <div
+                        class="mt-1 fw-700"
+                        style="color: var(--warning); font-size: 0.8rem"
+                      >
+                        +500.000₫
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="vp-btn-pay" id="toStep3Btn">
+                <span class="btn-label"
+                  ><i class="bi bi-arrow-right me-2"></i>Tiếp tục – Chọn thanh
+                  toán</span
+                >
+                <div class="spinner"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- ════ STEP 3: THANH TOÁN ════ -->
+          <div id="panelPayment" style="display: none">
+            <button
+              class="btn p-0 mb-3 d-flex align-items-center gap-2 text-muted fw-700"
+              id="backToInfo"
+              style="
+                background: none;
+                border: none;
+                font-size: 0.85rem;
+                cursor: pointer;
+              "
+            >
+              <i class="bi bi-arrow-left"></i> Quay lại thông tin
+            </button>
+
+            <div
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+                border-radius: var(--radius-lg);
+                padding: 1.75rem;
+              "
+            >
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="vp-section-num">3</div>
+                <h2 class="fw-800 mb-0" style="font-size: 1.2rem">
+                  Phương thức thanh toán
+                </h2>
+              </div>
+
+              <div class="row g-3" id="paymentMethods">
+                <!-- Chuyển khoản -->
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3 selected"
+                    id="pay-bank"
+                    onclick="selectPayment('bank')"
+                  >
+                    <input type="radio" name="payment" value="bank" checked />
+                    <div
+                      class="vp-pay-icon"
+                      style="background: var(--brand-light)"
+                    >
+                      <i class="bi bi-bank2" style="color: var(--brand)"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700" style="font-size: 0.9rem">
+                        Chuyển khoản
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        Xác nhận trong 5 phút
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+                <!-- Visa/Mastercard -->
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3"
+                    id="pay-card"
+                    onclick="selectPayment('card')"
+                  >
+                    <input type="radio" name="payment" value="card" />
+                    <div class="vp-pay-icon" style="background: #fef9c3">
+                      <i
+                        class="bi bi-credit-card-2-front"
+                        style="color: #854d0e"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700" style="font-size: 0.9rem">
+                        Visa / Mastercard
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        Cổng quốc tế bảo mật
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+                <!-- MoMo -->
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3"
+                    id="pay-momo"
+                    onclick="selectPayment('momo')"
+                  >
+                    <input type="radio" name="payment" value="momo" />
+                    <div class="vp-pay-icon" style="background: #fce7f3">
+                      <i class="bi bi-wallet2" style="color: #be185d"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700" style="font-size: 0.9rem">
+                        Ví MoMo
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        Giảm thêm 100.000₫
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+                <!-- COD -->
+                <div class="col-sm-6">
+                  <label
+                    class="vp-pay-card d-flex align-items-start gap-3"
+                    id="pay-cod"
+                    onclick="selectPayment('cod')"
+                  >
+                    <input type="radio" name="payment" value="cod" />
+                    <div class="vp-pay-icon" style="background: #dcfce7">
+                      <i
+                        class="bi bi-cash-coin"
+                        style="color: var(--success)"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="fw-700" style="font-size: 0.9rem">
+                        Thanh toán khi nhận
+                      </div>
+                      <div class="text-muted" style="font-size: 0.78rem">
+                        Kiểm tra máy trước khi trả
+                      </div>
+                    </div>
+                    <div class="vp-pay-check">
+                      <i class="bi bi-check-lg" style="font-size: 0.7rem"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Bank detail panel -->
+              <div class="vp-bank-detail show mt-3" id="bankDetail">
+                <p
+                  class="fw-700 mb-2"
+                  style="font-size: 0.82rem; color: var(--brand)"
+                >
+                  <i class="bi bi-info-circle me-1"></i>Thông tin chuyển khoản
+                </p>
+                <div class="vp-bank-row">
+                  <span class="text-muted">Ngân hàng</span>
+                  <span class="fw-700">Vietcombank</span>
+                </div>
+                <div class="vp-bank-row">
+                  <span class="text-muted">Số tài khoản</span>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-700" id="bankAccNo"
+                      >1234 5678 9012 3456</span
+                    >
+                    <button
+                      class="vp-copy-btn"
+                      onclick="copyText('1234567890123456', 'bankAccNo')"
+                    >
+                      <i class="bi bi-copy me-1"></i>Copy
+                    </button>
+                  </div>
+                </div>
+                <div class="vp-bank-row">
+                  <span class="text-muted">Tên tài khoản</span>
+                  <span class="fw-700">VISION PRINT VN</span>
+                </div>
+                <div class="vp-bank-row">
+                  <span class="text-muted">Nội dung CK</span>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-700" id="transferContent"
+                      >VP2026-ORDER</span
+                    >
+                    <button
+                      class="vp-copy-btn"
+                      onclick="copyText('VP2026-ORDER', 'transferContent')"
+                    >
+                      <i class="bi bi-copy me-1"></i>Copy
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="mt-2 p-2 rounded-2 d-flex align-items-center gap-2"
+                  style="
+                    background: var(--brand-light);
+                    font-size: 0.78rem;
+                    color: var(--brand);
+                    font-weight: 600;
+                  "
+                >
+                  <i class="bi bi-clock"></i> Đơn hàng xác nhận trong 5–15 phút
+                  sau khi nhận được thanh toán.
+                </div>
+              </div>
+
+              <!-- Card panel -->
+              <div class="vp-card-panel" id="cardPanel">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="vp-label">Số thẻ</label>
+                    <div class="vp-input-wrap">
+                      <i class="bi bi-credit-card vp-input-icon"></i>
+                      <input
+                        type="text"
+                        class="vp-input with-icon"
+                        id="cardNum"
+                        placeholder="1234 5678 9012 3456"
+                        maxlength="19"
+                        oninput="formatCard(this)"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <label class="vp-label">Tên chủ thẻ</label>
+                    <input
+                      type="text"
+                      class="vp-input"
+                      id="cardName"
+                      placeholder="NGUYEN VAN A"
+                      style="text-transform: uppercase"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="vp-label">Hết hạn</label>
+                    <input
+                      type="text"
+                      class="vp-input"
+                      id="cardExp"
+                      placeholder="MM/YY"
+                      maxlength="5"
+                      oninput="formatExpiry(this)"
+                    />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="vp-label">CVV</label>
+                    <input
+                      type="password"
+                      class="vp-input"
+                      id="cardCvv"
+                      placeholder="•••"
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="mt-2 d-flex align-items-center gap-2 text-muted"
+                  style="font-size: 0.75rem"
+                >
+                  <i class="bi bi-shield-lock-fill text-success"></i>
+                  Thông tin thẻ được mã hóa 256-bit SSL
+                </div>
+              </div>
+
+              <!-- MoMo panel -->
+              <div class="vp-momo-panel" id="momoPanel">
+                <div
+                  style="
+                    background: #fce7f3;
+                    border-radius: var(--radius);
+                    padding: 1.25rem;
+                    text-align: center;
+                  "
+                >
+                  <i
+                    class="bi bi-qr-code"
+                    style="font-size: 2.5rem; color: #be185d"
+                  ></i>
+                  <p
+                    class="fw-700 mt-2 mb-0"
+                    style="color: #be185d; font-size: 0.9rem"
+                  >
+                    Quét mã QR để thanh toán qua MoMo
+                  </p>
+                  <p class="text-muted mt-1" style="font-size: 0.78rem">
+                    Hoặc chuyển khoản đến SĐT: <strong>0901 234 567</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terms -->
+            <div
+              class="mt-3 p-3 rounded-3"
+              style="
+                background: var(--white);
+                border: 1px solid var(--slate-200);
+              "
+            >
+              <label
+                class="d-flex align-items-start gap-3"
+                style="cursor: pointer"
+              >
+                <input
+                  type="checkbox"
+                  id="agreeTerms"
+                  style="
+                    width: 18px;
+                    height: 18px;
+                    margin-top: 2px;
+                    accent-color: var(--brand);
+                    flex-shrink: 0;
+                  "
+                />
+                <span style="font-size: 0.82rem; color: var(--slate-600)">
+                  Tôi đã đọc và đồng ý với
+                  <a href="about.html" style="color: var(--brand); font-weight: 700"
+                    >Điều khoản dịch vụ</a
+                  >
+                  và
+                  <a href="about.html" style="color: var(--brand); font-weight: 700"
+                    >Chính sách bảo mật</a
+                  >
+                  của Vision-Print VN.
+                </span>
+              </label>
+              <div class="vp-field-err" id="errTerms">
+                Bạn phải đồng ý với điều khoản để tiếp tục.
+              </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="row g-2 mt-2">
+              <div class="col-sm-4">
+                <div class="vp-trust-badge">
+                  <i class="bi bi-shield-check-fill"></i
+                  ><span>Thanh toán bảo mật</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="vp-trust-badge">
+                  <i class="bi bi-arrow-counterclockwise"></i
+                  ><span>Đổi trả 7 ngày</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="vp-trust-badge">
+                  <i class="bi bi-headset"></i><span>Hỗ trợ 24/7</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="vp-btn-pay" id="confirmPayBtn">
+                <span class="btn-label"
+                  ><i class="bi bi-lock-fill me-2"></i>Xác nhận thanh toán</span
+                >
+                <div class="spinner"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /col-lg-7 -->
+
+        <!-- ═══ RIGHT: Order summary ═══ -->
+        <div class="col-lg-5">
+          <div class="vp-summary-card">
+            <h3 class="fw-800 mb-4" style="font-size: 1.1rem">
+              <i class="bi bi-receipt me-2 text-primary"></i>Tóm tắt đơn hàng
+            </h3>
+
+            <!-- Mini cart list -->
+            <div
+              id="summaryItems"
+              class="mb-3"
+              style="
+                max-height: 300px;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                scrollbar-color: var(--slate-200) transparent;
+              "
+            ></div>
+            <hr style="border-color: var(--slate-100); margin: 0 0 0.75rem" />
+
+            <!-- Price breakdown -->
+            <div
+              style="border-top: 1px solid var(--slate-100); padding-top: 1rem"
+            >
+              <div class="vp-summary-row">
+                <span>Tạm tính</span>
+                <span class="fw-600" id="subtotalDisplay">0₫</span>
+              </div>
+              <div class="vp-summary-row">
+                <span>Thuế VAT (8%)</span>
+                <span class="fw-600" id="vatDisplay">0₫</span>
+              </div>
+              <div
+                class="vp-summary-row"
+                id="discountRow"
+                style="display: none"
+              >
+                <span class="text-success"
+                  ><i class="bi bi-tag-fill me-1"></i>Giảm giá</span
+                >
+                <span class="fw-600 text-success" id="discountDisplay"
+                  >-0₫</span
+                >
+              </div>
+              <div class="vp-summary-row" id="expressRow" style="display: none">
+                <span>Phí giao hàng hỏa tốc</span>
+                <span class="fw-600">500.000₫</span>
+              </div>
+              <div class="vp-summary-row">
+                <span>Vận chuyển & Lắp đặt</span>
+                <span class="fw-600 text-success">Miễn phí</span>
+              </div>
+            </div>
+
+            <!-- Total -->
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--brand-light),
+                  rgba(91, 33, 182, 0.08)
+                );
+                border-radius: var(--radius);
+                padding: 1rem;
+                margin: 1rem 0;
+              "
+            >
+              <div class="d-flex justify-content-between align-items-end">
+                <div>
+                  <span
+                    class="fw-600"
+                    style="font-size: 0.85rem; color: var(--slate-600)"
+                    >Tổng cộng</span
+                  >
+                  <p
+                    class="mb-0"
+                    style="font-size: 0.72rem; color: var(--slate-400)"
+                  >
+                    Đã bao gồm thuế VAT
+                  </p>
+                </div>
+                <div class="text-end">
+                  <div class="vp-summary-total" id="totalDisplay">0₫</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SSL badge -->
+            <div
+              class="d-flex align-items-center justify-content-center gap-2 p-2 rounded-2"
+              style="
+                background: var(--slate-50);
+                border: 1px solid var(--slate-200);
+              "
+            >
+              <i
+                class="bi bi-lock-fill text-success"
+                style="font-size: 0.8rem"
+              ></i>
+              <span
+                style="
+                  font-size: 0.75rem;
+                  color: var(--slate-600);
+                  font-weight: 600;
+                "
+                >Mã hóa SSL 256-bit – An toàn tuyệt đối</span
+              >
+            </div>
+
+            <!-- Pay logos -->
+            <div class="d-flex justify-content-center gap-2 mt-2 flex-wrap">
+              <span class="vp-pay-badge" style="margin-left: 0">Visa</span>
+              <span class="vp-pay-badge">Mastercard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Vietcombank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="vp-footer mt-5 no-print">
+      <div class="vp-footer-main">
+        <div class="container-xl">
+          <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+              <a
+                href="home.html"
+                class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3"
+              >
+                <span class="vp-logo-icon vp-logo-icon--sm">VP</span>
+                <span class="fw-800 text-dark"
+                  >Vision<span class="text-primary">Print</span> VN</span
+                >
+              </a>
+              <p
+                class="text-muted mb-4"
+                style="font-size: 0.9rem; line-height: 1.7"
+              >
+                Nâng tầm hiệu suất doanh nghiệp Việt với giải pháp in ấn chính
+                xác và dịch vụ kỹ thuật chuyên nghiệp.
+              </p>
+              <div class="vp-hotline-card mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="vp-hotline-icon">
+                    <i class="bi bi-headset"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 text-muted" style="font-size: 0.75rem">
+                      Hỗ trợ 24/7
+                    </p>
+                    <a
+                      href="tel:0901234567"
+                      class="fw-800 text-dark text-decoration-none"
+                      style="font-size: 1.1rem"
+                      >0901 234 567</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <a href="home.html" class="vp-social-btn" title="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="products.html" class="vp-social-btn" title="YouTube"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="rental.html" class="vp-social-btn" title="Zalo"
+                  ><i class="bi bi-chat-dots-fill"></i
+                ></a>
+                <a href="about.html" class="vp-social-btn" title="Email"
+                  ><i class="bi bi-envelope-fill"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Khám Phá</h5>
+              <ul class="vp-footer-links">
+                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="index.html">Sản Phẩm Mới</a></li>
+                <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
+                <li><a href="about.html">Tin Tức</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Hỗ Trợ</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
+                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
+                <li><a href="about.html">Liên Hệ</a></li>
+                <li><a href="home.html">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <h5 class="vp-footer-heading">Văn Phòng</h5>
+              <ul class="vp-footer-contact">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i
+                  ><span>12 Nguyễn Văn Bảo, Hạnh Thông, TP HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i
+                  ><span>Thứ 2 – Thứ 7: 8:00 – 18:00</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i
+                  ><a
+                    href="/cdn-cgi/l/email-protection#a3cacdc5cce3d5cad0cacccdd3d1cacdd78dd5cd"
+                    ><span
+                      class="__cf_email__"
+                      data-cfemail="8de4e3ebe2cdfbe4fee4e2e3fdffe4e3f9a3fbe3"
+                      >[email&#160;protected]</span
+                    ></a
+                  >
+                </li>
+              </ul>
+              <div class="mt-4">
+                <p class="fw-600 mb-2" style="font-size: 0.85rem">
+                  Nhận ưu đãi mới nhất:
+                </p>
+                <div class="vp-newsletter-form">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn..."
+                    class="vp-newsletter-input"
+                    id="newsletterEmail"
+                  />
+                  <button class="vp-newsletter-btn" id="newsletterBtn">
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vp-footer-bottom">
+        <div class="container-xl">
+          <div class="row align-items-center g-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 text-muted" style="font-size: 0.8rem">
+                © 2026 Vision-Print VN. Thiết kế bởi
+                <strong>The Precision Architect</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <span class="text-muted me-3" style="font-size: 0.8rem"
+                >Phương thức thanh toán:</span
+              >
+              <span class="vp-pay-badge">Visa</span>
+              <span class="vp-pay-badge">MasterCard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating actions -->
+    <div class="vp-floating-actions no-print">
+      <a
+        href="https://zalo.me/0901234567"
+        class="vp-fab vp-fab--zalo"
+        title="Chat Zalo"
+        target="_blank"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+      </a>
+      <button
+        class="vp-fab vp-fab--top"
+        id="scrollTopBtn"
+        title="Lên đầu trang"
+        style="display: none"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+
+    <!-- ══════════ SUCCESS MODAL ══════════ -->
+    <div class="vp-modal-overlay" id="successModal">
+      <div class="vp-modal-box">
+        <div class="vp-success-banner">
+          <div class="vp-success-icon"><i class="bi bi-check-lg"></i></div>
+          <h4 class="text-white fw-800 mb-1" style="font-size: 1.4rem">
+            Thanh toán thành công!
+          </h4>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.85);
+              font-size: 0.9rem;
+              margin-bottom: 0;
+            "
+          >
+            Cảm ơn bạn đã tin tưởng Vision-Print VN
+          </p>
+        </div>
+
+        <div class="vp-invoice" id="invoiceContent">
+          <div class="vp-invoice-header">
+            <div>
+              <p class="fw-800 mb-0" style="font-size: 0.9rem">
+                HÓA ĐƠN ĐIỆN TỬ
+              </p>
+              <p
+                class="text-muted mb-0"
+                style="font-size: 0.75rem"
+                id="invoiceDate"
+              ></p>
+            </div>
+            <div class="text-end">
+              <p
+                class="fw-800 mb-0 gradient-text"
+                style="font-size: 0.9rem"
+                id="invoiceNo"
+              ></p>
+              <div
+                class="d-flex align-items-center gap-1 justify-content-end mt-1"
+              >
+                <i
+                  class="bi bi-check-circle-fill text-success"
+                  style="font-size: 0.75rem"
+                ></i>
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--success);
+                    font-weight: 700;
+                  "
+                  >Đã xác nhận</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer info -->
+          <div
+            class="px-3 py-2"
+            style="
+              background: var(--slate-50);
+              border-bottom: 1px solid var(--slate-200);
+            "
+          >
+            <div class="row g-1">
+              <div class="col-6">
+                <p
+                  class="mb-0"
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--slate-400);
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  Khách hàng
+                </p>
+                <p
+                  class="fw-700 mb-0"
+                  style="font-size: 0.82rem"
+                  id="invCustName"
+                >
+                  –
+                </p>
+                <p
+                  class="text-muted mb-0"
+                  style="font-size: 0.75rem"
+                  id="invCustPhone"
+                >
+                  –
+                </p>
+              </div>
+              <div class="col-6">
+                <p
+                  class="mb-0"
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--slate-400);
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  Địa chỉ giao hàng
+                </p>
+                <p
+                  class="fw-700 mb-0"
+                  style="font-size: 0.82rem"
+                  id="invCustAddr"
+                >
+                  –
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="invoiceItems"></div>
+
+          <div class="vp-invoice-row" style="background: transparent">
+            <span class="text-muted">Tạm tính</span
+            ><span class="fw-600" id="invSubtotal">–</span>
+          </div>
+          <div class="vp-invoice-row" style="background: var(--slate-50)">
+            <span class="text-muted">VAT (8%)</span
+            ><span class="fw-600" id="invVat">–</span>
+          </div>
+          <div
+            class="vp-invoice-row"
+            id="invDiscountRow"
+            style="display: none; background: transparent"
+          >
+            <span class="text-success">Giảm giá</span
+            ><span class="fw-600 text-success" id="invDiscount">–</span>
+          </div>
+          <div
+            class="vp-invoice-row"
+            id="invExpressRow"
+            style="display: none; background: var(--slate-50)"
+          >
+            <span class="text-muted">Phí hỏa tốc</span
+            ><span class="fw-600">500.000₫</span>
+          </div>
+          <div class="vp-invoice-row" style="background: transparent">
+            <span class="text-muted">Vận chuyển & Lắp đặt</span
+            ><span class="fw-600 text-success">Miễn phí</span>
+          </div>
+          <div class="vp-invoice-total-row">
+            <span>TỔNG THANH TOÁN</span><span id="invTotal">–</span>
+          </div>
+          <div
+            class="px-3 py-2"
+            style="font-size: 0.75rem; color: var(--slate-600)"
+          >
+            <i class="bi bi-info-circle me-1"></i>
+            Phương thức:
+            <span id="invPayMethod" class="fw-700">–</span> &nbsp;|&nbsp; Trạng
+            thái: <span class="text-success fw-700">Đã xác nhận</span>
+          </div>
+
+          <div class="vp-invoice-actions">
+            <button
+              class="btn btn-sm fw-700 flex-grow-1"
+              style="
+                background: var(--brand-light);
+                color: var(--brand);
+                border-radius: 8px;
+                font-size: 0.8rem;
+                border: none;
+              "
+              onclick="printInvoice()"
+            >
+              <i class="bi bi-printer me-1"></i>In hóa đơn
+            </button>
+            <button
+              class="btn btn-sm fw-700 flex-grow-1"
+              style="
+                background: var(--slate-100);
+                color: var(--dark);
+                border-radius: 8px;
+                font-size: 0.8rem;
+                border: none;
+              "
+              onclick="downloadInvoice()"
+            >
+              <i class="bi bi-download me-1"></i>Tải xuống
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 pt-0">
+          <a
+            href="home.html"
+            class="btn w-100 fw-700"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--brand),
+                var(--tertiary)
+              );
+              color: #fff;
+              border-radius: 12px;
+              padding: 12px;
+              font-size: 0.9rem;
+              border: none;
+            "
+          >
+            <i class="bi bi-house me-2"></i>Về trang chủ
+          </a>
+          <button
+            class="btn w-100 mt-2 fw-600 text-muted"
+            style="background: none; border: none; font-size: 0.82rem"
+            onclick="closeModal()"
+          >
+            Tiếp tục mua sắm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      "use strict";
+
+      // ═══ CONSTANTS & STATE ════════════════════════════════════
+      const CART_KEY = "vp_cart";
+      const SESSION_KEY = "vp_session";
+      const ORDERS_KEY = "vp_orders";
+      const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
+
+      function readSharedCart() {
+        try {
+          const localCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+          if (Array.isArray(localCart) && localCart.length) return localCart;
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return [];
+        try {
+          const state = JSON.parse(window.name || "{}");
+          return Array.isArray(state[CART_KEY]) ? state[CART_KEY] : [];
+        } catch {}
+        return [];
+      }
+
+      function writeSharedCart(nextCart) {
+        const safeCart = Array.isArray(nextCart) ? nextCart : [];
+        try {
+          localStorage.setItem(CART_KEY, JSON.stringify(safeCart));
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return;
+        try {
+          const state = JSON.parse(window.name || "{}");
+          state[CART_KEY] = safeCart;
+          window.name = JSON.stringify(state);
+        } catch {
+          window.name = JSON.stringify({ [CART_KEY]: safeCart });
+        }
+      }
+
+      const COUPONS = {
+        VP2026: { type: "percent", value: 10, label: "Giảm 10%" },
+        RICOH500: { type: "fixed", value: 500000, label: "Giảm 500.000₫" },
+        NEWUSER: {
+          type: "percent",
+          value: 15,
+          label: "Giảm 15% cho khách mới",
+        },
+      };
+
+      function normalizePrice(value) {
+        if (typeof value === "number") return value;
+        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
+      }
+
+      function mergeCartItems(items) {
+        const merged = [];
+        (Array.isArray(items) ? items : []).forEach((item) => {
+          if (!item || !item.id) return;
+          const normalizedItem = {
+            ...item,
+            name: item.name || "Sản phẩm",
+            sub: item.sub || item.type || "",
+            price: normalizePrice(item.price),
+            qty: Math.min(99, Math.max(1, Number(item.qty) || 1)),
+            img: item.img || "",
+          };
+          const existing = merged.find(
+            (cartItem) => cartItem.id === normalizedItem.id,
+          );
+          if (existing) {
+            existing.qty = Math.min(99, existing.qty + normalizedItem.qty);
+            existing.sub = existing.sub || normalizedItem.sub;
+            existing.img = existing.img || normalizedItem.img;
+            existing.price = existing.price || normalizedItem.price;
+          } else {
+            merged.push(normalizedItem);
+          }
+        });
+        return merged;
+      }
+
+      const storedCart = readSharedCart();
+      const legacyCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      let cart = mergeCartItems([
+        ...(Array.isArray(storedCart) ? storedCart : []),
+        ...(Array.isArray(legacyCart) ? legacyCart : []),
+      ]);
+      writeSharedCart(cart);
+      if (Array.isArray(legacyCart) && legacyCart.length) {
+        localStorage.removeItem("cart");
+      }
+      let appliedCoupon = null;
+      let expressShip = false;
+      let currentStep = 1;
+      let selectedPay = "bank";
+
+      // Không seed demo — dùng dữ liệu thật từ localStorage
+      // Chỉ hiển thị empty state nếu giỏ trống
+
+      // ═══ SESSION (auto-fill & auth display) ═══════════════════
+      const session = JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+      if (session) {
+        setTimeout(() => {
+          ["custName", "custEmail", "custPhone"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el)
+              el.value = session[id.replace("cust", "").toLowerCase()] || "";
+          });
+        }, 100);
+        const area = document.getElementById("authArea");
+        if (area) {
+          const init = session.name
+            .split(" ")
+            .map((w) => w[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+          area.innerHTML = `
+        <div class="dropdown">
+          <a class="dropdown-toggle d-flex align-items-center gap-2 text-decoration-none vp-btn-outline-sm" data-bs-toggle="dropdown">
+            <span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0066ff,#5b21b6);color:#fff;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;">${init}</span>
+            <span class="d-none d-md-block">${session.name.split(" ").pop()}</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow" style="border-radius:12px;border:1px solid var(--slate-200);padding:6px;min-width:180px;">
+            <li><hr class="dropdown-divider my-1"></li>
+            <li><button class="dropdown-item rounded-2" onclick="localStorage.removeItem('${SESSION_KEY}');location.reload();" style="font-size:.85rem;color:var(--error);"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</button></li>
+          </ul>
+        </div>
+        <a href="cart.html" class="vp-icon-btn position-relative d-none d-lg-flex" style="background:var(--brand-light);color:var(--brand);">
+          <i class="bi bi-bag-fill"></i><span class="vp-cart-badge" id="cartBadge">0</span>
+        </a>`;
+        }
+      }
+
+      function saveCart() {
+        writeSharedCart(cart);
+      }
+
+      // ═══ HELPERS ══════════════════════════════════════════════
+      const fmt = (n) => n.toLocaleString("vi-VN") + "₫";
+      const genOrderNo = () =>
+        "VP-" + Date.now().toString(36).toUpperCase().slice(-6);
+      const nowStr = () => {
+        const d = new Date();
+        return (
+          d.toLocaleDateString("vi-VN", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          }) +
+          " " +
+          d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })
+        );
+      };
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      // ═══ PRICE CALC ═══════════════════════════════════════════
+      const calcSubtotal = () => cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const calcVat = (sub) => Math.round(sub * 0.08);
+      const calcDiscount = (sub) => {
+        if (!appliedCoupon) return 0;
+        return appliedCoupon.type === "percent"
+          ? Math.round((sub * appliedCoupon.value) / 100)
+          : appliedCoupon.value;
+      };
+      const calcTotal = () => {
+        const sub = calcSubtotal();
+        return (
+          sub + calcVat(sub) - calcDiscount(sub) + (expressShip ? 500000 : 0)
+        );
+      };
+
+      // ═══ UPDATE CART BADGE ════════════════════════════════════
+      function updateBadges() {
+        const total = cart.reduce((s, i) => s + i.qty, 0);
+        ["cartBadge", "cartBadgeTop"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = total;
+        });
+        const ib = document.getElementById("itemCountBadge");
+        if (ib) ib.textContent = total;
+      }
+
+      // ═══ RENDER CART ══════════════════════════════════════════
+      function renderCartItems() {
+        const container = document.getElementById("cartItemsContainer");
+        const emptyEl = document.getElementById("emptyCart");
+        updateBadges();
+
+        if (cart.length === 0) {
+          container.innerHTML = "";
+          emptyEl.classList.add("show");
+          document.getElementById("toStep2Btn").disabled = true;
+          renderSummary();
+          return;
+        }
+        emptyEl.classList.remove("show");
+        document.getElementById("toStep2Btn").disabled = false;
+
+        container.innerHTML = cart
+          .map((item) => {
+            // Fallback image placeholder
+            const imgSrc =
+              typeof item.img === "string" && item.img.trim()
+                ? item.img
+                : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f1f5f9'/%3E%3Ctext x='40' y='44' text-anchor='middle' font-size='28' fill='%2394a3b8'%3E🖨%3C/text%3E%3C/svg%3E";
+
+            return `
+          <div class="vp-cart-item" id="item-${item.id}">
+            <div class="vp-item-img">
+              <img src="${imgSrc}" alt="${item.name}" loading="lazy"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\' viewBox=\\'0 0 80 80\\'%3E%3Crect width=\\'80\\' height=\\'80\\' fill=\\'%23f1f5f9\\'/%3E%3Ctext x=\\'40\\' y=\\'44\\' text-anchor=\\'middle\\' font-size=\\'28\\' fill=\\'%2394a3b8\\'%3E🖨%3C/text%3E%3C/svg%3E'">
+            </div>
+            <div class="vp-item-body">
+              <div class="vp-item-top">
+                <div style="min-width:0;">
+                  <p class="fw-700 mb-0 text-truncate" style="font-size:.92rem;">${item.name}</p>
+                  <p class="text-muted mb-0" style="font-size:.75rem;">${item.sub || ""}</p>
+                  <p class="mb-0 mt-1" style="font-size:.72rem;color:var(--slate-400);">
+                    Đơn giá: <span class="fw-600" style="color:var(--slate-600);">${fmt(item.price)}</span>
+                  </p>
+                </div>
+                <button class="vp-remove-btn" onclick="removeItem('${item.id}')" title="Xóa sản phẩm">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+              <div class="vp-item-bottom">
+                <div class="vp-qty-ctrl">
+                  <button class="vp-qty-btn" onclick="changeQty('${item.id}',-1)" title="Giảm">
+                    <i class="bi bi-dash"></i>
+                  </button>
+                  <span class="vp-qty-val" id="qty-${item.id}">${item.qty}</span>
+                  <button class="vp-qty-btn" onclick="changeQty('${item.id}',1)" title="Tăng">
+                    <i class="bi bi-plus"></i>
+                  </button>
+                </div>
+                <div class="vp-item-price-line">
+                  <span class="fw-800" style="color:var(--brand);font-size:1rem;">${fmt(item.price * item.qty)}</span>
+                  ${item.qty > 1 ? `<span class="text-muted" style="font-size:.72rem;">${item.qty} × ${fmt(item.price)}</span>` : ""}
+                </div>
+              </div>
+            </div>
+          </div>`;
+          })
+          .join("");
+
+        renderSummary();
+      }
+
+      function renderSummary() {
+        const sub = calcSubtotal();
+        const disc = calcDiscount(sub);
+        document.getElementById("subtotalDisplay").textContent = fmt(sub);
+        document.getElementById("vatDisplay").textContent = fmt(calcVat(sub));
+        document.getElementById("totalDisplay").textContent = fmt(calcTotal());
+
+        const dRow = document.getElementById("discountRow");
+        if (disc > 0) {
+          dRow.style.display = "flex";
+          document.getElementById("discountDisplay").textContent =
+            "-" + fmt(disc);
+        } else {
+          dRow.style.display = "none";
+        }
+
+        document.getElementById("expressRow").style.display = expressShip
+          ? "flex"
+          : "none";
+
+        // Mini list in summary panel
+        const si = document.getElementById("summaryItems");
+        if (!si) return;
+        si.innerHTML =
+          cart.length === 0
+            ? '<p class="text-muted text-center mb-0" style="font-size:.85rem;padding:1rem 0;">Giỏ hàng trống</p>'
+            : cart
+                .map((item) => {
+                  const imgSrc =
+                    typeof item.img === "string" && item.img.trim()
+                      ? item.img
+                      : "";
+                  return `
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div style="width:52px;height:52px;background:var(--slate-50);border-radius:10px;overflow:hidden;flex-shrink:0;padding:4px;border:1px solid var(--slate-200);display:flex;align-items:center;justify-content:center;">
+                ${imgSrc ? `<img src="${imgSrc}" style="width:100%;height:100%;object-fit:contain;" alt="${item.name}" loading="lazy">` : '<i class="bi bi-printer" style="color:var(--slate-400);font-size:1.2rem;"></i>'}
+              </div>
+              <div class="flex-grow-1" style="min-width:0;">
+                <p class="fw-700 mb-0 text-truncate" style="font-size:.8rem;">${item.name}</p>
+                <p class="text-muted mb-0" style="font-size:.72rem;">x${item.qty} × ${fmt(item.price)}</p>
+              </div>
+              <span class="fw-800" style="color:var(--brand);font-size:.85rem;white-space:nowrap;flex-shrink:0;">${fmt(item.price * item.qty)}</span>
+            </div>`;
+                })
+                .join("");
+      }
+
+      // ═══ CART ACTIONS ═════════════════════════════════════════
+      function changeQty(id, delta) {
+        const item = cart.find((i) => i.id === id);
+        if (!item) return;
+        item.qty = Math.max(1, Math.min(99, item.qty + delta));
+        saveCart();
+        renderCartItems();
+      }
+
+      function removeItem(id) {
+        const el = document.getElementById("item-" + id);
+        if (el) {
+          el.style.opacity = "0";
+          el.style.transition = "opacity .3s";
+        }
+        setTimeout(
+          () => {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            renderCartItems();
+          },
+          el ? 280 : 0,
+        );
+        showToast("Đã xóa sản phẩm khỏi giỏ hàng.", "info");
+      }
+
+      document.getElementById("clearCartBtn").addEventListener("click", () => {
+        if (!confirm("Xóa toàn bộ giỏ hàng?")) return;
+        cart = [];
+        saveCart();
+        renderCartItems();
+        showToast("Đã xóa tất cả sản phẩm.", "info");
+      });
+
+      // ═══ COUPON ═══════════════════════════════════════════════
+      document
+        .getElementById("applyCouponBtn")
+        .addEventListener("click", () => {
+          const code = document
+            .getElementById("couponInput")
+            .value.trim()
+            .toUpperCase();
+          const msg = document.getElementById("couponMsg");
+          if (!code) {
+            showMsg(msg, "Vui lòng nhập mã giảm giá.", "warning");
+            return;
+          }
+          if (COUPONS[code]) {
+            appliedCoupon = COUPONS[code];
+            showMsg(
+              msg,
+              `✅ Áp dụng thành công: ${appliedCoupon.label}`,
+              "success",
+            );
+            renderCartItems();
+            showToast(`Mã ${code} – ${appliedCoupon.label}`, "success");
+          } else {
+            appliedCoupon = null;
+            showMsg(msg, "❌ Mã không hợp lệ hoặc đã hết hạn.", "error");
+            renderCartItems();
+          }
+        });
+
+      function showMsg(el, text, type) {
+        const c = {
+          success: "var(--success)",
+          warning: "var(--warning)",
+          error: "var(--error)",
+        };
+        el.style.display = "block";
+        el.textContent = text;
+        el.style.color = c[type] || c.warning;
+      }
+
+      // ═══ DELIVERY ═════════════════════════════════════════════
+      function selectDelivery(id) {
+        ["delivery1", "delivery2"].forEach((d) => {
+          const el = document.getElementById(d);
+          if (el) el.classList.toggle("selected", d === id);
+        });
+        expressShip = id === "delivery2";
+        renderSummary();
+      }
+
+      // ═══ PAYMENT ══════════════════════════════════════════════
+      function selectPayment(method) {
+        selectedPay = method;
+        ["bank", "card", "momo", "cod"].forEach((m) => {
+          const el = document.getElementById("pay-" + m);
+          if (el) el.classList.toggle("selected", m === method);
+        });
+        document
+          .getElementById("bankDetail")
+          .classList.toggle("show", method === "bank");
+        document
+          .getElementById("cardPanel")
+          .classList.toggle("show", method === "card");
+        document
+          .getElementById("momoPanel")
+          .classList.toggle("show", method === "momo");
+      }
+
+      // ═══ STEP NAVIGATION ══════════════════════════════════════
+      function goToStep(n) {
+        currentStep = n;
+        document.getElementById("panelCart").style.display =
+          n === 1 ? "block" : "none";
+        document.getElementById("panelInfo").style.display =
+          n === 2 ? "block" : "none";
+        document.getElementById("panelPayment").style.display =
+          n === 3 ? "block" : "none";
+
+        for (let i = 1; i <= 3; i++) {
+          const stepEl = document.getElementById("step" + i);
+          const numEl = document.getElementById("sn" + i);
+          stepEl.classList.remove("active", "done");
+          if (i < n) {
+            stepEl.classList.add("done");
+            numEl.innerHTML =
+              '<i class="bi bi-check-lg" style="font-size:.7rem;"></i>';
+          } else if (i === n) {
+            stepEl.classList.add("active");
+            numEl.textContent = i;
+          } else {
+            numEl.textContent = i;
+          }
+        }
+        ["line1", "line2"].forEach((id, idx) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle("done", n > idx + 1);
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.getElementById("toStep2Btn").addEventListener("click", () => {
+        if (cart.length === 0) {
+          showToast("Giỏ hàng trống!", "warning");
+          return;
+        }
+        goToStep(2);
+      });
+
+      document.getElementById("toStep3Btn").addEventListener("click", () => {
+        if (!validateInfo()) return;
+        goToStep(3);
+      });
+
+      document
+        .getElementById("backToCart")
+        .addEventListener("click", () => goToStep(1));
+      document
+        .getElementById("backToInfo")
+        .addEventListener("click", () => goToStep(2));
+
+      // ═══ VALIDATION ═══════════════════════════════════════════
+      const isPhone = (v) => /^(0|\+84)[0-9]{8,10}$/.test(v.replace(/\s/g, ""));
+      const isEmail = (v) => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+      function setErr(inputId, errId, show) {
+        const inp = document.getElementById(inputId);
+        const err = document.getElementById(errId);
+        if (!inp || !err) return !show;
+        inp.classList.toggle("error", show);
+        err.classList.toggle("show", show);
+        return !show;
+      }
+
+      function validateInfo() {
+        const name = document.getElementById("custName").value.trim();
+        const phone = document.getElementById("custPhone").value.trim();
+        const email = document.getElementById("custEmail").value.trim();
+        const addr = document.getElementById("custAddr").value.trim();
+        let ok = true;
+        ok = setErr("custName", "errName", name.length < 2) && ok;
+        ok = setErr("custPhone", "errPhone", !isPhone(phone)) && ok;
+        ok = setErr("custEmail", "errEmail", !isEmail(email)) && ok;
+        ok = setErr("custAddr", "errAddr", addr.length < 5) && ok;
+        return ok;
+      }
+
+      ["custName", "custPhone", "custEmail", "custAddr"].forEach((id) => {
+        const errMap = {
+          custName: "errName",
+          custPhone: "errPhone",
+          custEmail: "errEmail",
+          custAddr: "errAddr",
+        };
+        document.getElementById(id)?.addEventListener("input", function () {
+          this.classList.remove("error");
+          document.getElementById(errMap[id])?.classList.remove("show");
+        });
+      });
+
+      document
+        .getElementById("agreeTerms")
+        .addEventListener("change", function () {
+          document
+            .getElementById("errTerms")
+            .classList.toggle("show", !this.checked);
+        });
+
+      // ═══ CONFIRM PAYMENT ══════════════════════════════════════
+      document
+        .getElementById("confirmPayBtn")
+        .addEventListener("click", async function () {
+          const terms = document.getElementById("agreeTerms");
+          if (!terms.checked) {
+            document.getElementById("errTerms").classList.add("show");
+            showToast("Bạn phải đồng ý với điều khoản.", "warning");
+            return;
+          }
+          document.getElementById("errTerms").classList.remove("show");
+
+          if (selectedPay === "card") {
+            const num = document
+              .getElementById("cardNum")
+              .value.replace(/\s/g, "");
+            const exp = document.getElementById("cardExp").value;
+            const cvv = document.getElementById("cardCvv").value;
+            if (num.length < 16 || !exp.includes("/") || cvv.length < 3) {
+              showToast("Vui lòng nhập đầy đủ thông tin thẻ.", "warning");
+              return;
+            }
+          }
+
+          // Loading state
+          const btn = this;
+          btn.classList.add("loading");
+          btn.disabled = true;
+          document.getElementById("progressBar").classList.add("show");
+
+          await sleep(2000);
+
+          btn.classList.remove("loading");
+          btn.disabled = false;
+          document.getElementById("progressBar").classList.remove("show");
+
+          // Build order
+          const order = {
+            no: genOrderNo(),
+            date: nowStr(),
+            items: JSON.parse(JSON.stringify(cart)),
+            customer: {
+              name: document.getElementById("custName").value.trim(),
+              phone: document.getElementById("custPhone").value.trim(),
+              email: document.getElementById("custEmail").value.trim(),
+              addr: document.getElementById("custAddr").value.trim(),
+              company: document.getElementById("custCompany").value.trim(),
+            },
+            subtotal: calcSubtotal(),
+            vat: calcVat(calcSubtotal()),
+            discount: calcDiscount(calcSubtotal()),
+            express: expressShip ? 500000 : 0,
+            total: calcTotal(),
+            payment: selectedPay,
+            coupon: appliedCoupon
+              ? Object.keys(COUPONS).find((k) => COUPONS[k] === appliedCoupon)
+              : null,
+          };
+
+          const orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || "[]");
+          orders.unshift(order);
+          localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+
+          cart = [];
+          saveCart();
+          updateBadges();
+          populateInvoice(order);
+          document.getElementById("successModal").classList.add("show");
+        });
+
+      // ═══ INVOICE ══════════════════════════════════════════════
+      const PAY_LABELS = {
+        bank: "Chuyển khoản ngân hàng",
+        card: "Thẻ Visa / Mastercard",
+        momo: "Ví điện tử MoMo",
+        cod: "Thanh toán khi nhận hàng",
+      };
+
+      function populateInvoice(order) {
+        document.getElementById("invoiceNo").textContent = order.no;
+        document.getElementById("invoiceDate").textContent = order.date;
+        document.getElementById("invCustName").textContent =
+          order.customer.name;
+        document.getElementById("invCustPhone").textContent =
+          order.customer.phone;
+        document.getElementById("invCustAddr").textContent =
+          order.customer.addr || "–";
+        document.getElementById("invSubtotal").textContent = fmt(
+          order.subtotal,
+        );
+        document.getElementById("invVat").textContent = fmt(order.vat);
+        document.getElementById("invTotal").textContent = fmt(order.total);
+        document.getElementById("invPayMethod").textContent =
+          PAY_LABELS[order.payment] || order.payment;
+
+        const dr = document.getElementById("invDiscountRow");
+        if (order.discount > 0) {
+          dr.style.display = "flex";
+          document.getElementById("invDiscount").textContent =
+            "-" + fmt(order.discount);
+        } else {
+          dr.style.display = "none";
+        }
+
+        document.getElementById("invExpressRow").style.display =
+          order.express > 0 ? "flex" : "none";
+
+        document.getElementById("invoiceItems").innerHTML = order.items
+          .map(
+            (item) => `
+      <div class="vp-invoice-row" style="background:transparent;">
+        <span style="max-width:55%;">${item.name} <span style="color:var(--slate-400);">x${item.qty}</span></span>
+        <span class="fw-700">${fmt(item.price * item.qty)}</span>
+      </div>`,
+          )
+          .join("");
+      }
+
+      function printInvoice() {
+        const content = document.getElementById("invoiceContent").innerHTML;
+
+        localStorage.setItem("invoice_html", content);
+
+        window.open("invoice.html", "_blank");
+      }
+
+      function downloadInvoice() {
+        const order = JSON.parse(localStorage.getItem(ORDERS_KEY) || "[]")[0];
+        if (!order) return;
+        let txt = `HÓA ĐƠN ĐIỆN TỬ – VISION-PRINT VN\n${"=".repeat(44)}\n`;
+        txt += `Số HĐ : ${order.no}\nNgày  : ${order.date}\n`;
+        txt += `\nKHÁCH HÀNG\n${"-".repeat(30)}\n`;
+        txt += `Tên   : ${order.customer.name}\nĐT    : ${order.customer.phone}\n`;
+        if (order.customer.email) txt += `Email : ${order.customer.email}\n`;
+        txt += `Địa chỉ: ${order.customer.addr}\n`;
+        txt += `\nSẢN PHẨM\n${"-".repeat(30)}\n`;
+        order.items.forEach((i) => {
+          txt += `${i.name} (x${i.qty}) – ${fmt(i.price * i.qty)}\n`;
+        });
+        txt += `\n${"─".repeat(30)}\n`;
+        txt += `Tạm tính : ${fmt(order.subtotal)}\nVAT (8%) : ${fmt(order.vat)}\n`;
+        if (order.discount > 0) txt += `Giảm giá : -${fmt(order.discount)}\n`;
+        if (order.express > 0) txt += `Hỏa tốc  : ${fmt(order.express)}\n`;
+        txt += `TỔNG CỘNG: ${fmt(order.total)}\n`;
+        txt += `\nTT qua: ${PAY_LABELS[order.payment]}\n`;
+        txt += `${"=".repeat(44)}\nCảm ơn bạn đã mua hàng tại Vision-Print VN!`;
+        const blob = new Blob(["\ufeff" + txt], {
+          type: "text/plain;charset=utf-8",
+        });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `HoaDon-${order.no}.txt`;
+        a.click();
+      }
+
+      function closeModal() {
+        document.getElementById("successModal").classList.remove("show");
+      }
+
+      // ═══ CARD FORMATTERS ══════════════════════════════════════
+      function formatCard(input) {
+        let v = input.value.replace(/\D/g, "").slice(0, 16);
+        input.value = v.match(/.{1,4}/g)?.join(" ") || v;
+      }
+      function formatExpiry(input) {
+        let v = input.value.replace(/\D/g, "");
+        if (v.length >= 2) v = v.slice(0, 2) + "/" + v.slice(2, 4);
+        input.value = v;
+      }
+
+      // ═══ COPY TO CLIPBOARD ════════════════════════════════════
+      function copyText(text, elemId) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const btn = document.querySelector(`[onclick*="${elemId}"]`);
+            if (btn) {
+              const orig = btn.innerHTML;
+              btn.innerHTML = '<i class="bi bi-check me-1"></i>Copied!';
+              btn.style.color = "var(--success)";
+              setTimeout(() => {
+                btn.innerHTML = orig;
+                btn.style.color = "";
+              }, 1800);
+            }
+            showToast("Đã sao chép!", "success");
+          })
+          .catch(() => showToast("Vui lòng copy thủ công.", "info"));
+      }
+
+      // ═══ SEARCH TOGGLE ════════════════════════════════════════
+      const searchBar = document.getElementById("searchBar");
+      document
+        .getElementById("searchToggleBtn")
+        .addEventListener("click", () => {
+          searchBar.classList.toggle("open");
+          if (searchBar.classList.contains("open"))
+            document.getElementById("headerSearchInput").focus();
+        });
+      document
+        .getElementById("searchCloseBtn")
+        .addEventListener("click", () => searchBar.classList.remove("open"));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") searchBar.classList.remove("open");
+      });
+
+      // ═══ SCROLL TO TOP ════════════════════════════════════════
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollTopBtn.style.display = window.scrollY > 400 ? "flex" : "none";
+      });
+      scrollTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      // ═══ NEWSLETTER ═══════════════════════════════════════════
+      document
+        .getElementById("newsletterBtn")
+        .addEventListener("click", function () {
+          const input = document.getElementById("newsletterEmail");
+          if (!input.value.includes("@")) {
+            input.focus();
+            return;
+          }
+          this.innerHTML = '<i class="bi bi-check-lg"></i>';
+          this.style.background = "#16a34a";
+          input.value = "";
+          setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-send-fill"></i>';
+            this.style.background = "";
+          }, 3000);
+        });
+
+      // ═══ TOAST ════════════════════════════════════════════════
+      function showToast(msg, type = "success") {
+        const colors = {
+          success: "#16a34a",
+          info: "#0066ff",
+          warning: "#d97706",
+          error: "#dc2626",
+        };
+        const old = document.getElementById("_toast");
+        if (old) old.remove();
+        const t = document.createElement("div");
+        t.id = "_toast";
+        t.style.cssText = `position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:${colors[type]};color:#fff;padding:11px 22px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.875rem;font-weight:600;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.2);white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis;`;
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transition = "opacity .3s";
+          setTimeout(() => t.remove(), 320);
+        }, 2800);
+      }
+
+      renderCartItems();
+      goToStep(1);
+      selectDelivery("delivery1");
+      selectPayment(selectedPay);
+
+      window.addEventListener("storage", (event) => {
+        if (event.key !== CART_KEY) return;
+        const nextCart = readSharedCart();
+        cart = mergeCartItems(Array.isArray(nextCart) ? nextCart : []);
+        saveCart();
+        renderCartItems();
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

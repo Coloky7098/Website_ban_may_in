@@ -1,0 +1,1622 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới Thiệu | Vision-Print VN</title>
+    <meta
+      name="description"
+      content="Vision-Print VN – Đối tác chiến lược in ấn hàng đầu Việt Nam. 15+ năm kinh nghiệm, 5000+ khách hàng tin tưởng."
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===================================================
+         VISION-PRINT VN — DESIGN SYSTEM (shared)
+         =================================================== */
+      :root {
+        --brand: #0066ff;
+        --brand-dark: #0050cb;
+        --brand-light: #e6f0ff;
+        --brand-glow: rgba(0, 102, 255, 0.18);
+        --tertiary: #5b21b6;
+        --dark: #0f172a;
+        --slate-800: #1e293b;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --success: #16a34a;
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 24px;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+        --shadow-brand: 0 8px 32px rgba(0, 102, 255, 0.25);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--slate-50);
+        color: var(--dark);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── UTILITIES ──────────────────────────────────── */
+      .fw-800 {
+        font-weight: 800 !important;
+      }
+      .fw-700 {
+        font-weight: 700 !important;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+      .text-brand {
+        color: var(--brand) !important;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #0066ff, #5b21b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── ANNOUNCEMENT BAR ── */
+      .vp-announcement-bar {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1031;
+      }
+      .vp-badge-pill {
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.73rem;
+        font-weight: 700;
+      }
+      .vp-close-announcement {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      .vp-close-announcement:hover {
+        color: #fff;
+      }
+
+      /* ── HEADER ── */
+      .vp-header {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--slate-200);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        z-index: 1030;
+      }
+      .vp-header .navbar {
+        min-height: 68px;
+      }
+
+      .vp-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--dark) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .vp-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-logo-icon--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-radius: 8px;
+      }
+
+      .vp-nav-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--slate-600) !important;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: var(--radius-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-nav-link:hover,
+      .vp-nav-link.active {
+        color: var(--brand) !important;
+        background: var(--brand-light);
+      }
+
+      /* Mega menu */
+      .vp-mega-menu {
+        min-width: 560px;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: 8px !important;
+      }
+      .vp-menu-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .vp-dd-item {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .vp-dd-item:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-menu-promo {
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+        border: 1px dashed var(--slate-200);
+      }
+      .vp-link-arrow {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-link-arrow:hover {
+        text-decoration: underline;
+      }
+
+      .vp-icon-btn {
+        width: 38px;
+        height: 38px;
+        background: var(--slate-100);
+        border: none;
+        border-radius: 10px;
+        color: var(--slate-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1rem;
+      }
+      .vp-icon-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+
+      .vp-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+      }
+
+      .vp-btn-outline-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        color: var(--dark);
+        text-decoration: none;
+        background: var(--white);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-outline-sm:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+
+      .vp-btn-primary-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .vp-btn-primary-sm:hover {
+        opacity: 0.9;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .vp-toggler {
+        border: none;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 6px 9px;
+        box-shadow: none !important;
+      }
+
+      /* User dropdown */
+      .vp-user-menu {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        transition: all 0.2s;
+        color: var(--dark);
+      }
+      .vp-user-menu:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-user-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Search bar */
+      .vp-search-bar {
+        display: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--slate-200);
+        backdrop-filter: blur(10px);
+      }
+      .vp-search-bar.open {
+        display: block;
+      }
+      .vp-search-inner {
+        position: relative;
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .vp-search-icon {
+        position: absolute;
+        left: 16px;
+        color: var(--slate-400);
+        font-size: 1rem;
+      }
+      .vp-search-input {
+        width: 100%;
+        padding: 12px 50px 12px 46px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        background: var(--slate-50);
+        outline: none;
+        color: var(--dark);
+        transition: border-color 0.2s;
+      }
+      .vp-search-input:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      .vp-search-close {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .vp-search-close:hover {
+        color: var(--dark);
+      }
+
+      /* ── BREADCRUMB ─────────────────────────────────── */
+      .vp-breadcrumb {
+        font-size: 0.8rem;
+      }
+      .vp-breadcrumb .breadcrumb-item a {
+        color: var(--slate-400);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .vp-breadcrumb .breadcrumb-item a:hover {
+        color: var(--brand);
+      }
+      .vp-breadcrumb .breadcrumb-item.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+      .vp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--slate-300);
+      }
+
+      /* ── ABOUT PAGE — HERO ──────────────────────────── */
+      .vp-about-hero {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e1b4b 60%,
+          #0f172a 100%
+        );
+        padding: 5rem 0 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .vp-about-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 30% 50%,
+            rgba(0, 102, 255, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 30%,
+            rgba(91, 33, 182, 0.15) 0%,
+            transparent 55%
+          );
+      }
+      .vp-about-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(8px);
+      }
+      .vp-about-hero-title {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        margin-bottom: 1.25rem;
+      }
+      .vp-about-hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.75;
+        max-width: 520px;
+        margin-bottom: 2.5rem;
+      }
+      .vp-hero-img-wrap {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        aspect-ratio: 16/9;
+      }
+      .vp-hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ── STATS STRIP ────────────────────────────────── */
+      .vp-stats-strip {
+        background: var(--white);
+        border-bottom: 1px solid var(--slate-200);
+        padding: 2.5rem 0;
+        box-shadow: var(--shadow-sm);
+      }
+      .vp-stat-item {
+        text-align: center;
+      }
+      .vp-stat-number {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--brand);
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        display: block;
+      }
+      .vp-stat-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--slate-400);
+        margin-top: 4px;
+      }
+      .vp-stat-divider {
+        width: 1px;
+        background: var(--slate-200);
+        align-self: stretch;
+      }
+
+      /* ── VISION MISSION ─────────────────────────────── */
+      .vp-section {
+        padding: 5rem 0;
+      }
+      .vp-section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand-light);
+        color: var(--brand);
+        border-radius: 50px;
+        padding: 5px 16px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .vp-section-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+      }
+      .vp-section-sub {
+        font-size: 1rem;
+        color: var(--slate-600);
+        line-height: 1.75;
+        max-width: 540px;
+      }
+
+      /* ── BENTO GRID ─────────────────────────────────── */
+      .vp-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(220px, auto);
+        gap: 1.25rem;
+      }
+      .vp-bento-card {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+        position: relative;
+      }
+      .vp-bento-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+      .vp-bento-card--wide {
+        grid-column: span 8;
+      }
+      .vp-bento-card--narrow {
+        grid-column: span 4;
+      }
+      .vp-bento-card--brand {
+        background: linear-gradient(135deg, var(--brand) 0%, #5b21b6 100%);
+        border-color: transparent;
+        color: #fff;
+      }
+      .vp-bento-card--dark {
+        background: var(--dark);
+        border-color: transparent;
+        color: #fff;
+      }
+      .vp-bento-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .vp-bento-card--brand .vp-bento-icon {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .vp-bento-card--dark .vp-bento-icon {
+        color: var(--brand-light);
+      }
+      .vp-bento-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+      }
+      .vp-bento-desc {
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        line-height: 1.65;
+      }
+      .vp-bento-card--brand .vp-bento-desc {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .vp-bento-card--dark .vp-bento-desc {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .vp-bento-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+        margin-top: 0.75rem;
+        transition: gap 0.2s;
+      }
+      .vp-bento-link:hover {
+        gap: 10px;
+      }
+      .vp-bento-card--brand .vp-bento-link,
+      .vp-bento-card--dark .vp-bento-link {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .vp-bento-float-img {
+        position: absolute;
+        right: -10px;
+        bottom: -10px;
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+        opacity: 0.18;
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+      }
+      .vp-bento-card:hover .vp-bento-float-img {
+        opacity: 0.3;
+        transform: scale(1.08) rotate(-3deg);
+      }
+      .vp-bento-card--brand img.vp-bento-float-img {
+        opacity: 0.12;
+      }
+
+      @media (max-width: 991px) {
+        .vp-bento-card--wide {
+          grid-column: span 12;
+        }
+        .vp-bento-card--narrow {
+          grid-column: span 12;
+        }
+        .vp-bento-grid {
+          grid-auto-rows: auto;
+        }
+        .vp-bento-card {
+          min-height: 220px;
+        }
+      }
+
+      /* ── TEAM ───────────────────────────────────────── */
+      .vp-team-card {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+      .vp-team-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+      }
+      .vp-team-img {
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--brand-light), #ede9fe);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--brand);
+        overflow: hidden;
+      }
+      .vp-team-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .vp-team-body {
+        padding: 1.25rem 1.5rem;
+      }
+      .vp-team-name {
+        font-weight: 800;
+        font-size: 1rem;
+        margin-bottom: 2px;
+      }
+      .vp-team-role {
+        font-size: 0.78rem;
+        color: var(--brand);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+      }
+      .vp-team-bio {
+        font-size: 0.825rem;
+        color: var(--slate-600);
+        line-height: 1.6;
+      }
+
+      /* ── CTA SECTION ────────────────────────────────── */
+
+      .vp-btn-cta-white {
+        background: #fff;
+        color: var(--brand);
+        border: none;
+        border-radius: var(--radius);
+        padding: 14px 32px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-btn-cta-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        color: var(--brand);
+      }
+
+      /* ── FOOTER ─────────────────────────────────────── */
+      .vp-footer {
+        background: var(--white);
+        border-top: 1px solid var(--slate-200);
+      }
+      .vp-footer-main {
+        padding: 4rem 0 3rem;
+      }
+      .vp-footer-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .vp-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-links li + li {
+        margin-top: 6px;
+      }
+      .vp-footer-links a {
+        color: var(--slate-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .vp-footer-links a:hover {
+        color: var(--brand);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .vp-footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        margin-bottom: 8px;
+      }
+      .vp-footer-contact i {
+        color: var(--brand);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .vp-footer-contact a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-hotline-card {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+      .vp-hotline-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--brand-light);
+        border-radius: 10px;
+        color: var(--brand);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-social-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--slate-100);
+        border-radius: 9px;
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+      .vp-social-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-newsletter-form {
+        display: flex;
+        gap: 0;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .vp-newsletter-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        background: transparent;
+      }
+      .vp-newsletter-btn {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 9px 16px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .vp-newsletter-btn:hover {
+        background: var(--brand-dark);
+      }
+      .vp-footer-bottom {
+        border-top: 1px solid var(--slate-100);
+        padding: 1.25rem 0;
+      }
+      .vp-pay-badge {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-700);
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      /* ── FLOATING ACTIONS ───────────────────────────── */
+      .vp-floating-actions {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .vp-fab {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .vp-fab:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .vp-fab--zalo {
+        background: #0068ff;
+        color: #fff;
+      }
+      .vp-fab--top {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      /* ── ANIMATIONS ─────────────────────────────────── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-up {
+        animation: fadeInUp 0.55s ease-out forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      /* ── RESPONSIVE ─────────────────────────────────── */
+      @media (max-width: 991px) {
+        .vp-mega-menu {
+          min-width: auto;
+        }
+        .vp-about-hero {
+          padding: 3.5rem 0 3rem;
+        }
+        .vp-section {
+          padding: 3.5rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+     <!-- ═══════════════ ANNOUNCEMENT BAR ═══════════════ -->
+    <div id="announcement-bar" class="vp-announcement-bar">
+      <div
+        class="container-xl d-flex justify-content-center align-items-center gap-2 py-2 position-relative"
+      >
+        <span class="vp-badge-pill">🔥 HOT</span>
+        <span
+          >Miễn phí lắp đặt tận nơi nội thành HCM – Gọi ngay:
+          <strong>0901 234 567</strong></span
+        >
+        <button
+          class="vp-close-announcement"
+          onclick="this.parentElement.parentElement.remove()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header" class="vp-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-xl">
+          <!-- Logo -->
+          <a class="navbar-brand vp-logo" href="home.html">
+            <span class="vp-logo-icon">VP</span>
+            <span>Vision<span class="text-primary">Print</span> VN</span>
+          </a>
+
+          <!-- Mobile icons -->
+          <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
+            <button class="vp-icon-btn position-relative" title="Giỏ hàng">
+              <i class="bi bi-bag"></i>
+              <span class="vp-cart-badge" id="cartCountMobile">0</span>
+            </button>
+            <button
+              class="navbar-toggler vp-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- Nav -->
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto gap-0 py-3 py-lg-0">
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="home.html"
+                  >Trang Chủ</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link active" href="about.html">Giới Thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="products.html"
+                  >Sản Phẩm</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="rental.html">Cho Thuê</a>
+              </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div
+              class="d-flex align-items-center gap-2 pb-3 pb-lg-0"
+              id="headerRight"
+            >
+              <button class="vp-icon-btn" id="searchToggleBtn" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+              </button>
+              <button
+                class="vp-icon-btn position-relative d-none d-lg-flex"
+                title="Giỏ hàng"
+              >
+                <i class="bi bi-bag"></i>
+                <span class="vp-cart-badge" id="cartCountDesktop">0</span>
+              </button>
+              <!-- Login/User area — rendered by JS -->
+              <div id="authArea"></div>
+              <a
+                href="tel:0901234567"
+                class="vp-btn-primary-sm d-none d-xl-flex"
+              >
+                <i class="bi bi-telephone-fill me-1"></i>0901 234 567
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Search bar -->
+      <div class="vp-search-bar" id="searchBar">
+        <div class="container-xl py-3">
+          <div class="vp-search-inner">
+            <i class="bi bi-search vp-search-icon"></i>
+            <input
+              type="text"
+              class="vp-search-input"
+              id="headerSearchInput"
+              placeholder="Tìm máy in, photocopy, phụ kiện..."
+              autocomplete="off"
+            />
+            <button class="vp-search-close" id="searchCloseBtn">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ═══════════════ END HEADER ═══════════════ -->
+
+    <!-- ================== BREADCRUMB =================== -->
+    <div class="bg-white border-bottom py-2">
+      <div class="container-xl">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb vp-breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="home.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item active">Giới Thiệu</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <!-- ================== HERO ======================== -->
+      <section class="vp-about-hero">
+        <div class="container-xl position-relative" style="z-index: 1">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+              <div class="fade-in-up">
+                <div class="vp-about-hero-badge">
+                  <i class="bi bi-award-fill"></i>
+                  The Precision Architect
+                </div>
+                <h1 class="vp-about-hero-title">
+                  Kiến tạo tương lai<br />
+                  <span class="gradient-text">Kỹ thuật in ấn 2026</span>
+                </h1>
+                <p class="vp-about-hero-sub">
+                  Chúng tôi không chỉ cung cấp thiết bị — chúng tôi thiết kế
+                  giải pháp vận hành tối ưu, mang công nghệ in ấn hiện đại nhất
+                  từ thế giới đến từng doanh nghiệp Việt Nam.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                  <a
+                    href="#fields"
+                    class="vp-btn-cta-white delay-2 fade-in-up"
+                    style="font-size: 0.9rem; padding: 12px 26px"
+                  >
+                    <i class="bi bi-grid-3x3-gap-fill"></i> Lĩnh vực hoạt động
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 fade-in-up delay-2">
+              <div class="vp-hero-img-wrap">
+                <img
+                  src="../img/kythuainan_v2.avif"
+                  alt="Văn phòng hiện đại Vision-Print VN"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== STATS STRIP ================= -->
+      <section class="vp-stats-strip">
+        <div class="container-xl">
+          <div class="row g-0 justify-content-center">
+            <div class="col-6 col-md-3 vp-stat-item py-2">
+              <span class="vp-stat-number">15+</span>
+              <p class="vp-stat-label">Năm kinh nghiệm</p>
+            </div>
+            <div class="d-none d-md-block vp-stat-divider my-2"></div>
+            <div class="col-6 col-md-3 vp-stat-item py-2">
+              <span class="vp-stat-number">5.000+</span>
+              <p class="vp-stat-label">Khách hàng tin dùng</p>
+            </div>
+            <div class="d-none d-md-block vp-stat-divider my-2"></div>
+            <div class="col-6 col-md-3 vp-stat-item py-2">
+              <span class="vp-stat-number">50+</span>
+              <p class="vp-stat-label">Kỹ sư & chuyên gia</p>
+            </div>
+            <div class="d-none d-md-block vp-stat-divider my-2"></div>
+            <div class="col-6 col-md-3 vp-stat-item py-2">
+              <span class="vp-stat-number">24/7</span>
+              <p class="vp-stat-label">Hỗ trợ kỹ thuật</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================== BENTO: FIELDS =============== -->
+      <section class="vp-section" id="fields">
+        <div class="container-xl">
+          <div class="text-center mb-5">
+            <div class="vp-section-label mx-auto d-inline-flex">
+              <i class="bi bi-grid-3x3-gap-fill"></i> Hệ sinh thái dịch vụ
+            </div>
+            <h2 class="vp-section-title">Lĩnh vực hoạt động</h2>
+            <p class="vp-section-sub mx-auto text-center">
+              Hệ sinh thái dịch vụ toàn diện cho mọi nhu cầu văn phòng hiện đại.
+            </p>
+          </div>
+
+          <div class="vp-bento-grid">
+            <!-- Cung cấp máy — Wide -->
+            <div class="vp-bento-card vp-bento-card--wide">
+              <div>
+                <i class="bi bi-printer-fill vp-bento-icon text-brand"></i>
+                <h3 class="vp-bento-title">Cung cấp máy in &amp; photocopy</h3>
+                <p class="vp-bento-desc" style="max-width: 380px">
+                  Sản phẩm chính hãng từ Ricoh, Toshiba, Canon, HP với công nghệ
+                  tiên tiến nhất 2026. Đảm bảo hiệu suất in ấn đỉnh cao cho mọi
+                  quy mô doanh nghiệp.
+                </p>
+                <a href="index.html" class="vp-bento-link">
+                  Khám phá sản phẩm <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <img
+                class="vp-bento-float-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyZYe3aY7VPYgmGLtrkOHfa3QnA2Av7bZLumfE8UgS1ujymxuN-WE-uE-kMEV89-S2U4kcbVHdYAhx6rwg_AMZlMGPFoLmeqypFxX7f9DLW17oqiYWUxJnGyVJBTzyM5MaDlZKN6i9Ev75pCGcboPxpcD1CkSJU26gGDJSuPcFC9zhAizpqvk2SA6KdA_TAoVETO5tjVhek01KnwduZn6oD9VhiOTRjdix6MsjUzWzKw99YISSYoDgTI_JKwR9tZYgXvSMHMEA3Q"
+                alt="Máy in"
+              />
+            </div>
+
+            <!-- Cho thuê — Narrow Brand -->
+            <div
+              class="vp-bento-card vp-bento-card--narrow vp-bento-card--brand"
+            >
+              <div>
+                <i class="bi bi-key-fill vp-bento-icon"></i>
+                <h3 class="vp-bento-title text-white">Cho thuê trọn gói</h3>
+                <p class="vp-bento-desc">
+                  Tối ưu chi phí với giải pháp thuê máy linh hoạt theo quy mô và
+                  nhu cầu thực tế.
+                </p>
+              </div>
+              <a href="rental.html#pricing" class="vp-bento-link"
+                >Xem bảng giá <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Bảo trì — Narrow -->
+            <div class="vp-bento-card vp-bento-card--narrow">
+              <div>
+                <i class="bi bi-tools vp-bento-icon text-brand"></i>
+                <h3 class="vp-bento-title">Dịch vụ bảo trì</h3>
+                <p class="vp-bento-desc">
+                  Đội ngũ kỹ thuật túc trực 24/7, xử lý sự cố trong vòng 2 giờ
+                  làm việc trên toàn TP.HCM.
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-3 mt-2" style="height: 48px;">
+            </div>
+        </div>
+      </section>
+
+      <!-- ================== TEAM ======================== -->
+      <section class="vp-section" style="background: var(--slate-50)">
+        <div class="container-xl">
+          <div class="text-center mb-5">
+            <div class="vp-section-label mx-auto d-inline-flex">
+              <i class="bi bi-people-fill"></i> Đội ngũ lãnh đạo
+            </div>
+            <h2 class="vp-section-title">Những người kiến tạo</h2>
+            <p class="vp-section-sub mx-auto text-center">
+              Đội ngũ giàu kinh nghiệm, nhiệt huyết với sứ mệnh nâng tầm ngành
+              in ấn Việt Nam.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="vp-team-card">
+                <div class="vp-team-img">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="vp-team-body">
+                  <p class="vp-team-name">Phạm Quang Khải</p>
+                  <p class="vp-team-role">CEO &amp; Founder</p>
+                  <p class="vp-team-bio">
+                    15 năm kinh nghiệm trong lĩnh vực thiết bị văn phòng và giải
+                    pháp in ấn doanh nghiệp.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="vp-team-card">
+                <div class="vp-team-img">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="vp-team-body">
+                  <p class="vp-team-name">Trịnh Nguyễn Hoàng Việt</p>
+                  <p class="vp-team-role">Giám đốc Kỹ thuật</p>
+                  <p class="vp-team-bio">
+                    Chuyên gia hàng đầu về bảo trì và vận hành hệ thống máy in
+                    công nghiệp tại Việt Nam.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="vp-team-card">
+                <div class="vp-team-img">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="vp-team-body">
+                  <p class="vp-team-name">Nguyễn Anh Kiệt</p>
+                  <p class="vp-team-role">Giám đốc Kinh doanh</p>
+                  <p class="vp-team-bio">
+                    Kiến trúc sư các giải pháp thuê máy trọn gói phục vụ hàng
+                    nghìn doanh nghiệp SME.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="vp-team-card">
+                <div class="vp-team-img">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="vp-team-body">
+                  <p class="vp-team-name">Võ Duy Tiến</p>
+                  <p class="vp-team-role">Trưởng phòng CSKH</p>
+                  <p class="vp-team-bio">
+                    Đảm bảo mọi khách hàng nhận được trải nghiệm dịch vụ xuất
+                    sắc từ trước đến sau mua hàng.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="vp-footer mt-auto">
+      <div class="vp-footer-main">
+        <div class="container-xl">
+          <div class="row g-5">
+            <!-- Brand col -->
+            <div class="col-lg-4 col-md-6">
+              <a
+                href="home.html"
+                class="vp-footer-logo mb-3 d-inline-flex align-items-center gap-2 text-decoration-none"
+              >
+                <span class="vp-logo-icon vp-logo-icon--sm">VP</span>
+                <span class="fw-800 text-dark"
+                  >Vision<span class="text-primary">Print</span> VN</span
+                >
+              </a>
+              <p
+                class="text-muted mb-4"
+                style="font-size: 0.9rem; line-height: 1.7"
+              >
+                Nâng tầm hiệu suất doanh nghiệp Việt với giải pháp in ấn chính
+                xác và dịch vụ kỹ thuật chuyên nghiệp.
+              </p>
+              <div class="vp-hotline-card mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="vp-hotline-icon">
+                    <i class="bi bi-headset"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 text-muted" style="font-size: 0.75rem">
+                      Hỗ trợ 24/7
+                    </p>
+                    <a
+                      href="tel:0901234567"
+                      class="fw-800 text-dark text-decoration-none"
+                      style="font-size: 1.1rem"
+                      >0901 234 567</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <a href="home.html" class="vp-social-btn" title="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="products.html" class="vp-social-btn" title="YouTube"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="rental.html" class="vp-social-btn" title="Zalo"
+                  ><i class="bi bi-chat-dots-fill"></i
+                ></a>
+                <a href="about.html" class="vp-social-btn" title="Email"
+                  ><i class="bi bi-envelope-fill"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Khám phá -->
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Khám Phá</h5>
+              <ul class="vp-footer-links">
+                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="index.html">Sản Phẩm Mới</a></li>
+                <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
+                <li><a href="about.html">Tin Tức</a></li>
+              </ul>
+            </div>
+
+            <!-- Hỗ trợ -->
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Hỗ Trợ</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
+                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
+                <li><a href="about.html">Liên Hệ</a></li>
+                <li><a href="home.html">Sitemap</a></li>
+              </ul>
+            </div>
+
+            <!-- Văn phòng + Newsletter -->
+            <div class="col-lg-4 col-md-6">
+              <h5 class="vp-footer-heading">Văn Phòng</h5>
+              <ul class="vp-footer-contact">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i
+                  ><span>12 Nguyễn Văn Bảo, Hạnh Thông, TP HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i
+                  ><span>Thứ 2 – Thứ 7: 8:00 – 18:00</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i
+                  ><a href="mailto:info@visionprint.vn">info@visionprint.vn</a>
+                </li>
+              </ul>
+              <div class="vp-newsletter mt-4">
+                <p class="fw-600 mb-2" style="font-size: 0.85rem">
+                  Nhận ưu đãi mới nhất:
+                </p>
+                <div class="vp-newsletter-form">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn..."
+                    class="vp-newsletter-input"
+                  />
+                  <button class="vp-newsletter-btn">
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="vp-footer-bottom">
+        <div class="container-xl">
+          <div class="row align-items-center g-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 text-muted" style="font-size: 0.8rem">
+                © 2026 Vision-Print VN. Thiết kế bởi
+                <strong>The Precision Architect</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <span class="text-muted me-3" style="font-size: 0.8rem"
+                >Phương thức thanh toán:</span
+              >
+              <span class="vp-pay-badge">Visa</span>
+              <span class="vp-pay-badge">MasterCard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating: Zalo + Scroll Top -->
+    <div class="vp-floating-actions">
+      <a
+        href="https://zalo.me/0901234567"
+        class="vp-fab vp-fab--zalo"
+        title="Chat Zalo"
+        target="_blank"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+      </a>
+      <button
+        class="vp-fab vp-fab--top"
+        id="scrollTopBtn"
+        title="Lên đầu trang"
+        style="display: none"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const SESSION_KEY = "vp_session";
+
+      function getSession() {
+        return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+      }
+      function clearSession() {
+        localStorage.removeItem(SESSION_KEY);
+      }
+
+      // Render auth area in header
+      function renderAuthArea() {
+        const session = getSession();
+        const area = document.getElementById("authArea");
+        if (!area) return;
+
+        if (session) {
+          const initials = session.name
+            .split(" ")
+            .map((w) => w[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+          area.innerHTML = `
+            <div class="dropdown">
+                <a class="vp-user-menu dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="vp-avatar">${initials}</div>
+                    <span class="vp-user-name d-none d-md-block">${session.name.split(" ").pop()}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow" style="border-radius:14px;border:1px solid var(--slate-200);padding:8px;min-width:220px;">
+                    <li>
+                        <div class="px-3 py-2 mb-1" style="border-bottom:1px solid var(--slate-100);">
+                            <p class="fw-700 mb-0" style="font-size:0.875rem;">${session.name}</p>
+                            <p class="text-muted mb-0" style="font-size:0.75rem;">${session.email}</p>
+                        </div>
+                    </li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="login.html" style="font-size:0.85rem;"><i class="bi bi-person me-2"></i>Tài khoản của tôi</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="invoice.html" style="font-size:0.85rem;"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
+                    <li><a class="dropdown-item rounded-2 py-2" href="products.html" style="font-size:0.85rem;"><i class="bi bi-heart me-2"></i>Yêu thích</a></li>
+                    <li><hr class="dropdown-divider my-1"></li>
+                    <li><button class="dropdown-item rounded-2 py-2 text-danger" id="logoutBtn" style="font-size:0.85rem;"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</button></li>
+                </ul>
+            </div>`;
+
+          document
+            .getElementById("logoutBtn")
+            ?.addEventListener("click", () => {
+              clearSession();
+              showToast("Đã đăng xuất.", "info");
+              setTimeout(() => renderAuthArea(), 300);
+            });
+        } else {
+          area.innerHTML = `<a href="login.html" class="vp-btn-outline-sm"><i class="bi bi-person me-1"></i>Đăng nhập</a>`;
+        }
+      }
+      renderAuthArea();
+      // ── SEARCH TOGGLE ──────────────────────────────────
+      const searchBar = document.getElementById("searchBar");
+      const searchToggleBtn = document.getElementById("searchToggleBtn");
+      const searchCloseBtn = document.getElementById("searchCloseBtn");
+      const headerSearchInput = document.getElementById("headerSearchInput");
+
+      searchToggleBtn.addEventListener("click", () => {
+        searchBar.classList.toggle("open");
+        if (searchBar.classList.contains("open")) headerSearchInput.focus();
+      });
+      searchCloseBtn.addEventListener("click", () => {
+        searchBar.classList.remove("open");
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") searchBar.classList.remove("open");
+      });
+
+      // ── SCROLL TO TOP ──────────────────────────────────
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollTopBtn.style.display = window.scrollY > 400 ? "flex" : "none";
+      });
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // ── COUNTER ANIMATION ──────────────────────────────
+      const counters = document.querySelectorAll(".vp-stat-number");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !entry.target.dataset.counted) {
+              entry.target.dataset.counted = "1";
+              const el = entry.target;
+              const raw = el.textContent.replace(/[^0-9]/g, "");
+              if (!raw) return;
+              const target = parseInt(raw, 10);
+              const suffix = el.textContent.replace(/[0-9]/g, "").trim();
+              let cur = 0;
+              const step = Math.ceil(target / 60);
+              const timer = setInterval(() => {
+                cur = Math.min(cur + step, target);
+                el.textContent = cur.toLocaleString("vi-VN") + suffix;
+                if (cur >= target) clearInterval(timer);
+              }, 20);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      counters.forEach((c) => observer.observe(c));
+
+      // ── NEWSLETTER ─────────────────────────────────────
+      document
+        .querySelector(".vp-newsletter-btn")
+        .addEventListener("click", function () {
+          const input = this.previousElementSibling;
+          if (!input.value.includes("@")) {
+            input.focus();
+            return;
+          }
+          this.innerHTML = '<i class="bi bi-check-lg"></i>';
+          this.style.background = "#16a34a";
+          input.value = "";
+          setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-send-fill"></i>';
+            this.style.background = "";
+          }, 3000);
+        });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+

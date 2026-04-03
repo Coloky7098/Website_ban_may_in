@@ -1,0 +1,2615 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Sản Phẩm | Vision-Print VN</title>
+    <meta
+      name="description"
+      content="Khám phá toàn bộ danh mục máy photocopy, máy in khổ lớn Ricoh, HP, Xerox, Canon chính hãng. Lọc theo thương hiệu, giá, loại máy."
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════════
+     VISION-PRINT VN — DESIGN SYSTEM (shared, y chang home.html)
+  ═══════════════════════════════════════════════════════ */
+      :root {
+        --brand: #0066ff;
+        --brand-dark: #0050cb;
+        --brand-light: #e6f0ff;
+        --brand-glow: rgba(0, 102, 255, 0.18);
+        --tertiary: #6a2ed9;
+        --dark: #0f172a;
+        --slate-800: #1e293b;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --success: #16a34a;
+        --warning: #d97706;
+        --error: #dc2626;
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 24px;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+        --shadow-brand: 0 8px 32px rgba(0, 102, 255, 0.25);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--slate-50);
+        color: var(--dark);
+        -webkit-font-smoothing: antialiased;
+      }
+      .fw-800 {
+        font-weight: 800 !important;
+      }
+      .fw-700 {
+        font-weight: 700 !important;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── ANNOUNCEMENT BAR ── */
+      .vp-announcement-bar {
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1031;
+      }
+      .vp-badge-pill {
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.73rem;
+        font-weight: 700;
+      }
+      .vp-close-announcement {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+      .vp-close-announcement:hover {
+        color: #fff;
+      }
+
+      /* ── HEADER ── */
+      .vp-header {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--slate-200);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        z-index: 1030;
+      }
+      .vp-header .navbar {
+        min-height: 68px;
+      }
+      .vp-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--dark) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .vp-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-logo-icon--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+        border-radius: 8px;
+      }
+      .vp-nav-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--slate-600) !important;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: var(--radius-sm);
+        transition:
+          color 0.2s,
+          background 0.2s;
+        white-space: nowrap;
+      }
+      .vp-nav-link:hover,
+      .vp-nav-link.active {
+        color: var(--brand) !important;
+        background: var(--brand-light);
+      }
+      .vp-mega-menu {
+        min-width: 560px;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: 8px !important;
+      }
+      .vp-menu-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--slate-400);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .vp-dd-item {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        border-radius: 8px;
+        padding: 5px 10px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .vp-dd-item:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-menu-promo {
+        background: var(--slate-50);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+        border: 1px dashed var(--slate-200);
+      }
+      .vp-link-arrow {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-link-arrow:hover {
+        text-decoration: underline;
+      }
+      .vp-icon-btn {
+        width: 38px;
+        height: 38px;
+        background: var(--slate-100);
+        border: none;
+        border-radius: 10px;
+        color: var(--slate-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1rem;
+        text-decoration: none;
+      }
+      .vp-icon-btn:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+      }
+      .vp-btn-outline-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        color: var(--dark);
+        text-decoration: none;
+        background: var(--white);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .vp-btn-outline-sm:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-btn-primary-sm {
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 7px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .vp-btn-primary-sm:hover {
+        opacity: 0.9;
+        color: #fff;
+        transform: translateY(-1px);
+      }
+      .vp-toggler {
+        border: none;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 6px 9px;
+        box-shadow: none !important;
+      }
+      .vp-user-menu {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        transition: all 0.2s;
+        color: var(--dark);
+      }
+      .vp-user-menu:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--tertiary));
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-user-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .vp-search-bar {
+        display: none;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid var(--slate-200);
+        backdrop-filter: blur(10px);
+      }
+      .vp-search-bar.open {
+        display: block;
+      }
+      .vp-search-inner {
+        position: relative;
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .vp-search-icon {
+        position: absolute;
+        left: 16px;
+        color: var(--slate-400);
+        font-size: 1rem;
+      }
+      .vp-search-input {
+        width: 100%;
+        padding: 12px 50px 12px 46px;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        background: var(--slate-50);
+        outline: none;
+        color: var(--dark);
+        transition: border-color 0.2s;
+      }
+      .vp-search-input:focus {
+        border-color: var(--brand);
+        background: #fff;
+      }
+      .vp-search-close {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--slate-400);
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .vp-search-close:hover {
+        color: var(--dark);
+      }
+
+      /* ── BREADCRUMB ── */
+      .vp-breadcrumb {
+        font-size: 0.8rem;
+      }
+      .vp-breadcrumb .breadcrumb-item a {
+        color: var(--slate-400);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .vp-breadcrumb .breadcrumb-item a:hover {
+        color: var(--brand);
+      }
+      .vp-breadcrumb .breadcrumb-item.active {
+        color: var(--dark);
+        font-weight: 600;
+      }
+      .vp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--slate-300);
+      }
+
+      /* ── SECTION HEADERS ── */
+      .vp-section-label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--brand);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-section-label::before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: var(--brand);
+      }
+      .vp-section-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      /* ── PRODUCT CARDS ── */
+      .vp-product-card {
+        background: var(--white);
+        border: 1px solid var(--slate-100);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        transition:
+          transform 0.35s,
+          box-shadow 0.35s,
+          border-color 0.35s;
+        height: 100%;
+      }
+      .vp-product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(0, 102, 255, 0.2);
+      }
+      .vp-product-img {
+        position: relative;
+        aspect-ratio: 1/1;
+        background: var(--slate-50);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .vp-product-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+      .vp-product-card:hover .vp-product-img img {
+        transform: scale(1.08);
+      }
+      .vp-product-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border-radius: 50px;
+        padding: 3px 10px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .vp-product-badge.hot {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-product-badge.new {
+        background: var(--tertiary);
+        color: #fff;
+      }
+      .vp-product-badge.sale {
+        background: #dc2626;
+        color: #fff;
+      }
+      .vp-product-badge.rent {
+        background: #854d0e;
+        color: #fff;
+      }
+      .vp-brand-tag {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-600);
+        border-radius: 50px;
+        padding: 2px 10px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 6px;
+      }
+      .vp-product-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.35;
+        margin-bottom: 4px;
+      }
+      .vp-product-type {
+        font-size: 0.72rem;
+        color: var(--slate-400);
+        font-style: italic;
+      }
+      .vp-product-price {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--brand);
+        margin-bottom: 0;
+      }
+      .vp-product-price-old {
+        font-size: 0.82rem;
+        color: var(--slate-400);
+        text-decoration: line-through;
+      }
+      .vp-btn-detail {
+        flex: 1;
+        border: none;
+        background: var(--slate-100);
+        color: var(--dark);
+        border-radius: 50px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+        text-align: center;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vp-btn-detail:hover {
+        background: var(--brand-light);
+        color: var(--brand);
+      }
+      .vp-btn-cart {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+      .vp-btn-cart:hover {
+        background: var(--brand-dark);
+        transform: scale(1.1);
+      }
+      .vp-btn-cart.added {
+        background: var(--success);
+      }
+      .vp-btn-wishlist {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--slate-100);
+        color: var(--slate-400);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+      .vp-btn-wishlist:hover,
+      .vp-btn-wishlist.active {
+        background: #fef2f2;
+        color: #dc2626;
+      }
+
+      /* ── FILTER TABS ── */
+      .vp-filter-tabs {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .vp-filter-tab {
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        border-radius: 50px;
+        padding: 7px 18px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--slate-600);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .vp-filter-tab:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-filter-tab.active {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+
+      /* ── SIDEBAR ── */
+      .vp-sidebar {
+        position: sticky;
+        top: 90px;
+      }
+      .vp-sidebar-card {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .vp-sidebar-heading {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-check-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 6px 0;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--slate-600);
+        transition: color 0.2s;
+      }
+      .vp-check-label:hover {
+        color: var(--dark);
+      }
+      .vp-check-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: var(--brand);
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .vp-check-label .count {
+        margin-left: auto;
+        font-size: 0.72rem;
+        color: var(--slate-400);
+        font-weight: 600;
+      }
+      .vp-cat-chip {
+        display: block;
+        padding: 8px 14px;
+        background: var(--slate-50);
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--slate-600);
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .vp-cat-chip:hover,
+      .vp-cat-chip.active {
+        background: var(--brand-light);
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-price-range {
+        width: 100%;
+      }
+      .vp-price-track {
+        position: relative;
+        height: 4px;
+        background: var(--slate-200);
+        border-radius: 4px;
+        margin: 1rem 0;
+      }
+      .vp-price-fill {
+        position: absolute;
+        height: 100%;
+        background: var(--brand);
+        border-radius: 4px;
+        left: 0;
+        right: 0;
+      }
+      input[type="range"].vp-range {
+        width: 100%;
+        -webkit-appearance: none;
+        height: 4px;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+      }
+      input[type="range"].vp-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--brand);
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+        cursor: pointer;
+      }
+      .vp-price-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--slate-600);
+      }
+      .vp-clear-filters {
+        width: 100%;
+        padding: 10px;
+        background: none;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--slate-500);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .vp-clear-filters:hover {
+        border-color: var(--error);
+        color: var(--error);
+      }
+
+      /* ── SORT / VIEW BAR ── */
+      .vp-sort-bar {
+        background: var(--white);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius);
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+      }
+      .vp-sort-select {
+        border: 1.5px solid var(--slate-200);
+        border-radius: 50px;
+        padding: 7px 16px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--dark);
+        font-family: inherit;
+        outline: none;
+        background: var(--white);
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+      .vp-sort-select:focus {
+        border-color: var(--brand);
+      }
+      .vp-view-toggle {
+        display: flex;
+        gap: 4px;
+      }
+      .vp-view-btn {
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.95rem;
+        color: var(--slate-400);
+        transition: all 0.2s;
+      }
+      .vp-view-btn.active,
+      .vp-view-btn:hover {
+        background: var(--brand-light);
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .vp-result-count {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--slate-500);
+      }
+
+      /* ── PAGINATION ── */
+      .vp-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 3rem;
+      }
+      .vp-page-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid var(--slate-200);
+        background: var(--white);
+        color: var(--slate-600);
+        font-size: 0.875rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .vp-page-btn:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+        background: var(--brand-light);
+      }
+      .vp-page-btn.active {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .vp-page-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .vp-page-dots {
+        color: var(--slate-400);
+        padding: 0 4px;
+        font-weight: 700;
+      }
+
+      /* ── PAGE HERO BANNER ── */
+      .vp-page-hero {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          #1e1040 60%,
+          var(--dark) 100%
+        );
+        padding: 4rem 0 3.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .vp-page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 30% 50%,
+            rgba(0, 102, 255, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(106, 46, 217, 0.12) 0%,
+            transparent 55%
+          );
+      }
+
+      /* ── COMPARE BAR (sticky bottom) ── */
+      .vp-compare-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 990;
+        background: var(--dark);
+        color: #fff;
+        padding: 14px 0;
+        display: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
+      }
+      .vp-compare-bar.show {
+        display: block;
+      }
+      .vp-compare-slot {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px dashed rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .vp-compare-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 4px;
+      }
+      .vp-compare-slot.empty {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .vp-btn-compare {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius-sm);
+        padding: 10px 24px;
+        font-weight: 800;
+        font-size: 0.88rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: opacity 0.2s;
+      }
+      .vp-btn-compare:hover {
+        opacity: 0.9;
+      }
+      .vp-btn-compare:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .vp-compare-remove {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 18px;
+        height: 18px;
+        background: var(--error);
+        border-radius: 50%;
+        border: none;
+        color: #fff;
+        font-size: 0.65rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ── BRANDS STRIP ── */
+      .vp-brands {
+        background: var(--white);
+        border-bottom: 1px solid var(--slate-100);
+        padding: 22px 0;
+        overflow: hidden;
+      }
+      .vp-brands-track {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        filter: grayscale(1);
+        opacity: 0.4;
+        animation: brandScroll 18s linear infinite;
+        width: max-content;
+      }
+      .vp-brands-track:hover {
+        animation-play-state: paused;
+      }
+      .vp-brand-name {
+        font-size: 1.2rem;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: var(--dark);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      @keyframes brandScroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── FOOTER ── */
+      .vp-footer {
+        background: var(--white);
+        border-top: 1px solid var(--slate-200);
+      }
+      .vp-footer-main {
+        padding: 4rem 0 3rem;
+      }
+      .vp-footer-heading {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .vp-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-links li + li {
+        margin-top: 6px;
+      }
+      .vp-footer-links a {
+        color: var(--slate-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+      .vp-footer-links a:hover {
+        color: var(--brand);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .vp-footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .vp-footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: var(--slate-600);
+        margin-bottom: 8px;
+      }
+      .vp-footer-contact i {
+        color: var(--brand);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .vp-footer-contact a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .vp-hotline-card {
+        background: var(--slate-50);
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+      .vp-hotline-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--brand-light);
+        border-radius: 10px;
+        color: var(--brand);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vp-social-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--slate-100);
+        border-radius: 9px;
+        color: var(--slate-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+      .vp-social-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .vp-newsletter-form {
+        display: flex;
+        border: 1.5px solid var(--slate-200);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .vp-newsletter-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        background: transparent;
+      }
+      .vp-newsletter-btn {
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 9px 16px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .vp-newsletter-btn:hover {
+        background: var(--brand-dark);
+      }
+      .vp-footer-bottom {
+        border-top: 1px solid var(--slate-100);
+        padding: 1.25rem 0;
+      }
+      .vp-pay-badge {
+        display: inline-block;
+        background: var(--slate-100);
+        color: var(--slate-700);
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      /* ── FLOATING ACTIONS ── */
+      .vp-floating-actions {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .vp-fab {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .vp-fab:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .vp-fab--zalo {
+        background: #0068ff;
+        color: #fff;
+      }
+      .vp-fab--top {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeInUp 0.55s ease-out forwards;
+      }
+      .d1 {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+      .d2 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 991px) {
+        .vp-mega-menu {
+          min-width: auto;
+        }
+        .vp-sidebar {
+          position: static;
+        }
+        .vp-compare-bar {
+          padding: 10px 0;
+        }
+      }
+      @media (max-width: 767px) {
+        .vp-page-hero {
+          padding: 2.5rem 0 2rem;
+        }
+        .vp-sort-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════ ANNOUNCEMENT BAR ═══════════════ -->
+    <div id="announcement-bar" class="vp-announcement-bar">
+      <div
+        class="container-xl d-flex justify-content-center align-items-center gap-2 py-2 position-relative"
+      >
+        <span class="vp-badge-pill">🔥 HOT</span>
+        <span
+          >Miễn phí lắp đặt tận nơi nội thành HCM – Gọi ngay:
+          <strong>0901 234 567</strong></span
+        >
+        <button
+          class="vp-close-announcement"
+          onclick="this.parentElement.parentElement.remove()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header" class="vp-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-xl">
+          <a class="navbar-brand vp-logo" href="home.html">
+            <span class="vp-logo-icon">VP</span>
+            <span>Vision<span class="text-primary">Print</span> VN</span>
+          </a>
+          <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
+            <button
+              class="vp-icon-btn position-relative"
+              title="Giỏ hàng"
+              onclick="location.href = 'cart.html'"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="vp-cart-badge" id="cartCountMobile">0</span>
+            </button>
+            <button
+              class="navbar-toggler vp-toggler border-0 shadow-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto gap-0 py-3 py-lg-0">
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="home.html">Trang Chủ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="about.html">Giới Thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link active" href="products.html"
+                  >Sản Phẩm</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link vp-nav-link" href="rental.html">Cho Thuê</a>
+              </li>
+            </ul>
+            <div
+              class="d-flex align-items-center gap-2 pb-3 pb-lg-0"
+              id="headerRight"
+            >
+              <button class="vp-icon-btn" id="searchToggleBtn" title="Tìm kiếm">
+                <i class="bi bi-search"></i>
+              </button>
+              <button
+                class="vp-icon-btn position-relative d-none d-lg-flex"
+                title="Giỏ hàng"
+                onclick="location.href = 'cart.html'"
+              >
+                <i class="bi bi-bag"></i>
+                <span class="vp-cart-badge" id="cartCountDesktop">0</span>
+              </button>
+              <div id="authArea"></div>
+              <a
+                href="tel:0901234567"
+                class="vp-btn-primary-sm d-none d-xl-flex"
+              >
+                <i class="bi bi-telephone-fill me-1"></i>0901 234 567
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="vp-search-bar" id="searchBar">
+        <div class="container-xl py-3">
+          <div class="vp-search-inner">
+            <i class="bi bi-search vp-search-icon"></i>
+            <input
+              type="text"
+              class="vp-search-input"
+              id="headerSearchInput"
+              placeholder="Tìm máy in, photocopy, phụ kiện..."
+              autocomplete="off"
+            />
+            <button class="vp-search-close" id="searchCloseBtn">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════ PAGE HERO BANNER ═══════════════ -->
+    <section class="vp-page-hero">
+      <div class="container-xl position-relative" style="z-index: 1">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb vp-breadcrumb mb-0">
+            <li class="breadcrumb-item">
+              <a href="home.html" class="text-white-50">Trang Chủ</a>
+            </li>
+            <li
+              class="breadcrumb-item active"
+              style="color: rgba(255, 255, 255, 0.5)"
+            >
+              Sản Phẩm
+            </li>
+          </ol>
+        </nav>
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7 fade-up">
+            <div
+              class="vp-hero-label d-inline-flex align-items-center gap-2 mb-3"
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                border-radius: 50px;
+                padding: 6px 16px;
+                font-size: 0.72rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: rgba(255, 255, 255, 0.85);
+              "
+            >
+              <i class="bi bi-grid-3x3-gap-fill"></i> Danh mục sản phẩm 2026
+            </div>
+            <h1
+              style="
+                font-size: clamp(2rem, 5vw, 3.2rem);
+                font-weight: 800;
+                color: #fff;
+                line-height: 1.15;
+                letter-spacing: -0.025em;
+                margin-bottom: 1rem;
+              "
+            >
+              Khám phá <span class="gradient-text">hệ sinh thái</span><br />máy
+              in chính hãng
+            </h1>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.65);
+                font-size: 1rem;
+                line-height: 1.75;
+                max-width: 500px;
+              "
+            >
+              Hơn 200 sản phẩm từ Ricoh, HP, Xerox, Canon, Konica Minolta — tất
+              cả đều chính hãng, bảo hành toàn phần, giao tận nơi.
+            </p>
+          </div>
+          <div
+            class="col-lg-5 d-none d-lg-flex justify-content-end gap-3 fade-up d1"
+          >
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: var(--radius-lg);
+                padding: 1.5rem;
+                min-width: 160px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: 800; color: #fff">
+                12+
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 700;
+                  color: rgba(255, 255, 255, 0.55);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-top: 4px;
+                "
+              >
+                Sản phẩm
+              </div>
+            </div>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: var(--radius-lg);
+                padding: 1.5rem;
+                min-width: 160px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: 800; color: #fff">
+                5
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 700;
+                  color: rgba(255, 255, 255, 0.55);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-top: 4px;
+                "
+              >
+                Thương hiệu
+              </div>
+            </div>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: var(--radius-lg);
+                padding: 1.5rem;
+                min-width: 160px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: 800; color: #fff">
+                24/7
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 700;
+                  color: rgba(255, 255, 255, 0.55);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-top: 4px;
+                "
+              >
+                Hỗ trợ KT
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ BRAND STRIP ═══════════════ -->
+    <div class="vp-brands">
+      <div class="container-xl overflow-hidden">
+        <div class="vp-brands-track">
+          <span class="vp-brand-name">RICOH</span
+          ><span class="vp-brand-name">HP</span>
+          <span class="vp-brand-name">XEROX</span
+          ><span class="vp-brand-name">CANON</span>
+          <span class="vp-brand-name">KONICA MINOLTA</span
+          ><span class="vp-brand-name">BROTHER</span>
+          <span class="vp-brand-name">EPSON</span
+          ><span class="vp-brand-name">FUJIFILM</span>
+          <span class="vp-brand-name">RICOH</span
+          ><span class="vp-brand-name">HP</span>
+          <span class="vp-brand-name">XEROX</span
+          ><span class="vp-brand-name">CANON</span>
+          <span class="vp-brand-name">KONICA MINOLTA</span
+          ><span class="vp-brand-name">BROTHER</span>
+          <span class="vp-brand-name">EPSON</span
+          ><span class="vp-brand-name">FUJIFILM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <main class="py-5">
+      <div class="container-xl">
+        <div class="row g-4 align-items-start">
+          <!-- ═══ SIDEBAR FILTERS ═══ -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <div class="vp-sidebar">
+              <!-- Phân loại -->
+              <div class="vp-sidebar-card">
+                <div class="vp-sidebar-heading">
+                  <i class="bi bi-tag-fill text-brand"></i> Phân loại
+                </div>
+                <button class="vp-cat-chip active" data-cat="all">
+                  Tất cả
+                </button>
+                <button class="vp-cat-chip" data-cat="color">
+                  Máy photocopy màu
+                </button>
+                <button class="vp-cat-chip" data-cat="bw">
+                  Máy photocopy đen trắng
+                </button>
+                <button class="vp-cat-chip" data-cat="wf">
+                  Máy in khổ lớn A0
+                </button>
+                <button class="vp-cat-chip" data-cat="laser">
+                  Máy in laser
+                </button>
+                <button class="vp-cat-chip" data-cat="ink">
+                  Máy in phun màu
+                </button>
+              </div>
+
+              <!-- Khoảng giá -->
+              <div class="vp-sidebar-card">
+                <div class="vp-sidebar-heading">
+                  <i class="bi bi-currency-dollar text-brand"></i> Khoảng giá
+                </div>
+                <input
+                  type="range"
+                  class="vp-range"
+                  id="priceRange"
+                  min="0"
+                  max="200"
+                  value="200"
+                  step="5"
+                />
+                <div class="vp-price-labels">
+                  <span>0₫</span>
+                  <span id="priceLabel" style="color: var(--brand)"
+                    >≤ 200tr₫</span
+                  >
+                </div>
+              </div>
+
+              <button class="vp-clear-filters" id="clearFiltersBtn">
+                <i class="bi bi-x-circle me-2"></i>Xóa tất cả bộ lọc
+              </button>
+            </div>
+          </div>
+
+          <!-- ═══ PRODUCT GRID ═══ -->
+          <div class="col-lg-9">
+            <!-- Mobile filter chips -->
+            <div class="d-lg-none mb-3">
+              <div class="vp-filter-tabs" id="filterTabsMobile">
+                <button class="vp-filter-tab active" data-filter="all">
+                  Tất cả
+                </button>
+                <button class="vp-filter-tab" data-filter="ricoh">Ricoh</button>
+                <button class="vp-filter-tab" data-filter="hp">HP</button>
+                <button class="vp-filter-tab" data-filter="xerox">Xerox</button>
+                <button class="vp-filter-tab" data-filter="canon">Canon</button>
+                <button class="vp-filter-tab" data-filter="konica">
+                  Konica
+                </button>
+              </div>
+            </div>
+
+            <!-- Sort / View bar -->
+            <div class="vp-sort-bar">
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <span class="vp-result-count" id="resultCount"
+                  >Hiển thị <strong>0</strong> sản phẩm</span
+                >
+                <div
+                  class="vp-filter-tabs d-none d-lg-flex"
+                  id="filterTabsDesktop"
+                >
+                  <button class="vp-filter-tab active" data-filter="all">
+                    Tất cả
+                  </button>
+                  <button class="vp-filter-tab" data-filter="ricoh">
+                    Ricoh
+                  </button>
+                  <button class="vp-filter-tab" data-filter="hp">HP</button>
+                  <button class="vp-filter-tab" data-filter="xerox">
+                    Xerox
+                  </button>
+                  <button class="vp-filter-tab" data-filter="canon">
+                    Canon
+                  </button>
+                  <button class="vp-filter-tab" data-filter="konica">
+                    Konica
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <select class="vp-sort-select" id="sortSelect">
+                  <option value="default">Mặc định</option>
+                  <option value="price-asc">Giá tăng dần</option>
+                  <option value="price-desc">Giá giảm dần</option>
+                  <option value="name-asc">Tên A–Z</option>
+                  <option value="newest">Mới nhất</option>
+                </select>
+                <div class="vp-view-toggle">
+                  <button
+                    class="vp-view-btn active"
+                    id="gridViewBtn"
+                    title="Dạng lưới"
+                  >
+                    <i class="bi bi-grid-3x3-gap-fill"></i>
+                  </button>
+                  <button
+                    class="vp-view-btn"
+                    id="listViewBtn"
+                    title="Dạng danh sách"
+                  >
+                    <i class="bi bi-list-ul"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product grid -->
+            <div class="row g-3 g-lg-4" id="productGrid"></div>
+
+            <!-- Pagination -->
+            <div class="vp-pagination" id="pagination"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="vp-footer mt-2">
+      <div class="vp-footer-main">
+        <div class="container-xl">
+          <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+              <a
+                href="home.html"
+                class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3"
+              >
+                <span class="vp-logo-icon vp-logo-icon--sm">VP</span>
+                <span class="fw-800 text-dark" style="font-size: 1.1rem"
+                  >Vision<span class="text-primary">Print</span> VN</span
+                >
+              </a>
+              <p
+                class="text-muted mb-4"
+                style="font-size: 0.875rem; line-height: 1.7"
+              >
+                Nâng tầm hiệu suất doanh nghiệp Việt với giải pháp in ấn chính
+                xác và dịch vụ kỹ thuật chuyên nghiệp từ năm 2012.
+              </p>
+              <div class="vp-hotline-card mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="vp-hotline-icon">
+                    <i class="bi bi-headset"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 text-muted" style="font-size: 0.75rem">
+                      Hỗ trợ 24/7
+                    </p>
+                    <a
+                      href="tel:0901234567"
+                      class="fw-800 text-dark text-decoration-none"
+                      style="font-size: 1.05rem"
+                      >0901 234 567</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-chat-dots-fill"></i
+                ></a>
+                <a href="home.html" class="vp-social-btn"
+                  ><i class="bi bi-envelope-fill"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Khám Phá</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="products.html">Sản Phẩm</a></li>
+                <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
+                <li><a href="about.html">Tin Tức</a></li>
+                <li><a href="login.html">Tuyển Dụng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+              <h5 class="vp-footer-heading">Hỗ Trợ</h5>
+              <ul class="vp-footer-links">
+                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
+                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
+                <li><a href="about.html">Liên Hệ</a></li>
+                <li><a href="home.html">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <h5 class="vp-footer-heading">Văn Phòng</h5>
+              <ul class="vp-footer-contact">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i
+                  ><span>12 Nguyễn Văn Bảo, Hạnh Thông, TP HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i
+                  ><span>Thứ 2 – Thứ 7: 8:00 – 18:00</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i
+                  ><a href="mailto:info@visionprint.vn">info@visionprint.vn</a>
+                </li>
+              </ul>
+              <div class="mt-4">
+                <p class="fw-600 mb-2" style="font-size: 0.85rem">
+                  Nhận ưu đãi mới nhất:
+                </p>
+                <div class="vp-newsletter-form">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn..."
+                    class="vp-newsletter-input"
+                    id="newsletterEmail"
+                  />
+                  <button class="vp-newsletter-btn" id="newsletterBtn">
+                    <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vp-footer-bottom">
+        <div class="container-xl">
+          <div class="row align-items-center g-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 text-muted" style="font-size: 0.8rem">
+                © 2026 Vision-Print VN. Thiết kế bởi
+                <strong>The Precision Architect</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <span class="text-muted me-2" style="font-size: 0.8rem"
+                >Thanh toán:</span
+              >
+              <span class="vp-pay-badge">Visa</span>
+              <span class="vp-pay-badge">MasterCard</span>
+              <span class="vp-pay-badge">MoMo</span>
+              <span class="vp-pay-badge">Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating -->
+    <div class="vp-floating-actions">
+      <a
+        href="https://zalo.me/0901234567"
+        class="vp-fab vp-fab--zalo"
+        title="Chat Zalo"
+        target="_blank"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+      </a>
+      <button
+        class="vp-fab vp-fab--top"
+        id="scrollTopBtn"
+        style="display: none"
+        title="Lên đầu"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+
+    <!-- Compare bar -->
+    <div class="vp-compare-bar" id="compareBar">
+      <div class="container-xl">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+          <span class="fw-700" style="font-size: 0.82rem; white-space: nowrap"
+            >So sánh:</span
+          >
+          <div class="d-flex gap-2" id="compareSlots"></div>
+          <button class="vp-btn-compare ms-auto" id="doCompareBtn" disabled>
+            <i class="bi bi-bar-chart-line me-1"></i>So sánh ngay
+          </button>
+          <button
+            class="vp-btn-compare"
+            style="background: rgba(255, 255, 255, 0.15)"
+            id="clearCompareBtn"
+          >
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      "use strict";
+
+      // ═══════════════════════════════════════════════════════
+      //  DATA
+      // ═══════════════════════════════════════════════════════
+      const PRODUCTS = [
+        {
+          id: "p01",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          cat: "color",
+          type: "Màu A3",
+          name: "Ricoh IM C3500 Smart Gen",
+          price: 28500000,
+          oldPrice: 35000000,
+          badge: "hot",
+          badgeText: "Bán chạy",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD7Ea72Nq8ffjFqRcRvD_i2DO_W_bOwiHao5yHTkGfxdEv9e9gVGtfA_KwsfJRofjLIsdzePJpClLbnwTzVLUv8XFYEkKs0gkIbV2frfQQjltEoBn9JweoKd2SYqQzy8vYOHFByq8HbqGfApbL-_FwpyLPCcKbhE_27_nPGy4q5-AZJeDedMJhK5XaBIZxR2LwKPTShrGmISjAX48vp-spcBbAdUqsSZ_jSFuTKP9-V2SAedJHgIsdE7D3aWrynmVOwiJKdkAx5Cw",
+          link: "index2.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p02",
+          brand: "xerox",
+          brandLabel: "XEROX",
+          cat: "bw",
+          type: "Đen trắng A3",
+          name: "Xerox VersaLink B7025",
+          price: 19200000,
+          oldPrice: null,
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAqCr0uapVWtUft5j1cxh7ptky6-WwpxJJp4P1PykNF-mdr8qvG7wjwIxwpcfR77CMGBskgbyLOnwDOfIMiCKS32fUQ2WX14KJ7WPI6jWAAinkZc6HWQp_M2IVSb9HHui31gEWJOA4eyrm2abo_pKwKN8t4NqJ6y_HQUfnOuus5ukD4cKKELNp4iEzm8Z6ZxNnCSBS9VbGggKBUAMR4SOrVeD-pVKGzhAlCa_xQioePROF5_pPZ95EeALDeQ9xECS8KXbOTOhs_iQ",
+          link: "index3.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p03",
+          brand: "hp",
+          brandLabel: "HP",
+          cat: "laser",
+          type: "Enterprise Laser",
+          name: "HP LaserJet M880z+",
+          price: 45900000,
+          oldPrice: null,
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLjtE5mLv6_cXwlf4NgHq1VVXrcW6jBdhmKlw5GxRrapyls0cEOiNI4_AG92sk0rpDwmHnCk1kaSaUtSBymh_2n8u1_opIqhdEY0kWqU8qEycUgSlJA3iBTohEzi_RWQlRxTkLJdeB_qyfMISTzQ2y1qjmKnvL6CgGIH8DhWdis454MFrfbS2FUOXT-pnEUOey1xb9nL8AFXHrAoJvcNMmQEAoK9xgq1CP-bJjDkKPaxRzGESdKjC_V8gy0VoLFEr_Q-Ed5qm42g",
+          link: "index4.html",
+          isNew: false,
+          canRent: false,
+        },
+        {
+          id: "p04",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          cat: "color",
+          type: "Màu cao cấp",
+          name: "Ricoh Pro C5300s Series",
+          price: 112000000,
+          oldPrice: null,
+          badge: "new",
+          badgeText: "New",
+          img: "../img/Rioch-Pro-C5300S.jpg",
+          link: "index2.html",
+          isNew: true,
+          canRent: false,
+        },
+        {
+          id: "p05",
+          brand: "canon",
+          brandLabel: "CANON",
+          cat: "color",
+          type: "Màu A3",
+          name: "Canon imageRUNNER C3730",
+          price: 35000000,
+          oldPrice: 42000000,
+          badge: "sale",
+          badgeText: "Sale",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnTk4v6GIKKHRrvGiye71hqQu5jW0WWlAENy7e5SgYuHBajNlJyMOSokTZGxL83_GSTn_EDAb8lB8hb1CH5-xGuuvs5Sw8lMTOxAc69u7kNnf23AMqFZvVPucqomuEJVc7zIY1Rw4xa0lwJ6D9I4KphVPJXW4rHOWUx-GPkjnqWx1tspzaKDc0FY82urf_SDytt1Pi1gppGQ4n5qqbm25F680XB6ewglw0S2VJmURs8t1HA74DFT-TpYxEaxig8Y0Y9R2clT6t8w",
+          link: "index2.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p06",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          cat: "wf",
+          type: "In khổ lớn A0",
+          name: "Ricoh MP CW2200SP",
+          price: 145000000,
+          oldPrice: null,
+          badge: "new",
+          badgeText: "New",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQt21Y-z3wJkuarZMh8paukdDxb-L3XU0XEfReNi76dacU8QpvyagDXTLfCEiDdWL5n-kan3lZYAoquPvi-rJrx_n25LI2ECJFdDLIfNOghAuXBa5S-tbzvlTeeVS6k85LuTT9dFbt8iy10rCa58NisR-hyvcc3XjxDQtYcGVwy6VpNMGRiTp8IlXlCzGr_28Qeb7xlqQWLzoZ28sRiFq2fWBBB_RR8YbzKxBVYDnjqK0Nk6rLjArHluAQ4UUyPkbhcffPorg8zw",
+          link: "index.html",
+          isNew: true,
+          canRent: true,
+        },
+        {
+          id: "p07",
+          brand: "hp",
+          brandLabel: "HP",
+          cat: "wf",
+          type: "In khổ lớn A0",
+          name: "HP DesignJet T830 MFP",
+          price: 52000000,
+          oldPrice: null,
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3SGWs-0G7enbw45RTZD4JVu9_1NTjlu2YBFluHZwdXs3bJMl2RsvjCyXIVCREZJj9qNMzlWlUKuXWOKc9ES5Rpe_R7MKLW3rkS7ZsFb4FgsW2NRNl7MjBryPPIYD_Gx8ngKSjUzKfZuyGEK5rLoKAmjaQcmdR9Jqu6sbxHBoFB1ieCrfgOkEseqtGWwUJ1t9IWAcdF8P6aoc5sxedXeYuozEP4l4HWj_jfxXVjl_iIJdrUtDACTnQEuYbAj9DqA8dfH9AwtEhbA",
+          link: "index.html",
+          isNew: false,
+          canRent: false,
+        },
+        {
+          id: "p08",
+          brand: "xerox",
+          brandLabel: "XEROX",
+          cat: "color",
+          type: "Màu A3 cao cấp",
+          name: "Xerox AltaLink C8145",
+          price: 78000000,
+          oldPrice: 89000000,
+          badge: "hot",
+          badgeText: "Hot",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDGZD7CCQTn-YLfkhDUvp7qvxt87GIV12fDZreyYr9JUnuvg9pht63bamknZEK2-nBLDtd8ougt9eig7-QE18Rx5PSOX34uMEpPffffh5ZGipwfc95Jt-n7zi3nJyP8VmGJLTqoAbT5H7SmnRldrrenxvQ_D0LxHcRtxIDztjS3a-gCy3pVgafzY5mHtvkbcb9r_4EG43-UvsQoVUs8ogANryWllbdvPpdQQnT0OWOhqtGqKl4ucxnsIm7xgIuu6tDoTYtc84Q_rA",
+          link: "index4.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p09",
+          brand: "konica",
+          brandLabel: "KONICA",
+          cat: "color",
+          type: "Màu A3",
+          name: "Konica Minolta bizhub C360i",
+          price: 42500000,
+          oldPrice: null,
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAuDIjRX48czqX-KLTgtAsBQyYOcoEb5Ww7nvKiUkhtfHyWPZv9_Rdrftgr1hJEoWfKd2v2KHRqPnzNOPiRqSKZCZ74vjPAokRRWXEwpzlePnrM-XCQ4l9VxW7X1UnEJSe0-XmDz6mORh-fUtICTqMfizMYE2u0hSuCbf1Y42aLpq1HEcMYa5Ymzkrk2FzRKKCCyMrEVtR_tneCfAez8f0dIF22FEa5JU_dKzkMDfonh4xLn5zj9D-QLX5_9iDuoHM69uq23uTf6g",
+          link: "index2.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p10",
+          brand: "ricoh",
+          brandLabel: "RICOH",
+          cat: "bw",
+          type: "Đen trắng A4",
+          name: "Ricoh IM 350F",
+          price: 8500000,
+          oldPrice: null,
+          badge: "",
+          badgeText: "",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAohBrWldX4RkL0-1dNBCfzAi2KWYyhJQlBakFh5HTXicajU0AksJ6hg1a-Am1rvcizQWbeuPaCGoLt0OGGIgPXAVCGE_WjYxsG91aRU2-98VW8wnaTkMgUgLbYKc66nQNRyyzIrAMt9mODJyDXWriexIEAqVmuLKugHmiA3cJRMJTnVlfm7e4gsCkba_I2VuEkinSgA4rBBrUTU987lJYLUHg7U21aW044yuEljweEkPCwxDOYAjBt5vqiha5dFNRHw1h14pXdZg",
+          link: "index3.html",
+          isNew: false,
+          canRent: true,
+        },
+        {
+          id: "p11",
+          brand: "hp",
+          brandLabel: "HP",
+          cat: "ink",
+          type: "In phun màu",
+          name: "HP OfficeJet Pro 9730e",
+          price: 12800000,
+          oldPrice: 15000000,
+          badge: "sale",
+          badgeText: "Sale",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1ExrznbvFzBxL1PEtOiCBRwY_bcU8zeAivmqWNpghHGFFp_vyjuHVtuqg2Hj94rTsnk17wa21khj0SIWmCVimUNm-jO31ZA2nuKfdpF-LCsENpAbZZbFF9thv6iM1TsweqisfpvCkx-3mG2nybBXzJr0hOR--6pTNwHl-cn9qfAdRmNt4ybdjmE00kg0k-LtLbAkCH8dKMkPr5Uc6rbcDPbrB1BGDziddkPH789KUZTao52NJxPhPiLnsrC_oRNdIdT4mQnBukQ",
+          link: "index4.html",
+          isNew: false,
+          canRent: false,
+        },
+        {
+          id: "p12",
+          brand: "canon",
+          brandLabel: "CANON",
+          cat: "wf",
+          type: "In khổ lớn A0",
+          name: "Canon imagePROGRAF TM-305",
+          price: 68000000,
+          oldPrice: null,
+          badge: "new",
+          badgeText: "New",
+          img: "../img/tm-305_hero_810x475.webp",
+          link: "index.html",
+          isNew: true,
+          canRent: false,
+        },
+      ];
+
+      const PAGE_SIZE = 8;
+      let currentPage = 1;
+      let activeFilter = "all";
+      let activeSort = "default";
+      let wishlist = JSON.parse(localStorage.getItem("vp_wishlist") || "[]");
+      let compareList = [];
+      let isGridView = true;
+
+      // ═══ FORMAT ═══
+      const fmt = (n) => n.toLocaleString("vi-VN") + "₫";
+
+      // ═══ CART ═══
+      const SESSION_KEY = "vp_session";
+      const CART_KEY = "vp_cart";
+      const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
+      function readSharedCart() {
+        try {
+          const localCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+          if (Array.isArray(localCart) && localCart.length) return localCart;
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return [];
+        try {
+          const state = JSON.parse(window.name || "{}");
+          return Array.isArray(state[CART_KEY]) ? state[CART_KEY] : [];
+        } catch {}
+        return [];
+      }
+      function writeSharedCart(nextCart) {
+        const safeCart = Array.isArray(nextCart) ? nextCart : [];
+        try {
+          localStorage.setItem(CART_KEY, JSON.stringify(safeCart));
+        } catch {}
+        if (!USE_WINDOW_NAME_FALLBACK) return;
+        try {
+          const state = JSON.parse(window.name || "{}");
+          state[CART_KEY] = safeCart;
+          window.name = JSON.stringify(state);
+        } catch {
+          window.name = JSON.stringify({ [CART_KEY]: safeCart });
+        }
+      }
+      let cart = readSharedCart();
+      function saveCart() {
+        writeSharedCart(cart);
+      }
+      function updateCartCount() {
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        ["cartCountDesktop", "cartCountMobile"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = count;
+        });
+      }
+      function addToCart(p) {
+        const ex = cart.find((i) => i.id === p.id);
+        if (ex) ex.qty = Math.min(99, (Number(ex.qty) || 0) + 1);
+        else cart.push({ ...p, qty: 1 });
+        saveCart();
+        updateCartCount();
+      }
+      updateCartCount();
+
+      // ═══ AUTH AREA ═══
+      function renderAuthArea() {
+        const session = JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+        const area = document.getElementById("authArea");
+        if (!area) return;
+        if (session) {
+          const init = session.name
+            .split(" ")
+            .map((w) => w[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+          area.innerHTML = `
+      <div class="dropdown">
+        <a class="vp-user-menu dropdown-toggle" href="#" data-bs-toggle="dropdown">
+          <div class="vp-avatar">${init}</div>
+          <span class="vp-user-name d-none d-md-block">${session.name.split(" ").pop()}</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end shadow" style="border-radius:14px;border:1px solid var(--slate-200);padding:8px;min-width:200px;">
+          <li><div class="px-3 py-2 mb-1" style="border-bottom:1px solid var(--slate-100);"><p class="fw-700 mb-0" style="font-size:.875rem;">${session.name}</p><p class="text-muted mb-0" style="font-size:.75rem;">${session.email}</p></div></li>
+          <li><a class="dropdown-item rounded-2 py-2" href="login.html" style="font-size:.85rem;"><i class="bi bi-person me-2"></i>Tài khoản</a></li>
+          <li><a class="dropdown-item rounded-2 py-2" href="cart.html" style="font-size:.85rem;"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li><button class="dropdown-item rounded-2 py-2 text-danger" id="logoutBtn" style="font-size:.85rem;"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</button></li>
+        </ul>
+      </div>`;
+          document
+            .getElementById("logoutBtn")
+            ?.addEventListener("click", () => {
+              localStorage.removeItem(SESSION_KEY);
+              renderAuthArea();
+              showToast("Đã đăng xuất.", "info");
+            });
+        } else {
+          area.innerHTML = `<a href="login.html" class="vp-btn-outline-sm"><i class="bi bi-person me-1"></i>Đăng nhập</a>`;
+        }
+      }
+      renderAuthArea();
+
+      // ═══ FILTER & SORT LOGIC ═══
+      function getFiltered() {
+        let list = [...PRODUCTS];
+
+        // Brand filter
+        if (activeFilter !== "all")
+          list = list.filter((p) => p.brand === activeFilter);
+
+        // Category from sidebar
+        const activeCat = document.querySelector(".vp-cat-chip.active")?.dataset
+          .cat;
+        if (activeCat && activeCat !== "all")
+          list = list.filter((p) => p.cat === activeCat);
+
+        // Price range
+        const maxPrice =
+          parseInt(document.getElementById("priceRange")?.value || 200) *
+          1000000;
+        list = list.filter((p) => p.price <= maxPrice);
+
+        // Sort
+        if (activeSort === "price-asc") list.sort((a, b) => a.price - b.price);
+        if (activeSort === "price-desc") list.sort((a, b) => b.price - a.price);
+        if (activeSort === "name-asc")
+          list.sort((a, b) => a.name.localeCompare(b.name));
+        if (activeSort === "newest")
+          list.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+
+        return list;
+      }
+
+      // ═══ RENDER PRODUCTS ═══
+      function renderProducts() {
+        const filtered = getFiltered();
+        const total = filtered.length;
+        const pages = Math.ceil(total / PAGE_SIZE);
+        if (currentPage > pages) currentPage = 1;
+        const slice = filtered.slice(
+          (currentPage - 1) * PAGE_SIZE,
+          currentPage * PAGE_SIZE,
+        );
+
+        document.getElementById("resultCount").innerHTML =
+          `Hiển thị <strong>${slice.length}</strong> / ${total} sản phẩm`;
+
+        const grid = document.getElementById("productGrid");
+
+        if (slice.length === 0) {
+          grid.innerHTML = `
+      <div class="col-12 text-center py-5">
+        <div style="font-size:4rem;color:var(--slate-300);margin-bottom:1rem;"><i class="bi bi-search"></i></div>
+        <h5 class="fw-700 mb-2">Không tìm thấy sản phẩm</h5>
+        <p class="text-muted mb-4" style="font-size:.9rem;">Hãy thử thay đổi bộ lọc hoặc từ khóa tìm kiếm.</p>
+        <button class="vp-filter-tab active" onclick="clearAllFilters()">
+          <i class="bi bi-x-circle me-1"></i>Xóa bộ lọc
+        </button>
+      </div>`;
+          renderPagination(0, 1);
+          return;
+        }
+
+        if (isGridView) {
+          grid.innerHTML = slice
+            .map(
+              (p) => `
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="vp-product-card">
+          <div class="vp-product-img">
+            ${p.badge ? `<span class="vp-product-badge ${p.badge}">${p.badgeText}</span>` : ""}
+            ${p.canRent ? '<span class="vp-product-badge rent" style="top:12px;right:12px;left:auto;">Cho thuê</span>' : ""}
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+          </div>
+          <span class="vp-brand-tag">${p.brandLabel}</span>
+          <span class="vp-product-type ms-1">${p.type}</span>
+          <h3 class="vp-product-name mt-1">${p.name}</h3>
+          <div class="d-flex align-items-baseline gap-2 mb-3">
+            <span class="vp-product-price">${fmt(p.price)}</span>
+            ${p.oldPrice ? `<span class="vp-product-price-old">${fmt(p.oldPrice)}</span>` : ""}
+          </div>
+          <div class="d-flex gap-2">
+            <a href="${p.link}" class="vp-btn-detail">Chi tiết</a>
+            <button class="vp-btn-wishlist ${wishlist.includes(p.id) ? "active" : ""}"
+              data-id="${p.id}" title="Yêu thích">
+              <i class="bi ${wishlist.includes(p.id) ? "bi-heart-fill" : "bi-heart"}"></i>
+            </button>
+            <button class="vp-btn-cart" data-id="${p.id}" title="Thêm vào giỏ">
+              <i class="bi bi-bag-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>`,
+            )
+            .join("");
+        } else {
+          // List view
+          grid.innerHTML = `<div class="col-12">${slice
+            .map(
+              (p) => `
+      <div class="vp-product-card d-flex gap-4 mb-3" style="flex-direction:row;padding:1.25rem;border-radius:var(--radius);">
+        <div style="width:120px;min-width:120px;height:120px;background:var(--slate-50);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;padding:.75rem;position:relative;">
+          ${p.badge ? `<span class="vp-product-badge ${p.badge}" style="font-size:.55rem;padding:2px 7px;">${p.badgeText}</span>` : ""}
+          <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;" loading="lazy">
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <div>
+              <span class="vp-brand-tag">${p.brandLabel}</span>
+              <span class="vp-product-type ms-1">${p.type}</span>
+              <h3 class="vp-product-name mt-1 mb-1">${p.name}</h3>
+              ${p.canRent ? '<span style="font-size:.72rem;font-weight:700;color:var(--warning);background:#fef9c3;border-radius:50px;padding:2px 10px;">Có thể thuê</span>' : ""}
+            </div>
+            <div class="text-end">
+              <div class="vp-product-price mb-1">${fmt(p.price)}</div>
+              ${p.oldPrice ? `<div class="vp-product-price-old">${fmt(p.oldPrice)}</div>` : ""}
+            </div>
+          </div>
+          <div class="d-flex gap-2 mt-3">
+            <a href="${p.link}" class="vp-btn-detail" style="max-width:140px;">Chi tiết</a>
+            <button class="vp-btn-wishlist ${wishlist.includes(p.id) ? "active" : ""}" data-id="${p.id}" title="Yêu thích">
+              <i class="bi ${wishlist.includes(p.id) ? "bi-heart-fill" : "bi-heart"}"></i>
+            </button>
+            <button class="vp-btn-cart" data-id="${p.id}" title="Thêm vào giỏ">
+              <i class="bi bi-bag-plus"></i>
+            </button>
+            <button class="vp-btn-wishlist" style="background:rgba(91,33,182,0.08);color:var(--tertiary);"
+              data-compare="${p.id}" title="So sánh">
+              <i class="bi bi-bar-chart-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>`,
+            )
+            .join("")}</div>`;
+        }
+
+        // Events — cart
+        grid.querySelectorAll(".vp-btn-cart").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const id = this.dataset.id;
+            const p = PRODUCTS.find((x) => x.id === id);
+            addToCart(p);
+            this.classList.add("added");
+            this.innerHTML = '<i class="bi bi-check-lg"></i>';
+            showToast(`Đã thêm "${p.name}" vào giỏ!`, "success");
+            setTimeout(() => {
+              this.classList.remove("added");
+              this.innerHTML = '<i class="bi bi-bag-plus"></i>';
+            }, 1600);
+          });
+        });
+
+        // Events — wishlist
+        grid.querySelectorAll(".vp-btn-wishlist[data-id]").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const id = this.dataset.id;
+            const p = PRODUCTS.find((x) => x.id === id);
+            if (wishlist.includes(id)) {
+              wishlist = wishlist.filter((w) => w !== id);
+              showToast(`Đã bỏ yêu thích "${p.name}"`, "info");
+            } else {
+              wishlist.push(id);
+              showToast(`Đã thêm "${p.name}" vào yêu thích ❤️`, "success");
+            }
+            localStorage.setItem("vp_wishlist", JSON.stringify(wishlist));
+            this.classList.toggle("active", wishlist.includes(id));
+            this.querySelector("i").className = wishlist.includes(id)
+              ? "bi bi-heart-fill"
+              : "bi bi-heart";
+          });
+        });
+
+        // Events — compare
+        grid.querySelectorAll("[data-compare]").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const id = this.dataset.compare;
+            addToCompare(id);
+          });
+        });
+
+        renderPagination(total, pages);
+      }
+
+      // ═══ PAGINATION ═══
+      function renderPagination(total, pages) {
+        const el = document.getElementById("pagination");
+        if (pages <= 1) {
+          el.innerHTML = "";
+          return;
+        }
+        let html = `<button class="vp-page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}><i class="bi bi-chevron-left"></i></button>`;
+        for (let i = 1; i <= pages; i++) {
+          if (
+            i === 1 ||
+            i === pages ||
+            (i >= currentPage - 1 && i <= currentPage + 1)
+          ) {
+            html += `<button class="vp-page-btn ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">${i}</button>`;
+          } else if (i === currentPage - 2 || i === currentPage + 2) {
+            html += `<span class="vp-page-dots">…</span>`;
+          }
+        }
+        html += `<button class="vp-page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === pages ? "disabled" : ""}><i class="bi bi-chevron-right"></i></button>`;
+        el.innerHTML = html;
+      }
+      function changePage(n) {
+        currentPage = n;
+        renderProducts();
+        window.scrollTo({
+          top: document.getElementById("productGrid").offsetTop - 100,
+          behavior: "smooth",
+        });
+      }
+
+      // ═══ COMPARE ═══
+      function addToCompare(id) {
+        if (compareList.includes(id)) {
+          showToast("Sản phẩm đã trong danh sách so sánh.", "info");
+          return;
+        }
+        if (compareList.length >= 3) {
+          showToast("Chỉ so sánh tối đa 3 sản phẩm.", "warning");
+          return;
+        }
+        compareList.push(id);
+        showToast("Đã thêm vào so sánh!", "success");
+        renderCompareBar();
+      }
+      function removeFromCompare(id) {
+        compareList = compareList.filter((c) => c !== id);
+        renderCompareBar();
+      }
+      function renderCompareBar() {
+        const bar = document.getElementById("compareBar");
+        const slots = document.getElementById("compareSlots");
+        const btn = document.getElementById("doCompareBtn");
+        bar.classList.toggle("show", compareList.length > 0);
+        btn.disabled = compareList.length < 2;
+        slots.innerHTML = compareList
+          .map((id) => {
+            const p = PRODUCTS.find((x) => x.id === id);
+            return `<div style="position:relative;">
+      <div class="vp-compare-slot"><img src="${p.img}" alt="${p.name}"></div>
+      <button class="vp-compare-remove" onclick="removeFromCompare('${id}')"><i class="bi bi-x"></i></button>
+    </div>`;
+          })
+          .join("");
+      }
+      document
+        .getElementById("clearCompareBtn")
+        .addEventListener("click", () => {
+          compareList = [];
+          renderCompareBar();
+        });
+      document.getElementById("doCompareBtn").addEventListener("click", () => {
+        showToast("Tính năng so sánh sẽ sớm ra mắt!", "info");
+      });
+
+      // ═══ FILTER TABS ═══
+      function attachFilterTabs(containerId) {
+        const el = document.getElementById(containerId);
+        if (!el) return;
+        el.addEventListener("click", (e) => {
+          const tab = e.target.closest(".vp-filter-tab");
+          if (!tab) return;
+          el.querySelectorAll(".vp-filter-tab").forEach((t) =>
+            t.classList.remove("active"),
+          );
+          // also sync the other set
+          ["filterTabsDesktop", "filterTabsMobile"].forEach((id) => {
+            document
+              .querySelectorAll(`#${id} [data-filter="${tab.dataset.filter}"]`)
+              .forEach((t) => t.classList.add("active"));
+            document
+              .querySelectorAll(
+                `#${id} [data-filter]:not([data-filter="${tab.dataset.filter}"])`,
+              )
+              .forEach((t) => t.classList.remove("active"));
+          });
+          activeFilter = tab.dataset.filter;
+          currentPage = 1;
+          renderProducts();
+        });
+      }
+      attachFilterTabs("filterTabsDesktop");
+      attachFilterTabs("filterTabsMobile");
+
+      // ═══ SIDEBAR CATEGORY ═══
+      document.querySelectorAll(".vp-cat-chip").forEach((chip) => {
+        chip.addEventListener("click", function () {
+          document
+            .querySelectorAll(".vp-cat-chip")
+            .forEach((c) => c.classList.remove("active"));
+          this.classList.add("active");
+          currentPage = 1;
+          renderProducts();
+        });
+      });
+
+      // ═══ SORT ═══
+      document
+        .getElementById("sortSelect")
+        .addEventListener("change", function () {
+          activeSort = this.value;
+          currentPage = 1;
+          renderProducts();
+        });
+
+      // ═══ PRICE RANGE ═══
+      document
+        .getElementById("priceRange")
+        .addEventListener("input", function () {
+          const v = parseInt(this.value);
+          document.getElementById("priceLabel").textContent =
+            v >= 200 ? "Tất cả" : `≤ ${v}tr₫`;
+          currentPage = 1;
+          renderProducts();
+        });
+
+      // ═══ VIEW TOGGLE ═══
+      document
+        .getElementById("gridViewBtn")
+        .addEventListener("click", function () {
+          isGridView = true;
+          this.classList.add("active");
+          document.getElementById("listViewBtn").classList.remove("active");
+          renderProducts();
+        });
+      document
+        .getElementById("listViewBtn")
+        .addEventListener("click", function () {
+          isGridView = false;
+          this.classList.add("active");
+          document.getElementById("gridViewBtn").classList.remove("active");
+          renderProducts();
+        });
+
+      // ═══ CLEAR ALL FILTERS ═══
+      function clearAllFilters() {
+        activeFilter = "all";
+        activeSort = "default";
+        currentPage = 1;
+        document
+          .querySelectorAll(".vp-filter-tab")
+          .forEach((t) =>
+            t.classList.toggle("active", t.dataset.filter === "all"),
+          );
+        document
+          .querySelectorAll(".vp-cat-chip")
+          .forEach((c) =>
+            c.classList.toggle("active", c.dataset.cat === "all"),
+          );
+        document.getElementById("priceRange").value = 200;
+        document.getElementById("priceLabel").textContent = "≤ 200tr₫";
+        document.getElementById("sortSelect").value = "default";
+        document
+          .querySelectorAll(".brand-check")
+          .forEach((c) => (c.checked = false));
+        renderProducts();
+      }
+      document
+        .getElementById("clearFiltersBtn")
+        .addEventListener("click", clearAllFilters);
+
+      // ═══ SEARCH BAR ═══
+      const searchBar = document.getElementById("searchBar");
+      const searchInput = document.getElementById("headerSearchInput");
+      document
+        .getElementById("searchToggleBtn")
+        .addEventListener("click", () => {
+          searchBar.classList.toggle("open");
+          if (searchBar.classList.contains("open"))
+            setTimeout(() => searchInput.focus(), 100);
+        });
+      document
+        .getElementById("searchCloseBtn")
+        .addEventListener("click", () => searchBar.classList.remove("open"));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") searchBar.classList.remove("open");
+      });
+      // live search in product list
+      searchInput.addEventListener("input", function () {
+        const q = this.value.trim().toLowerCase();
+        if (!q) {
+          renderProducts();
+          return;
+        }
+        const grid = document.getElementById("productGrid");
+        const filtered = PRODUCTS.filter(
+          (p) =>
+            p.name.toLowerCase().includes(q) ||
+            p.brandLabel.toLowerCase().includes(q) ||
+            p.type.toLowerCase().includes(q),
+        );
+        if (filtered.length === 0) {
+          grid.innerHTML = `<div class="col-12 text-center py-4"><div style="font-size:3rem;color:var(--slate-300);"><i class="bi bi-search"></i></div><p class="text-muted mt-3">Không tìm thấy kết quả cho "<strong>${q}</strong>"</p></div>`;
+          return;
+        }
+        document.getElementById("resultCount").innerHTML =
+          `Hiển thị <strong>${filtered.length}</strong> kết quả cho "<em>${q}</em>"`;
+        grid.innerHTML = filtered
+          .map(
+            (p) => `
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="vp-product-card">
+        <div class="vp-product-img">
+          ${p.badge ? `<span class="vp-product-badge ${p.badge}">${p.badgeText}</span>` : ""}
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+        </div>
+        <span class="vp-brand-tag">${p.brandLabel}</span>
+        <h3 class="vp-product-name mt-1">${p.name}</h3>
+        <span class="vp-product-price d-block mb-3">${fmt(p.price)}</span>
+        <div class="d-flex gap-2">
+          <a href="${p.link}" class="vp-btn-detail">Chi tiết</a>
+          <button class="vp-btn-cart" data-id="${p.id}"><i class="bi bi-bag-plus"></i></button>
+        </div>
+      </div>
+    </div>`,
+          )
+          .join("");
+        grid.querySelectorAll(".vp-btn-cart").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const p = PRODUCTS.find((x) => x.id === this.dataset.id);
+            addToCart(p);
+            this.classList.add("added");
+            this.innerHTML = '<i class="bi bi-check-lg"></i>';
+            showToast(`Đã thêm "${p.name}" vào giỏ!`, "success");
+            setTimeout(() => {
+              this.classList.remove("added");
+              this.innerHTML = '<i class="bi bi-bag-plus"></i>';
+            }, 1600);
+          });
+        });
+        document.getElementById("pagination").innerHTML = "";
+      });
+
+      // ═══ SCROLL TO TOP ═══
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollTopBtn.style.display = window.scrollY > 500 ? "flex" : "none";
+      });
+      scrollTopBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      // ═══ NEWSLETTER ═══
+      document.getElementById("newsletterBtn").addEventListener("click", () => {
+        const email = document.getElementById("newsletterEmail").value.trim();
+        if (!email || !email.includes("@")) {
+          showToast("Vui lòng nhập email hợp lệ.", "warning");
+          return;
+        }
+        showToast("✅ Đăng ký thành công! Cảm ơn bạn.", "success");
+        document.getElementById("newsletterEmail").value = "";
+      });
+
+      // ═══ TOAST ═══
+      function showToast(message, type = "success") {
+        const colors = {
+          success: "#16a34a",
+          info: "#0066FF",
+          warning: "#d97706",
+          error: "#dc2626",
+        };
+        const old = document.getElementById("vp-toast");
+        if (old) old.remove();
+        const t = document.createElement("div");
+        t.id = "vp-toast";
+        t.style.cssText = `position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:${colors[type]};color:#fff;padding:12px 24px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.875rem;font-weight:600;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,.2);white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis;`;
+        t.textContent = message;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transition = "opacity .3s";
+          setTimeout(() => t.remove(), 320);
+        }, 3000);
+      }
+
+      // ═══ INIT ═══
+      renderProducts();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
