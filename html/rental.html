@@ -1247,7 +1247,11 @@
 
           <!-- Mobile icons -->
           <div class="d-flex d-lg-none align-items-center gap-2 ms-auto me-2">
-            <button class="vp-icon-btn position-relative" title="Giỏ hàng">
+            <button
+              class="vp-icon-btn position-relative"
+              id="cartBtnMobile"
+              title="Giỏ hàng"
+            >
               <i class="bi bi-bag"></i>
               <span class="vp-cart-badge" id="cartCountMobile">0</span>
             </button>
@@ -1292,6 +1296,7 @@
               </button>
               <button
                 class="vp-icon-btn position-relative d-none d-lg-flex"
+                id="cartBtnDesktop"
                 title="Giỏ hàng"
               >
                 <i class="bi bi-bag"></i>
@@ -2102,6 +2107,77 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const SESSION_KEY = "vp_session";
+      const CART_KEY = "vp_cart";
+      const LEGACY_CART_KEY = "cart";
+      const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
+
+      function safeParseCart(raw) {
+        try {
+          const parsed = JSON.parse(raw || "[]");
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function readSharedCart() {
+        const localCart = safeParseCart(localStorage.getItem(CART_KEY));
+        if (localCart.length) return localCart;
+
+        const legacyLocalCart = safeParseCart(
+          localStorage.getItem(LEGACY_CART_KEY),
+        );
+        if (legacyLocalCart.length) return legacyLocalCart;
+
+        if (!USE_WINDOW_NAME_FALLBACK) return [];
+
+        const fallbackCandidates = [];
+        try {
+          fallbackCandidates.push(
+            ...safeParseCart(sessionStorage.getItem(CART_KEY)),
+          );
+          fallbackCandidates.push(
+            ...safeParseCart(sessionStorage.getItem(LEGACY_CART_KEY)),
+          );
+        } catch {}
+        try {
+          const state = JSON.parse(window.name || "{}");
+          fallbackCandidates.push(
+            ...(Array.isArray(state[CART_KEY]) ? state[CART_KEY] : []),
+          );
+          fallbackCandidates.push(
+            ...(Array.isArray(state[LEGACY_CART_KEY])
+              ? state[LEGACY_CART_KEY]
+              : []),
+          );
+        } catch {}
+        return fallbackCandidates;
+      }
+
+      function updateCartCount() {
+        const cart = readSharedCart();
+        const count = cart.reduce(
+          (sum, item) => sum + (Number(item.qty) || 0),
+          0,
+        );
+        ["cartCountDesktop", "cartCountMobile"].forEach((id) => {
+          const badge = document.getElementById(id);
+          if (badge) badge.textContent = count;
+        });
+      }
+
+      ["cartBtnMobile", "cartBtnDesktop"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("click", () => {
+          window.location.href = "cart.html";
+        });
+      });
+
+      window.addEventListener("storage", (event) => {
+        if (event.key !== CART_KEY && event.key !== LEGACY_CART_KEY) return;
+        updateCartCount();
+      });
+
+      updateCartCount();
 
       function getSession() {
         return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
@@ -2300,16 +2376,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,7 +20,7 @@
 
     <style>
       /* ═══════════════════════════════════════════════
-       VISION-PRINT VN — DESIGN SYSTEM 
+       VISION-PRINT VN — DESIGN SYSTEM (shared)
     ═══════════════════════════════════════════════ */
       :root {
         --brand: #0066ff;
@@ -2046,15 +2046,11 @@
                 />
                 <span style="font-size: 0.82rem; color: var(--slate-600)">
                   Tôi đã đọc và đồng ý với
-                  <a
-                    href="about.html"
-                    style="color: var(--brand); font-weight: 700"
+                  <a href="#" style="color: var(--brand); font-weight: 700"
                     >Điều khoản dịch vụ</a
                   >
                   và
-                  <a
-                    href="about.html"
-                    style="color: var(--brand); font-weight: 700"
+                  <a href="#" style="color: var(--brand); font-weight: 700"
                     >Chính sách bảo mật</a
                   >
                   của Vision-Print VN.
@@ -2260,16 +2256,16 @@
                 </div>
               </div>
               <div class="d-flex gap-2 mt-3">
-                <a href="home.html" class="vp-social-btn" title="Facebook"
+                <a href="#" class="vp-social-btn" title="Facebook"
                   ><i class="bi bi-facebook"></i
                 ></a>
-                <a href="products.html" class="vp-social-btn" title="YouTube"
+                <a href="#" class="vp-social-btn" title="YouTube"
                   ><i class="bi bi-youtube"></i
                 ></a>
-                <a href="rental.html" class="vp-social-btn" title="Zalo"
+                <a href="#" class="vp-social-btn" title="Zalo"
                   ><i class="bi bi-chat-dots-fill"></i
                 ></a>
-                <a href="about.html" class="vp-social-btn" title="Email"
+                <a href="#" class="vp-social-btn" title="Email"
                   ><i class="bi bi-envelope-fill"></i
                 ></a>
               </div>
@@ -2281,17 +2277,17 @@
                 <li><a href="about.html">Giới Thiệu</a></li>
                 <li><a href="index.html">Sản Phẩm Mới</a></li>
                 <li><a href="rental.html">Dịch Vụ Cho Thuê</a></li>
-                <li><a href="about.html">Tin Tức</a></li>
+                <li><a href="#">Tin Tức</a></li>
               </ul>
             </div>
             <div class="col-lg-2 col-md-3 col-6">
               <h5 class="vp-footer-heading">Hỗ Trợ</h5>
               <ul class="vp-footer-links">
-                <li><a href="about.html">Chính Sách Bảo Hành</a></li>
-                <li><a href="products.html">Hướng Dẫn Mua Hàng</a></li>
-                <li><a href="cart.html">Chính Sách Đổi Trả</a></li>
-                <li><a href="about.html">Liên Hệ</a></li>
-                <li><a href="home.html">Sitemap</a></li>
+                <li><a href="#">Chính Sách Bảo Hành</a></li>
+                <li><a href="#">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="#">Chính Sách Đổi Trả</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+                <li><a href="#">Sitemap</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -2307,14 +2303,7 @@
                 </li>
                 <li>
                   <i class="bi bi-envelope-fill"></i
-                  ><a
-                    href="/cdn-cgi/l/email-protection#a3cacdc5cce3d5cad0cacccdd3d1cacdd78dd5cd"
-                    ><span
-                      class="__cf_email__"
-                      data-cfemail="8de4e3ebe2cdfbe4fee4e2e3fdffe4e3f9a3fbe3"
-                      >[email&#160;protected]</span
-                    ></a
-                  >
+                  ><a href="mailto:info@visionprint.vn">info@visionprint.vn</a>
                 </li>
               </ul>
               <div class="mt-4">
@@ -2600,116 +2589,14 @@
       </div>
     </div>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       "use strict";
 
       // ═══ CONSTANTS & STATE ════════════════════════════════════
       const CART_KEY = "vp_cart";
-      const LEGACY_CART_KEY = "cart";
       const SESSION_KEY = "vp_session";
       const ORDERS_KEY = "vp_orders";
-      const USE_WINDOW_NAME_FALLBACK = window.location.protocol === "file:";
-
-      function normalizePrice(value) {
-        if (typeof value === "number") return value;
-        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
-      }
-
-      function mergeCartItems(items) {
-        const merged = [];
-        (Array.isArray(items) ? items : []).forEach((item) => {
-          if (!item || !item.id) return;
-          const normalizedItem = {
-            ...item,
-            name: item.name || "Sản phẩm",
-            sub: item.sub || item.type || "",
-            price: normalizePrice(item.price),
-            qty: Math.min(99, Math.max(1, Number(item.qty) || 1)),
-            img: item.img || "",
-          };
-          const existing = merged.find(
-            (cartItem) => cartItem.id === normalizedItem.id,
-          );
-          if (existing) {
-            existing.qty = Math.min(99, existing.qty + normalizedItem.qty);
-            existing.sub = existing.sub || normalizedItem.sub;
-            existing.img = existing.img || normalizedItem.img;
-            existing.price = existing.price || normalizedItem.price;
-          } else {
-            merged.push(normalizedItem);
-          }
-        });
-        return merged;
-      }
-
-      function safeParseCart(raw) {
-        try {
-          const parsed = JSON.parse(raw || "[]");
-          return Array.isArray(parsed) ? parsed : [];
-        } catch {
-          return [];
-        }
-      }
-
-      function readSharedCart() {
-        const candidates = [];
-        candidates.push(...safeParseCart(localStorage.getItem(CART_KEY)));
-        candidates.push(
-          ...safeParseCart(localStorage.getItem(LEGACY_CART_KEY)),
-        );
-        try {
-          candidates.push(...safeParseCart(sessionStorage.getItem(CART_KEY)));
-          candidates.push(
-            ...safeParseCart(sessionStorage.getItem(LEGACY_CART_KEY)),
-          );
-        } catch {}
-        if (USE_WINDOW_NAME_FALLBACK) {
-          try {
-            const state = JSON.parse(window.name || "{}");
-            candidates.push(
-              ...(Array.isArray(state[CART_KEY]) ? state[CART_KEY] : []),
-            );
-            candidates.push(
-              ...(Array.isArray(state[LEGACY_CART_KEY])
-                ? state[LEGACY_CART_KEY]
-                : []),
-            );
-          } catch {}
-        }
-        return mergeCartItems(candidates);
-      }
-
-      function writeSharedCart(nextCart) {
-        const safeCart = mergeCartItems(
-          Array.isArray(nextCart) ? nextCart : [],
-        );
-        const serialized = JSON.stringify(safeCart);
-        try {
-          localStorage.setItem(CART_KEY, serialized);
-          localStorage.setItem(LEGACY_CART_KEY, serialized);
-        } catch {}
-        try {
-          sessionStorage.setItem(CART_KEY, serialized);
-          sessionStorage.setItem(LEGACY_CART_KEY, serialized);
-        } catch {}
-        if (!USE_WINDOW_NAME_FALLBACK) return;
-        try {
-          const state = JSON.parse(window.name || "{}");
-          state[CART_KEY] = safeCart;
-          state[LEGACY_CART_KEY] = safeCart;
-          window.name = JSON.stringify(state);
-        } catch {
-          window.name = JSON.stringify({
-            [CART_KEY]: safeCart,
-            [LEGACY_CART_KEY]: safeCart,
-          });
-        }
-      }
 
       const COUPONS = {
         VP2026: { type: "percent", value: 10, label: "Giảm 10%" },
@@ -2721,40 +2608,7 @@
         },
       };
 
-      function normalizePrice(value) {
-        if (typeof value === "number") return value;
-        return Number(String(value || "0").replace(/[^\d]/g, "")) || 0;
-      }
-
-      function mergeCartItems(items) {
-        const merged = [];
-        (Array.isArray(items) ? items : []).forEach((item) => {
-          if (!item || !item.id) return;
-          const normalizedItem = {
-            ...item,
-            name: item.name || "Sản phẩm",
-            sub: item.sub || item.type || "",
-            price: normalizePrice(item.price),
-            qty: Math.min(99, Math.max(1, Number(item.qty) || 1)),
-            img: item.img || "",
-          };
-          const existing = merged.find(
-            (cartItem) => cartItem.id === normalizedItem.id,
-          );
-          if (existing) {
-            existing.qty = Math.min(99, existing.qty + normalizedItem.qty);
-            existing.sub = existing.sub || normalizedItem.sub;
-            existing.img = existing.img || normalizedItem.img;
-            existing.price = existing.price || normalizedItem.price;
-          } else {
-            merged.push(normalizedItem);
-          }
-        });
-        return merged;
-      }
-
-      let cart = readSharedCart();
-      writeSharedCart(cart);
+      let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
       let appliedCoupon = null;
       let expressShip = false;
       let currentStep = 1;
@@ -2799,7 +2653,7 @@
       }
 
       function saveCart() {
-        writeSharedCart(cart);
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
       }
 
       // ═══ HELPERS ══════════════════════════════════════════════
@@ -2867,7 +2721,7 @@
           .map((item) => {
             // Fallback image placeholder
             const imgSrc =
-              typeof item.img === "string" && item.img.trim()
+              item.img && item.img.startsWith("http")
                 ? item.img
                 : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f1f5f9'/%3E%3Ctext x='40' y='44' text-anchor='middle' font-size='28' fill='%2394a3b8'%3E🖨%3C/text%3E%3C/svg%3E";
 
@@ -2942,9 +2796,7 @@
             : cart
                 .map((item) => {
                   const imgSrc =
-                    typeof item.img === "string" && item.img.trim()
-                      ? item.img
-                      : "";
+                    item.img && item.img.startsWith("http") ? item.img : "";
                   return `
             <div class="d-flex align-items-center gap-3 mb-3">
               <div style="width:52px;height:52px;background:var(--slate-50);border-radius:10px;overflow:hidden;flex-shrink:0;padding:4px;border:1px solid var(--slate-200);display:flex;align-items:center;justify-content:center;">
@@ -3415,19 +3267,6 @@
           setTimeout(() => t.remove(), 320);
         }, 2800);
       }
-
-      renderCartItems();
-      goToStep(1);
-      selectDelivery("delivery1");
-      selectPayment(selectedPay);
-
-      window.addEventListener("storage", (event) => {
-        if (event.key !== CART_KEY && event.key !== LEGACY_CART_KEY) return;
-        const nextCart = readSharedCart();
-        cart = mergeCartItems(Array.isArray(nextCart) ? nextCart : []);
-        saveCart();
-        renderCartItems();
-      });
     </script>
   </body>
 </html>

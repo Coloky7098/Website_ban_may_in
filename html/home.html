@@ -1671,31 +1671,37 @@
       }
 
       function readSharedCart() {
-        const candidates = [];
-        candidates.push(...safeParseCart(localStorage.getItem(CART_KEY)));
-        candidates.push(
-          ...safeParseCart(localStorage.getItem(LEGACY_CART_KEY)),
+        const localCart = safeParseCart(localStorage.getItem(CART_KEY));
+        if (localCart.length) return mergeCartItems(localCart);
+
+        const legacyLocalCart = safeParseCart(
+          localStorage.getItem(LEGACY_CART_KEY),
         );
+        if (legacyLocalCart.length) return mergeCartItems(legacyLocalCart);
+
+        if (!USE_WINDOW_NAME_FALLBACK) return [];
+
+        const fallbackCandidates = [];
         try {
-          candidates.push(...safeParseCart(sessionStorage.getItem(CART_KEY)));
-          candidates.push(
+          fallbackCandidates.push(
+            ...safeParseCart(sessionStorage.getItem(CART_KEY)),
+          );
+          fallbackCandidates.push(
             ...safeParseCart(sessionStorage.getItem(LEGACY_CART_KEY)),
           );
         } catch {}
-        if (USE_WINDOW_NAME_FALLBACK) {
-          try {
-            const state = JSON.parse(window.name || "{}");
-            candidates.push(
-              ...(Array.isArray(state[CART_KEY]) ? state[CART_KEY] : []),
-            );
-            candidates.push(
-              ...(Array.isArray(state[LEGACY_CART_KEY])
-                ? state[LEGACY_CART_KEY]
-                : []),
-            );
-          } catch {}
-        }
-        return mergeCartItems(candidates);
+        try {
+          const state = JSON.parse(window.name || "{}");
+          fallbackCandidates.push(
+            ...(Array.isArray(state[CART_KEY]) ? state[CART_KEY] : []),
+          );
+          fallbackCandidates.push(
+            ...(Array.isArray(state[LEGACY_CART_KEY])
+              ? state[LEGACY_CART_KEY]
+              : []),
+          );
+        } catch {}
+        return mergeCartItems(fallbackCandidates);
       }
 
       function writeSharedCart(nextCart) {
@@ -1708,10 +1714,20 @@
           localStorage.setItem(LEGACY_CART_KEY, serialized);
         } catch {}
         try {
-          sessionStorage.setItem(CART_KEY, serialized);
-          sessionStorage.setItem(LEGACY_CART_KEY, serialized);
+          sessionStorage.removeItem(CART_KEY);
+          sessionStorage.removeItem(LEGACY_CART_KEY);
         } catch {}
-        if (!USE_WINDOW_NAME_FALLBACK) return;
+        if (!USE_WINDOW_NAME_FALLBACK) {
+          try {
+            const state = JSON.parse(window.name || "{}");
+            delete state[CART_KEY];
+            delete state[LEGACY_CART_KEY];
+            window.name = JSON.stringify(state);
+          } catch {
+            window.name = "";
+          }
+          return;
+        }
         try {
           const state = JSON.parse(window.name || "{}");
           state[CART_KEY] = safeCart;

@@ -1139,6 +1139,7 @@
       // ══════════════════════════════════════════════════
       const USERS_KEY = "vp_users";
       const SESSION_KEY = "vp_session";
+      const POST_LOGIN_REDIRECT_KEY = "vp_post_login_redirect";
 
       function getUsers() {
         return JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
@@ -1170,6 +1171,39 @@
         localStorage.removeItem(SESSION_KEY);
       }
 
+      function rememberRedirectTarget() {
+        try {
+          const currentPage = window.location.pathname.split("/").pop();
+          const referrerUrl = document.referrer
+            ? new URL(document.referrer, window.location.href)
+            : null;
+          const referrerPage = referrerUrl?.pathname?.split("/").pop();
+
+          if (
+            referrerUrl &&
+            referrerUrl.origin === window.location.origin &&
+            referrerPage &&
+            referrerPage !== currentPage &&
+            referrerPage !== "login.html"
+          ) {
+            localStorage.setItem(POST_LOGIN_REDIRECT_KEY, referrerPage);
+            return;
+          }
+        } catch {}
+
+        if (!localStorage.getItem(POST_LOGIN_REDIRECT_KEY)) {
+          localStorage.setItem(POST_LOGIN_REDIRECT_KEY, "products.html");
+        }
+      }
+
+      function redirectAfterAuth() {
+        const target =
+          localStorage.getItem(POST_LOGIN_REDIRECT_KEY) || "products.html";
+        localStorage.removeItem(POST_LOGIN_REDIRECT_KEY);
+        window.location.href =
+          target === "login.html" ? "products.html" : target;
+      }
+
       // Seed demo account nếu chưa có
       (function seedDemo() {
         const users = getUsers();
@@ -1188,9 +1222,9 @@
         }
       })();
 
-      // Nếu đã đăng nhập → chuyển luôn về trang chủ
+      rememberRedirectTarget();
       if (getSession()) {
-        window.location.href = "home.html";
+        redirectAfterAuth();
       }
 
       // ══════════════════════════════════════════════════
@@ -1410,7 +1444,7 @@
             '<i class="bi bi-check-lg me-1"></i><span class="btn-text">Thành công! Đang chuyển hướng...</span>';
           btn.style.background = "var(--success)";
 
-          setTimeout(() => (window.location.href = "index.html"), 1000);
+          setTimeout(() => redirectAfterAuth(), 1000);
         });
 
       // ══════════════════════════════════════════════════
@@ -1480,7 +1514,7 @@
           document.getElementById("registerForm").style.display = "none";
           document.getElementById("registerSuccess").classList.add("show");
 
-          setTimeout(() => (window.location.href = "index.html"), 2200);
+          setTimeout(() => redirectAfterAuth(), 2200);
         });
 
       // ══════════════════════════════════════════════════
