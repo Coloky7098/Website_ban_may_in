@@ -1192,16 +1192,15 @@
         } catch {}
 
         if (!localStorage.getItem(POST_LOGIN_REDIRECT_KEY)) {
-          localStorage.setItem(POST_LOGIN_REDIRECT_KEY, "products.html");
+          localStorage.setItem(POST_LOGIN_REDIRECT_KEY, "home.html");
         }
       }
 
       function redirectAfterAuth() {
         const target =
-          localStorage.getItem(POST_LOGIN_REDIRECT_KEY) || "products.html";
+          localStorage.getItem(POST_LOGIN_REDIRECT_KEY) || "home.html";
         localStorage.removeItem(POST_LOGIN_REDIRECT_KEY);
-        window.location.href =
-          target === "login.html" ? "products.html" : target;
+        window.location.href = target === "login.html" ? "home.html" : target;
       }
 
       // Seed demo account nếu chưa có
